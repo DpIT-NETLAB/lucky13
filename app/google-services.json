@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "187098833093",
+    "project_id": "lucky13-32238",
+    "storage_bucket": "lucky13-32238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187098833093:android:54f7bf28c96cba09b7d0ac",
+        "android_client_info": {
+          "package_name": "com.example.lucky13"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187098833093-4cjrls37p9rau28bgrprptfnd5olrahn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTfYOCLPE5je6h5lnGo4aYZ5aaaIaJclY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187098833093-4cjrls37p9rau28bgrprptfnd5olrahn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

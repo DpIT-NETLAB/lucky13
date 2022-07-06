@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lucky13</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="logInButton">LOGIN</string>
+    <string name="logOutButton">LOG OUT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
