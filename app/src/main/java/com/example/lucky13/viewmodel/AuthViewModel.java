@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.lucky13.models.Patient;
 import com.example.lucky13.repository.AuthenticationRepository;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -42,4 +43,7 @@ public class AuthViewModel extends AndroidViewModel {
         repository.signOut();
     }
 
+    public void updatePatient(Patient patient) {
+        repository.updatePatient(patient);
+    }
 }

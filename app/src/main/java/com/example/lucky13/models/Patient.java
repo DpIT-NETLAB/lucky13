@@ -1,7 +1,8 @@
 package com.example.lucky13.models;
 
-import java.sql.Timestamp;
 import java.util.List;
+
+import kotlin.Triple;
 
 public class Patient {
 
@@ -9,7 +10,8 @@ public class Patient {
     private String name;
     private String password;
 
-    private Timestamp dateOfBirth;
+    private Triple dateOfBirth;
+
     private String phoneNumber;
 
     private double height;
@@ -22,7 +24,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String id, String name, String password, Timestamp dateOfBirth, String phoneNumber,
+    public Patient(String id, String name, String password, Triple dateOfBirth, String phoneNumber,
                    double height, double weight, boolean sex,
                    List<String> medicalRecord) {
 
@@ -61,11 +63,11 @@ public class Patient {
         this.password = password;
     }
 
-    public Timestamp getDateOfBirth() {
+    public Triple getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Timestamp dateOfBirth) {
+    public void setDateOfBirth(Triple dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

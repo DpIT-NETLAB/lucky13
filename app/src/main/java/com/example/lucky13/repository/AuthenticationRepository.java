@@ -6,7 +6,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.lucky13.dao.DAOPatient;
+import com.example.lucky13.models.Patient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,5 +70,23 @@ public class AuthenticationRepository {
     public void signOut(){
         auth.signOut();
         userLoggedMutableLiveData.postValue(true);
+    }
+
+    public void updatePatient(Patient patient) {
+
+        DAOPatient daoPatient = new DAOPatient();
+        daoPatient.add(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+                Toast.makeText(application, "Patient has been added", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+
+                Toast.makeText(application, "Error at adding patient: " + exception, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
