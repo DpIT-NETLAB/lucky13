@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/activity_create_patient_account.xml" value="0.2" />
         <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/activity_welcome_back_page.xml" value="0.2" />
+        <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/activity_welcome_page.xml" value="0.2" />
         <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_add_patient.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_loggedinfragment.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_loginregister.xml" value="0.22" />
         <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_sign_in.xml" value="0.1703125" />
+        <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_sign_out.xml" value="0.1703125" />
+        <entry key="..\:/Users/Mob/AndroidStudioProjects/lucky13/app/src/main/res/layout/fragment_sign_up.xml" value="0.1703125" />
       </map>
     </option>
   </component>
