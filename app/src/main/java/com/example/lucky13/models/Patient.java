@@ -1,89 +1,82 @@
 package com.example.lucky13.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import kotlin.Triple;
 
 public class Patient {
 
-    private String id;
-    private String name;
-    private String password;
+    private String UID;
+    private String firstName,
+                    lastName;
 
     private Triple dateOfBirth;
 
-    private String phoneNumber;
+    private String email;
 
     private double height;
     private double weight;
-    private boolean sex;
+    private String gender;
 
-    private List<String> medicalRecord;
+    private ArrayList<String> medicalRecord;
 
     // empty constructor
     public Patient() {
     }
 
-    public Patient(String id, String name, String password, Triple dateOfBirth, String phoneNumber,
-                   double height, double weight, boolean sex,
-                   List<String> medicalRecord) {
+    public Patient(String UID, String firstName, String lastName, Triple dateOfBirth, String email,
+                   double height, double weight, String gender,
+                   ArrayList<String> medicalRecord) {
 
-        this.id = id;
-        this.name = name;
-        this.password = password;
+        this.UID = UID;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
+        this.email = email;
         this.height = height;
         this.weight = weight;
-        this.sex = sex;
+        this.gender = gender;
         this.medicalRecord = medicalRecord;
     }
 
-    public String getId() {
-        return id;
+    public String getUID() {
+        return UID;
+    }
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Triple getDateOfBirth() {
         return dateOfBirth;
     }
-
     public void setDateOfBirth(Triple dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getEmail() {
+        return email;
     }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
 
     public double getHeight() {
         return height;
     }
-
     public void setHeight(double height) {
         this.height = height;
     }
@@ -91,24 +84,21 @@ public class Patient {
     public double getWeight() {
         return weight;
     }
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public boolean getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
+    }
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
-
-    public List<String> getMedicalRecord() {
+    public ArrayList<String> getMedicalRecord() {
         return medicalRecord;
     }
-
-    public void setMedicalRecord(List<String> medicalRecord) {
+    public void setMedicalRecord(ArrayList<String> medicalRecord) {
         this.medicalRecord = medicalRecord;
     }
 }

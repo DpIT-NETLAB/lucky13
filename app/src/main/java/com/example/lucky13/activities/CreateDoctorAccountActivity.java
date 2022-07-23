@@ -1,4 +1,4 @@
-package com.example.lucky13.activities.start_activities;
+package com.example.lucky13.activities;
 
 import android.os.Bundle;
 
@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucky13.R;
 
-public class CreatePatientAccount extends AppCompatActivity {
+public class CreateDoctorAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_patient_account);
-
-
+        setContentView(R.layout.activity_doctor_account_create);
     }
 }

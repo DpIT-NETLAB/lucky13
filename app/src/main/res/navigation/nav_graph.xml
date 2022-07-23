@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/welcomeBackPage">
+    android:id="@+id/nav_graph">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -18,14 +17,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <activity
-        android:id="@+id/welcomeBackPage"
-        android:name="com.example.lucky13.activities.start_activities.WelcomeBackPage"
-        android:label="activity_welcome_back_page"
-        tools:layout="@layout/activity_welcome_back_page" />
-    <activity
-        android:id="@+id/welcomePage"
-        android:name="com.example.lucky13.activities.start_activities.WelcomePage"
-        android:label="activity_welcome_page"
-        tools:layout="@layout/activity_welcome_page" />
 </navigation>
