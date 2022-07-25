@@ -14,7 +14,28 @@
         android:theme="@style/Theme.Lucky13"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.CreatePatientAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EmailVerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PatientInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CreateDoctorAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GenderSelectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RoleSelectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WelcomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

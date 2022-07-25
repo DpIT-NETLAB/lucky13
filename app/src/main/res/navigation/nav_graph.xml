@@ -2,31 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/signUpFragment">
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.lucky13.views.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
-    <fragment
-        android:id="@+id/signOutFragment"
-        android:name="com.example.lucky13.views.SignOutFragment"
-        android:label="fragment_sign_out"
-        tools:layout="@layout/fragment_sign_out" >
-        <action
-            android:id="@+id/action_signOutFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.example.lucky13.views.SignInFragment"
-        android:label="SignInFragment" >
-        <action
-            android:id="@+id/action_signInFragment_to_signOutFragment"
-            app:destination="@id/signOutFragment" />
-        <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-    </fragment>
+    android:id="@+id/nav_graph">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
 </navigation>

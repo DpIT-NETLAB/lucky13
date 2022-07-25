@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.RoleSelectActivity">
+
+    <TextView
+        android:id="@+id/choosingRoleQuestionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/choosing_question"
+        android:textColor="@color/very_dark_grey"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/choosingRoleGuideLine3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/choosingRoleFemaleText"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/monstserrat_semibold"
+        android:gravity="center"
+        android:text="@string/choosing_doctor"
+        android:textColor="@color/dark_grey"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine8"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine10"
+        app:layout_constraintTop_toBottomOf="@+id/choosingRoleDoctorButton" />
+
+    <TextView
+        android:id="@+id/choosingRoleMaleText"
+        android:layout_width="112dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/monstserrat_semibold"
+        android:text="@string/choosing_patient"
+        android:textColor="@color/dark_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine9"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine7"
+        app:layout_constraintTop_toBottomOf="@+id/choosingRolePatientButton" />
+
+    <ImageButton
+        android:id="@+id/choosingRolePatientButton"
+        android:layout_width="134dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/choosing_description_patient_button"
+        android:scaleType="fitCenter"
+        android:src="@drawable/patienticon"
+        app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/choosingRoleGuideLine1"
+        tools:src="@drawable/patienticon" />
+
+    <ImageButton
+        android:id="@+id/choosingRoleDoctorButton"
+        android:layout_width="161dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/choosing_description_doctor_button"
+        android:scaleType="fitCenter"
+        android:src="@drawable/doctoricon"
+        app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine5"
+        app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine4"
+        app:layout_constraintTop_toTopOf="@+id/choosingRoleGuideLine1"
+        tools:src="@drawable/doctoricon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosingRoleGuideLine10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

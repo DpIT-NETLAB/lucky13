@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.GenderSelectActivity">
+
+    <TextView
+        android:id="@+id/patientinfoInfoText"
+        android:layout_width="328dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/choosinggender_set_up_your_profile"
+        android:textColor="@color/very_dark_grey"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/choosinggenderQuestionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/choosinggender_info"
+        android:textColor="@color/very_dark_grey"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/choosinggenderGuideLine3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/choosinggenderFemaleText"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/monstserrat_semibold"
+        android:gravity="center"
+        android:text="@string/choosing_gender_female"
+        android:textColor="@color/dark_grey"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine8"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine10"
+        app:layout_constraintTop_toBottomOf="@+id/choosinggenderMaleButton" />
+
+    <TextView
+        android:id="@+id/choosinggenderMaleText"
+        android:layout_width="87dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/monstserrat_semibold"
+        android:text="@string/choosing_gender_male"
+        android:textColor="@color/dark_grey"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine9"
+        app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine7"
+        app:layout_constraintTop_toBottomOf="@+id/choosinggenderFemaleButton" />
+
+    <ImageButton
+        android:id="@+id/choosinggenderMaleButton"
+        android:layout_width="137dp"
+        android:layout_height="144dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/choosing_description_patient_button"
+        android:scaleType="centerInside"
+        android:src="@drawable/malesymbol"
+        app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/choosinggenderGuideLine1"
+        tools:src="@drawable/malesymbol" />
+
+    <ImageButton
+        android:id="@+id/choosinggenderFemaleButton"
+        android:layout_width="156dp"
+        android:layout_height="146dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/choosing_description_doctor_button"
+        android:scaleType="centerInside"
+        android:src="@drawable/femalesymbol"
+        app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine5"
+        app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine4"
+        app:layout_constraintTop_toTopOf="@+id/choosinggenderGuideLine1"
+        tools:src="@drawable/femalesymbol" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.38" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/choosinggenderGuideLine10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
