@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class SignInActivity extends AppCompatActivity {
 
     final  String TAG = "Sign in user";
@@ -47,7 +49,7 @@ public class SignInActivity extends AppCompatActivity {
                 String email = mEmailEditText.getText().toString().trim();
                 String password = mPasswordEditText.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email) == true) {
+                if (TextUtils.isEmpty(email)) {
 
                     mEmailEditText.setError("Email is required");
                     return;
@@ -70,13 +72,19 @@ public class SignInActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
+                            if (!Objects.requireNonNull(firebaseAuth.getCurrentUser()).isEmailVerified()) {
+
+                                Toast.makeText(SignInActivity.this, "Please verify email!", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
                             Toast.makeText(SignInActivity.this, "User registered", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "The user has been successfully added!");
+                            Log.d(TAG, "User successfully logged in!");
 
                         } else {
 
                             Toast.makeText(SignInActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "The user has not been added to the database!");
+                            Log.d(TAG, "User cannot log in!");
                         }
                     }
                 });

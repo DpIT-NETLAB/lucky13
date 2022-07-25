@@ -32,7 +32,7 @@ import kotlin.Triple;
 
 public class CreatePatientAccountActivity extends AppCompatActivity {
 
-    final  String TAG = "Addition of user";
+    private final String TAG = "Addition of user";
 
     EditText mUsernameEditText,
             mEmailAddressEditText,
@@ -133,14 +133,14 @@ public class CreatePatientAccountActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
 
-                                            Log.d(TAG, "USER ADDED TO THE FIRESTORE DATABASE");
+                                            Log.d(TAG, "PATIENT ADDED TO THE FIRESTORE DATABASE");
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
 
-                                            Log.d(TAG, "USER CANNOT BE ADDED TO THE FIRESTORE DATABASE");
+                                            Log.d(TAG, "PATIENT CANNOT BE ADDED TO THE FIRESTORE DATABASE");
                                         }
                                     });
                         } else {
