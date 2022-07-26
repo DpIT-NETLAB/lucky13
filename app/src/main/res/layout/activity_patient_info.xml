@@ -58,7 +58,7 @@
             android:text="@string/patientinfo_elevator" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoWhaserDryerChip"
+            android:id="@+id/patientinfoWasherDryerChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
