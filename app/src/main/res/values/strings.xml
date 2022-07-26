@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">TopDoc</string>
+    <string name="welcome_to_topdoc">Welcome to TopDoc!</string>
+    <string name="welcome_topdoc_promotion">Find the right doctor for your needs. Quick. Easy. Efficient.</string>
+    <string name="welcome_get_started">Get started</string>
+    <string name="welcome_log_in">Log in</string>
+    <string name="welcome_privacy_policy_terms_of_use"><a href="https://www.google.com/">Privacy policy</a> &amp; <a href="https://www.google.com/">Terms of Use</a></string>
+    <string name="choosing_question">You are a…</string>
+    <string name="choosing_doctor">Doctor</string>
+    <string name="choosing_patient">Patient</string>
+    <string name="choosing_description_patient_button">you are a patient</string>
+    <string name="choosing_description_doctor_button">you are a doctor</string>
+    <string name="choosinggender_info">I am a…</string>
+    <string name="choosing_gender_male">Male</string>
+    <string name="choosing_gender_female">Female</string>
+    <string name="choosinggender_set_up_your_profile">Set up your profile</string>
+    <string name="patientinfo_last_name">Last Name</string>
+    <string name="patientinfo_elevator">Elevator</string>
+    <string name="patientinfo_washer_dryer">Washer/Dryer</string>
+    <string name="patientinfo_fireplace">Fireplace</string>
+    <string name="patientinfo_wheelchair">Wheelchair</string>
+    <string name="patientinfo_dogs_ok">Dogs ok</string>
+    <string name="patientinfo_cats_ok">Cats ok</string>
+    <string name="patientinfo_first_name">First name</string>
+    <string name="patientinfo_next">Next</string>
+    <string name="emailcheck_next">Next</string>
+    <string name="emailcheck_verify_your_email">Verify your email</string>
+    <string name="emailcheck_info_text">An email has been sent to you with a verification code, please enter that code to proceed</string>
+    <string name="emailcheck_resend_email">Resend email</string>
+    <string name="patientcreate_enter_account">Enter account</string>
+    <string name="patientcreate_create_account">Create account</string>
+    <string name="patientcreate_email_address">E-mail address</string>
+    <string name="patientcreate_confirm_password">Confirm password</string>
+    <string name="patientcreate_username">Username</string>
+    <string name="patientcreate_sign_in">Sign In</string>
+    <string name="patientcreate_sign_up">Sign Up</string>
+    <string name="patientcreate_password">Password</string>
+    <string name="patientcreate_continue_with_google">Continue with Google</string>
+    <string name="patientcreate_or">or</string>
+</resources>
