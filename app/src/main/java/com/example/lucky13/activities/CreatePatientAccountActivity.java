@@ -40,7 +40,7 @@ import kotlin.Triple;
 
 public class CreatePatientAccountActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
-    final  String TAG = "Addition of user";
+    private final String TAG = "Addition of user";
     private static final int RC_SIGN_IN = 9001;
 
     EditText mUsernameEditText,
@@ -155,14 +155,14 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements G
                                         @Override
                                         public void onSuccess(Void unused) {
 
-                                            Log.d(TAG, "USER ADDED TO THE FIRESTORE DATABASE");
+                                            Log.d(TAG, "PATIENT ADDED TO THE FIRESTORE DATABASE");
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
 
-                                            Log.d(TAG, "USER CANNOT BE ADDED TO THE FIRESTORE DATABASE");
+                                            Log.d(TAG, "PATIENT CANNOT BE ADDED TO THE FIRESTORE DATABASE");
                                         }
                                     });
                         } else {

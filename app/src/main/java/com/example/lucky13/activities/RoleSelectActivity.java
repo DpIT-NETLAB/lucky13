@@ -19,6 +19,8 @@ public class RoleSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role_choosing);
 
+        Intent intent = new Intent(RoleSelectActivity.this, GenderSelectActivity.class);
+
         mPatientRoleButton = findViewById(R.id.choosingRolePatientButton);
         mDoctorRoleButton = findViewById(R.id.choosingRoleDoctorButton);
 
@@ -26,7 +28,8 @@ public class RoleSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(RoleSelectActivity.this, GenderSelectActivity.class));
+                intent.putExtra("role", "patient");
+                startActivity(intent);
             }
         });
 
@@ -34,7 +37,8 @@ public class RoleSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(RoleSelectActivity.this, CreateDoctorAccountActivity.class));
+                intent.putExtra("role", "doctor");
+                startActivity(intent);
             }
         });
     }

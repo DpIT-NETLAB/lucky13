@@ -8,7 +8,7 @@
     tools:context=".activities.CreatePatientAccountActivity">
 
     <TextView
-        android:id="@+id/patientCreateDescriptionText"
+        android:id="@+id/doctorCreateDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
