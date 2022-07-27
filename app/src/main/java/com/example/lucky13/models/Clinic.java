@@ -4,29 +4,29 @@ import java.util.List;
 
 public class Clinic {
 
-    private String id;
+    private String UID;
     private String name;
 
     private double averageReview;
-    private List<String> doctorIds;
+    private List<String> doctorUIDs;
     private String location;
 
     public Clinic() {}
 
-    public Clinic(String id, String name, double averageReview, List<String> doctorIds, String location) {
-        this.id = id;
+    public Clinic(String UID, String name, double averageReview, List<String> doctorUIDs, String location) {
+        this.UID = UID;
         this.name = name;
         this.averageReview = averageReview;
-        this.doctorIds = doctorIds;
+        this.doctorUIDs = doctorUIDs;
         this.location = location;
     }
 
-    public String getId() {
-        return id;
+    public String getUID() {
+        return UID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
     public String getName() {
@@ -45,12 +45,12 @@ public class Clinic {
         this.averageReview = averageReview;
     }
 
-    public List<String> getDoctorIds() {
-        return doctorIds;
+    public List<String> getDoctorUIDs() {
+        return doctorUIDs;
     }
 
-    public void setDoctorIds(List<String> doctorIds) {
-        this.doctorIds = doctorIds;
+    public void setDoctorUIDs(List<String> doctorUIDs) {
+        this.doctorUIDs = doctorUIDs;
     }
 
     public String getLocation() {
