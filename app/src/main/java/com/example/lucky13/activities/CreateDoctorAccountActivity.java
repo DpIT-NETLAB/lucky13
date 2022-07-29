@@ -3,7 +3,6 @@ package com.example.lucky13.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,24 +12,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.models.Doctor;
+import com.example.lucky13.service.DoctorService;
 import com.example.lucky13.utils.EmailVerificationSender;
-import com.example.lucky13.utils.converters.DoctorConverter;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Objects;
 
 public class CreateDoctorAccountActivity extends AppCompatActivity {
 
     private static final String TAG = "Addition of doctor";
+    private final DoctorService doctorService = new DoctorService();
 
     EditText mPassCode,
             mEmailAddress,
@@ -98,38 +94,12 @@ public class CreateDoctorAccountActivity extends AppCompatActivity {
 
                             EmailVerificationSender.sendVerificationMail(firebaseAuth);
 
-                            Toast.makeText(CreateDoctorAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
-
                             String uid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
-                            Doctor doctor = new Doctor(
-                                    uid,
-                                    "name",
-                                    email,
-                                    passcode,
-                                    "clinicId",
-                                    "medicalField",
-                                    new ArrayList<String>(),
-                                    "0785",
-                                    0.00,
-                                    gender
-                            );
+                            doctorService.addDoctor(uid, "name", email, passcode, "clinicId",
+                                    "medicalField", new ArrayList<String>(), "0785",
+                                    0.00, gender);
 
-                            Map<String, Object> doctorMap = DoctorConverter.convertFromEntityToMap(doctor);
-
-                            firebaseFirestore.collection("Doctors").document(uid).set(doctorMap)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-
-                                            Log.d(TAG, "DOCTOR ADDED TO FIRESTORE DATABASE");
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-
-                                            Log.d(TAG, "DOCTOR CANNOT BE ADDED TO THE FIRESTORE DATABASE");
-                                        }
-                                    });
+                            Toast.makeText(CreateDoctorAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
                         } else {
 
                             Toast.makeText(CreateDoctorAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();

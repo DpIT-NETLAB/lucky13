@@ -3,27 +3,27 @@ package com.example.lucky13.models;
 import java.util.List;
 
 public class Disease {
-    private String id;
+    private String UID;
     private String name;
     private String medicalField;
 
-    private List<String> symptoms;
+    private List<String> symptomUIDs;
 
     public Disease() {}
 
-    public Disease(String id, String name, String medicalField, List<String> symptoms) {
-        this.id = id;
+    public Disease(String UID, String name, String medicalField, List<String> symptomUIDs) {
+        this.UID = UID;
         this.name = name;
         this.medicalField = medicalField;
-        this.symptoms = symptoms;
+        this.symptomUIDs = symptomUIDs;
     }
 
-    public String getId() {
-        return id;
+    public String getUID() {
+        return UID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
     public String getName() {
@@ -42,8 +42,8 @@ public class Disease {
         this.medicalField = medicalField;
     }
 
-    public List<String> getSymptoms() { return symptoms; }
+    public List<String> getSymptomUIDs() { return symptomUIDs; }
 
-    public void setSymptoms() { this.symptoms = symptoms; }
+    public void setSymptomUIDs(List<String> symptomUIDs) { this.symptomUIDs = symptomUIDs; }
 
 }

@@ -55,42 +55,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_elevator" />
+            android:text="@string/patientinfo_elevator"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/patientinfoWasherDryerChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_washer_dryer" />
+            android:text="@string/patientinfo_washer_dryer"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/patientinfoFireplaceChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_fireplace" />
+            android:text="@string/patientinfo_fireplace"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/patientinfoWheelchairChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_wheelchair" />
+            android:text="@string/patientinfo_wheelchair"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/patientinfoDogsChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_dogs_ok" />
+            android:text="@string/patientinfo_dogs_ok"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/patientinfoCatsChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_cats_ok" />
+            android:text="@string/patientinfo_cats_ok"
+            android:theme="@style/Theme.MaterialComponents.Light" />
     </com.google.android.material.chip.ChipGroup>
 
     <EditText

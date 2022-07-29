@@ -15,13 +15,13 @@ public class Doctor {
 
     private String phone;
     private double review;
-    private String sex;
+    private String gender;
 
     public Doctor() {}
 
     public Doctor(String UID, String name, String email, String passcode,String clinicId,
                   String medicalField, ArrayList<String> language, String phone,
-                  double review, String sex) {
+                  double review, String gender) {
         this.UID = UID;
         this.name = name;
         this.email = email;
@@ -31,7 +31,7 @@ public class Doctor {
         this.language = language;
         this.phone = phone;
         this.review = review;
-        this.sex = sex;
+        this.gender = gender;
     }
 
     public String getUID() {
@@ -106,11 +106,11 @@ public class Doctor {
         this.review = review;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

@@ -37,4 +37,7 @@
     <string name="patientcreate_password">Password</string>
     <string name="patientcreate_continue_with_google">Continue with Google</string>
     <string name="patientcreate_or">or</string>
+    <string name="uid">UID</string>
+    <string name="email">Email</string>
+    <string name="check">Check</string>
 </resources>
