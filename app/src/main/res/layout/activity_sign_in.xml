@@ -8,7 +8,7 @@
     tools:context=".activities.SignInActivity">
 
     <TextView
-        android:id="@+id/patientCreateDescriptionText"
+        android:id="@+id/doctorCreateDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
@@ -35,7 +35,7 @@
         android:ems="10"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/patientcreate_email_address"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"

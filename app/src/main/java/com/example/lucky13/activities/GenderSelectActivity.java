@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucky13.R;
 
+import java.util.Objects;
+
 public class GenderSelectActivity extends AppCompatActivity {
 
     ImageButton mMaleButton,
@@ -18,7 +20,12 @@ public class GenderSelectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_choosing);
-        Intent intent = new Intent(GenderSelectActivity.this, PatientInfoActivity.class);
+
+        Intent incomingIntent = getIntent();
+        String incomingRole = incomingIntent.getStringExtra("role");
+
+        Intent patientIntent = new Intent(GenderSelectActivity.this, PatientInfoActivity.class);
+        Intent doctorIntent = new Intent(GenderSelectActivity.this, CreateDoctorAccountActivity.class);
 
         mMaleButton = findViewById(R.id.choosinggenderMaleButton);
         mFemaleButton = findViewById(R.id.choosinggenderFemaleButton);
@@ -27,16 +34,26 @@ public class GenderSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                intent.putExtra("gender", "male");
-                startActivity(intent);
+                patientIntent.putExtra("gender", "male");
+                doctorIntent.putExtra("gender", "male");
+
+                if (Objects.equals(incomingRole, "patient"))
+                    startActivity(patientIntent);
+                else
+                    startActivity(doctorIntent);
             }
         });
         mFemaleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                intent.putExtra("gender", "female");
-                startActivity(intent);
+                patientIntent.putExtra("gender", "female");
+                doctorIntent.putExtra("gender", "female");
+
+                if (Objects.equals(incomingRole, "patient"))
+                    startActivity(patientIntent);
+                else
+                    startActivity(doctorIntent);
             }
         });
     }

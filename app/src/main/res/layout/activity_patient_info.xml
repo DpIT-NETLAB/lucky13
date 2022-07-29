@@ -96,14 +96,14 @@
     <EditText
         android:id="@+id/patientinfoFirstNameTextEdit"
         android:layout_width="210dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
 
         android:gravity="center_vertical"
 
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:textSize="20sp"
+        android:textSize="16sp"
 
         android:fontFamily="@font/montserrat_basic"
         android:hint="@string/patientinfo_first_name"
@@ -117,14 +117,14 @@
     <EditText
         android:id="@+id/patientinfoLastNameTextEdit"
         android:layout_width="210dp"
-        android:layout_height="58dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
 
         android:gravity="center_vertical"
 
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:textSize="20sp"
+        android:textSize="16sp"
 
         android:fontFamily="@font/montserrat_basic"
         android:hint="@string/patientinfo_last_name"
@@ -158,8 +158,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/patientInfoNextButton"
-        android:layout_width="263dp"
-        android:layout_height="55dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
 
         android:background="@drawable/blue_round_button"

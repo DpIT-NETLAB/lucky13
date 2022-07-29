@@ -8,102 +8,80 @@
     tools:context=".activities.CreateDoctorAccountActivity">
 
     <TextView
-        android:id="@+id/patientCreateDescriptionText"
+        android:id="@+id/doctorCreateDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
+
         android:fontFamily="@font/montserrat_bold"
-        android:text="Sign up as doctor"
+        android:text="@string/phone_number"
         android:textColor="@color/very_dark_grey"
         android:textSize="34sp"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/doctorCreatePasscodeTextEdit"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/blue_gray_round_textedit"
-        android:ems="10"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Pass code"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:padding="10dp"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
+        android:textAlignment="center"
+
+        android:text="@string/phoneverification"
+        android:textColor="@color/very_dark_grey"
+        android:textSize="18sp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/doctorCreateDescriptionText" />
 
     <EditText
-        android:id="@+id/doctorCreateEmailTextEdit"
+        android:id="@+id/doctorCreatePhoneNumberTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="80dp"
+
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
+        android:gravity="center_vertical"
+
         android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/patientcreate_email_address"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:textColor="@color/light_blue_gray"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
         android:padding="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/doctorCreatePasscodeTextEdit" />
+        android:textSize="16sp"
 
-    <EditText
-        android:id="@+id/doctorCreatePasswordTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/blue_gray_round_textedit"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/patientcreate_password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/doctorCreateEmailTextEdit" />
-
-    <EditText
-        android:id="@+id/doctorCreatePasswordConfirmTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="51dp"
-        android:background="@drawable/blue_gray_round_textedit"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/patientcreate_confirm_password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/doctorCreatePasswordTextEdit" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-
-        android:id="@+id/doctorCreateSignUpButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/blue_round_button"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/patientcreate_sign_up"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/doctorCreatePasswordConfirmTextEdit"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/doctorCreateGetCodeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:gravity="center"
+
+        android:background="@drawable/blue_round_button"
+        android:text="@string/get_code"
+        android:fontFamily="@font/montserrat_regular"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/doctorCreatePhoneNumberTextEdit" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -125,5 +103,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

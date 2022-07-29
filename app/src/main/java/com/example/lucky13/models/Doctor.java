@@ -1,31 +1,32 @@
 package com.example.lucky13.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Doctor {
 
-    private String id;
+    private String UID;
     private String name;
-    private String password;
-
     private String email;
+
+    private String passcode;
     private String clinicId;
     private String medicalField;
-    private List<String> language;
+    private ArrayList<String> language;
 
     private String phone;
     private double review;
-    private boolean sex;
+    private String sex;
 
-    public Doctor() {}
+    public Doctor() {
+    }
 
-    public Doctor(String id, String name, String password, String email, String clinicId,
-                  String medicalField, List<String> language, String phone,
-                  double review, boolean sex) {
-        this.id = id;
+    public Doctor(String UID, String name, String email, String passcode,String clinicId,
+                  String medicalField, ArrayList<String> language, String phone,
+                  double review, String sex) {
+        this.UID = UID;
         this.name = name;
-        this.password = password;
         this.email = email;
+        this.passcode = passcode;
         this.clinicId = clinicId;
         this.medicalField = medicalField;
         this.language = language;
@@ -34,12 +35,13 @@ public class Doctor {
         this.sex = sex;
     }
 
-    public String getId() {
-        return id;
+
+    public String getUID() {
+        return UID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
     public String getName() {
@@ -50,20 +52,20 @@ public class Doctor {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPasscode() {
+        return passcode;
+    }
+
+    public void setPasscode(String passcode) {
+        this.passcode = passcode;
     }
 
     public String getClinicId() {
@@ -82,11 +84,11 @@ public class Doctor {
         this.medicalField = medicalField;
     }
 
-    public List<String> getLanguage() {
+    public ArrayList<String> getLanguage() {
         return language;
     }
 
-    public void setLanguage(List<String> language) {
+    public void setLanguage(ArrayList<String> language) {
         this.language = language;
     }
 
@@ -106,11 +108,10 @@ public class Doctor {
         this.review = review;
     }
 
-    public boolean getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
+    public void setSex(String sex) { this.sex = sex; }
+
 }

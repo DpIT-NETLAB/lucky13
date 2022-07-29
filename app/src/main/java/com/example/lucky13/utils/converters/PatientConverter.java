@@ -10,6 +10,7 @@ public class PatientConverter {
     public static Map<String, Object> convertFromEntityToMap(Patient patient) {
 
         Map<String, Object> patientMap = new HashMap<>();
+
         patientMap.put("id", patient.getUID());
         patientMap.put("email", patient.getEmail());
         patientMap.put("firstName", patient.getFirstName());

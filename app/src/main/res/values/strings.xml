@@ -37,4 +37,10 @@
     <string name="patientcreate_password">Password</string>
     <string name="patientcreate_continue_with_google">Continue with Google</string>
     <string name="patientcreate_or">or</string>
+    <string name="phoneverification">Please enter your phone number below, and we will send you a text with a verification code</string>
+    <string name="verify_phone_number">Verify phone number</string>
+    <string name="get_code">Get code</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="verification">Verification</string>
+    <string name="a_code_was_sent_to_the_phone_number_you_provided_nenter_the_code_below">A code was sent to the phone number you provided.\nEnter the code below.</string>
 </resources>
