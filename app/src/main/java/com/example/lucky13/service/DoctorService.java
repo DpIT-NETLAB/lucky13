@@ -15,21 +15,21 @@ public class DoctorService {
     private final DoctorConverter converter = new DoctorConverter();
 
     @NonNull
-    public ArrayList<Doctor> getAllPatients() {
+    public ArrayList<Doctor> getAllDoctors() {
 
         ArrayList<Doctor> doctors = new ArrayList<>();
 
         ArrayList<Map<String, Object>> doctorsMap = repository.getAllDoctors();
 
-        for (Map<String, Object> patientMap: doctorsMap) {
+        for (Map<String, Object> doctorMap: doctorsMap) {
 
-            doctors.add(converter.convertFromMapToEntity(patientMap));
+            doctors.add(converter.convertFromMapToEntity(doctorMap));
         }
 
         return doctors;
     }
 
-    public Doctor getPatient(String UID) {
+    public Doctor getDoctor(String UID) {
 
         return converter.convertFromMapToEntity(repository.getDoctor(UID));
     }

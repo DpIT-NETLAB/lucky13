@@ -75,7 +75,7 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
         mConfPasswordEditText = findViewById(R.id.patientcreatePasswordConfirmTextEdit);
 
         mSignUpButton = findViewById(R.id.patientCreateSignInButton);
-        mSignUpGoogleButton = findViewById(R.id.patientCreateSignInWithGoogleButton);
+        mSignUpGoogleButton = (AppCompatButton) findViewById(R.id.patientCreateSignInWithGoogleButton);
 
         mSignUpGoogleButton.setOnClickListener(this);
         GoogleSignInOptions googlesignin = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
