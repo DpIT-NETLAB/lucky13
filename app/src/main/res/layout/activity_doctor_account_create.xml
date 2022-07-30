@@ -8,31 +8,38 @@
     tools:context=".activities.CreateDoctorAccountActivity">
 
     <TextView
-        android:id="@+id/patientCreateDescriptionText"
+        android:id="@+id/doctorCreateDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
+
         android:fontFamily="@font/montserrat_bold"
         android:text="Sign up as doctor"
-        android:textColor="@color/very_dark_grey"
+        android:textColor="#00253f"
         android:textSize="34sp"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/doctorCreatePasscodeTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+
+        android:fontFamily="@font/montserrat_basic"
+        android:textSize="18sp"
         android:hint="Pass code"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="10dp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
@@ -40,14 +47,17 @@
         android:id="@+id/doctorCreateEmailTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="20dp"
+
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
+        android:textSize="18sp"
         android:hint="@string/patientcreate_email_address"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/doctorCreatePasscodeTextEdit" />
@@ -56,14 +66,17 @@
         android:id="@+id/doctorCreatePasswordTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
+
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
+        android:textSize="18sp"
         android:hint="@string/patientcreate_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/doctorCreateEmailTextEdit" />
@@ -72,14 +85,17 @@
         android:id="@+id/doctorCreatePasswordConfirmTextEdit"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="20dp"
+
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
+        android:textSize="18sp"
         android:hint="@string/patientcreate_confirm_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/doctorCreatePasswordTextEdit" />
@@ -89,16 +105,20 @@
 
         android:id="@+id/doctorCreateSignUpButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
+
+        android:gravity="center"
         android:background="@drawable/blue_round_button"
+
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/patientcreate_sign_up"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"

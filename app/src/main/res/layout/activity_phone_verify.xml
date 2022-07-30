@@ -32,7 +32,7 @@
         android:paddingEnd="35dp"
         android:textAlignment="center"
 
-        android:text="@string/a_code_was_sent_to_the_phone_number_you_provided_nenter_the_code_below"
+        android:text="@string/verification_text"
         android:textColor="@color/very_dark_grey"
         android:textSize="18sp"
 

@@ -28,11 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat_regular"
-        android:paddingStart="35dp"
-        android:paddingEnd="35dp"
+        android:paddingStart="45dp"
+        android:paddingEnd="45dp"
         android:textAlignment="center"
 
-        android:text="@string/phoneverification"
+        android:text="@string/phone_verification"
         android:textColor="@color/very_dark_grey"
         android:textSize="18sp"
 
