@@ -1,5 +1,7 @@
 package com.example.lucky13.utils.converters;
 
+import androidx.annotation.NonNull;
+
 import com.example.lucky13.models.Patient;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class PatientConverter {
         return patientMap;
     }
 
-    public Patient convertFromMapToEntity(Map<String, Object> patientMap) {
+    public Patient convertFromMapToEntity(@NonNull Map<String, Object> patientMap) {
 
         String UID = "",
                 email = "",

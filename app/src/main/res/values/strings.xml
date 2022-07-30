@@ -46,4 +46,8 @@
     <string name="verification">Verification</string>
     <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
     <string name="verify_phone_number">Verify phone number</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="general_select_title">Select your symptoms</string>
+    <string name="done">Done</string>
 </resources>
