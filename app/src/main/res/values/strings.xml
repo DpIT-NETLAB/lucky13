@@ -40,4 +40,8 @@
     <string name="uid">UID</string>
     <string name="email">Email</string>
     <string name="check">Check</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="general_select_title">Select your symptoms</string>
+    <string name="done">Done</string>
 </resources>

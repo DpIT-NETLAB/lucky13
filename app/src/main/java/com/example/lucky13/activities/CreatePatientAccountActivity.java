@@ -131,8 +131,8 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
                                 if (task.isSuccessful()) {
 
                                     EmailVerificationSender.sendVerificationMail(fAuth);
-                                    String uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
 
+                                    String uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                                     patientService.addPatient(uid, incomingFirstName, incomingLastName, new Triple(0, 0, 0),
                                             email, 0, 0, incomingGender, new ArrayList<String>());
 

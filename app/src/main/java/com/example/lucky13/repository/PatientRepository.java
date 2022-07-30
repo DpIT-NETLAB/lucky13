@@ -10,13 +10,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class PatientRepository {
@@ -29,23 +29,21 @@ public class PatientRepository {
 
     public void firestoreInstance() {
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
+       this.firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
     public void setPatientCollection() {
 
         firestoreInstance();
-        patientCollection = firebaseFirestore.collection("Patients");
-    }
-
-    public DocumentReference getDocumentReference(String UID) {
-
-        return patientCollection.document(UID);
+        this.patientCollection = firebaseFirestore.collection("Patients");
     }
 
     public ArrayList<Map<String, Object>> getAllPatients() {
 
         ArrayList<Map<String, Object>> patientList = new ArrayList<>();
+
+        firestoreInstance();
+        setPatientCollection();
 
         patientCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -67,9 +65,10 @@ public class PatientRepository {
 
     public Map<String, Object> getPatient(String UID) {
 
-        DocumentReference documentReference = getDocumentReference(UID);
+        patientMap = new HashMap<>();
+        setPatientCollection();
 
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        patientCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -80,11 +79,11 @@ public class PatientRepository {
 
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
+
+                        patientMap = document.getData();
                     } else {
                         Log.d(TAG, "No document with given UID");
                     }
-
-                    patientMap = document.getData();
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
@@ -94,9 +93,10 @@ public class PatientRepository {
         return patientMap;
     }
 
-    public void addPatient(Patient patient, Map<String, Object> patientMap) {
+    public void addPatient(@NonNull Patient patient, Map<String, Object> patientMap) {
 
         setPatientCollection();
+
         patientCollection.document(patient.getUID()).set(patientMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
