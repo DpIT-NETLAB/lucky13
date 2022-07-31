@@ -18,6 +18,7 @@ public class DoctorConverter {
         doctorMap.put("passcode", doctor.getPasscode());
         doctorMap.put("email", doctor.getEmail());
         doctorMap.put("gender",  doctor.getGender());
+        doctorMap.put("phone",  doctor.getPhone());
         doctorMap.put("review", doctor.getReview());
 
         return doctorMap;
@@ -29,7 +30,8 @@ public class DoctorConverter {
                 name = "",
                 email = "",
                 passcode = "",
-                gender = "";
+                gender = "",
+                phone = "";
         double review = 0.00;
 
         for (Map.Entry<String, Object> entry: doctorMap.entrySet()) {
@@ -42,6 +44,8 @@ public class DoctorConverter {
                 name = (String) entry.getValue();
             else if (entry.getKey().equals("gender"))
                 gender = (String) entry.getValue();
+            else if (entry.getKey().equals("phone"))
+               phone = (String) entry.getValue();
             else if (entry.getKey().equals("review"))
                 review = (double) entry.getValue();
         }
@@ -54,7 +58,7 @@ public class DoctorConverter {
                 "",
                 "",
                 new ArrayList<>(),
-                "",
+                phone,
                 review,
                 gender
         );

@@ -19,40 +19,28 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249bf35f-024d-4a96-a954-7bc4e3fdd0f7" name="Changes" comment="Doctor phone number verification">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/TestCRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Symptom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DiseaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DoctorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/PatientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/SymptomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/DiseaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/DoctorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/PatientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/SymptomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/ClinicConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/DiseaseConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/SymptomConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_test_crud.xml" afterDir="false" />
+    <list default="true" id="249bf35f-024d-4a96-a954-7bc4e3fdd0f7" name="Changes" comment="Service+Repository for Disease+Symptom">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GeneralSymptomSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/short_input_line.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreateDoctorAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreateDoctorAccountActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreatePatientAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreatePatientAccountActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/dao/DAODisease.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/dao/DAODisease.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Clinic.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Clinic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Disease.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Disease.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneNumberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneNumberActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneVerifyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/PatientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/DoctorConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/DoctorConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/PatientConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/PatientConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +99,7 @@
       <list>
         <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -325,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659102697495</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Service+Repository for Disease+Symptom">
+      <created>1659180353247</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659180353247</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +354,7 @@
     <MESSAGE value="Pull from Tudor." />
     <MESSAGE value="Patient Sign In with Google" />
     <MESSAGE value="Doctor phone number verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Doctor phone number verification" />
+    <MESSAGE value="Service+Repository for Disease+Symptom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service+Repository for Disease+Symptom" />
   </component>
 </project>

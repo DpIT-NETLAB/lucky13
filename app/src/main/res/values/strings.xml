@@ -40,6 +40,10 @@
     <string name="uid">UID</string>
     <string name="email">Email</string>
     <string name="check">Check</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="general_select_title">Select your symptoms</string>
+    <string name="done">Done</string>
     <string name="phone_number">Phone number</string>
     <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
     <string name="get_code">Get code</string>

@@ -10,13 +10,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DoctorRepository {
@@ -29,23 +29,21 @@ public class DoctorRepository {
 
     public void firestoreInstance() {
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
+        this.firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
     public void setDoctorCollection() {
 
         firestoreInstance();
-        doctorCollection = firebaseFirestore.collection("Doctors");
-    }
-
-    public DocumentReference getDocumentReference(String UID) {
-
-        return doctorCollection.document(UID);
+        this.doctorCollection = firebaseFirestore.collection("Doctors");
     }
 
     public ArrayList<Map<String, Object>> getAllDoctors() {
 
         ArrayList<Map<String, Object>> doctorsList = new ArrayList<>();
+
+        firestoreInstance();
+        setDoctorCollection();
 
         doctorCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -67,9 +65,10 @@ public class DoctorRepository {
 
     public Map<String, Object> getDoctor(String UID) {
 
-        DocumentReference documentReference = getDocumentReference(UID);
+        doctorMap = new HashMap<>();
+        setDoctorCollection();
 
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        doctorCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -80,11 +79,11 @@ public class DoctorRepository {
 
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
+
+                        doctorMap = document.getData();
                     } else {
                         Log.d(TAG, "No document with given UID");
                     }
-
-                    doctorMap = document.getData();
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
@@ -97,6 +96,7 @@ public class DoctorRepository {
     public void addDoctor(@NonNull Doctor doctor, Map<String, Object> doctorMap) {
 
         setDoctorCollection();
+
         doctorCollection.document(doctor.getUID()).set(doctorMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -104,9 +104,11 @@ public class DoctorRepository {
 
                         Log.d(TAG, "DOCTOR ADDED TO THE FIRESTORE DATABASE");
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+                })
+                .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+
                         Log.d(TAG, "DOCTOR CANNOT BE ADDED TO THE FIRESTORE DATABASE");
                     }
                 });
