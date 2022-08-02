@@ -1,26 +1,28 @@
 package com.example.lucky13.models;
 
+import java.util.ArrayList;
+
 public class Symptom {
 
-    private String UID;
+    private String id;
     private String name;
 
-    private String relatedQuestion;
+    private ArrayList<String> relatedQuestions;
 
     public Symptom() {};
 
-    public Symptom(String UID, String name, String relatedQuestion) {
-        this.UID = UID;
+    public Symptom(String id, String name, ArrayList<String> relatedQuestion) {
+        this.id = id;
         this.name = name;
-        this.relatedQuestion = relatedQuestion;
+        this.relatedQuestions = relatedQuestion;
     }
 
-    public String getUID() {
-        return UID;
+    public String getId() {
+        return id;
     }
 
-    public void setUID(String UID) {
-        this.UID = UID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,11 +33,11 @@ public class Symptom {
         this.name = name;
     }
 
-    public String getRelatedQuestion() {
-        return relatedQuestion;
+    public ArrayList<String> getRelatedQuestions() {
+        return relatedQuestions;
     }
 
-    public void setRelatedQuestion(String relatedQuestion) {
-        this.relatedQuestion = relatedQuestion;
+    public void setRelatedQuestions(ArrayList<String> relatedQuestions) {
+        this.relatedQuestions = relatedQuestions;
     }
 }
