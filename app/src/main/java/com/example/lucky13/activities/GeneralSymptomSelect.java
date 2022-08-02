@@ -51,6 +51,7 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
                 Intent intent = new Intent(GeneralSymptomSelect.this, WelcomePage.class);
                 intent.putStringArrayListExtra("symptoms", toSendSymptoms);
+                intent.putExtra("pageOrder", "1");
 
                 startActivity(intent);
             }
