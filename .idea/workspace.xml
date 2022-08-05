@@ -20,19 +20,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8ee6832-0c23-435b-8965-1f621b1e44a0" name="Changes" comment="Doctor phone number verification">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PatientQuestionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PatientQuestionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreateDoctorAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/CreateDoctorAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreatePatientAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/CreatePatientAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/EmailVerifyActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GenderSelectActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/GenderSelectActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GeneralSymptomSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/GeneralSymptomSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PatientInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PatientQuestionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientQuestionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneNumberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/PhoneNumberActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/PhoneVerifyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/RoleSelectActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/RoleSelectActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/SignInActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/SignInActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/TestCRUD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/WelcomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/ResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/ResponseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_email_verify.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_gender_choosing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_gender_choosing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_role_choosing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_role_choosing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_test_crud.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Mob\.android\avd\Pixel_4_XL_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[a544bbf3]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -126,7 +151,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />

@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.common_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
 
 public class WelcomePage extends AppCompatActivity {
 

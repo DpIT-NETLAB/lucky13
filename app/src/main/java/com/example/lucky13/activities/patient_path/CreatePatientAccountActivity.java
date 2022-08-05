@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.patient_path;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -137,8 +137,6 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
                                             email, 0, 0, incomingGender, new ArrayList<String>());
 
                                     Toast.makeText(CreatePatientAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
-
-                                    startActivity(new Intent(CreatePatientAccountActivity.this, TestCRUD.class));
                                 } else {
 
                                     Toast.makeText(CreatePatientAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();

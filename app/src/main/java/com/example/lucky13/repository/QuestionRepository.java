@@ -3,11 +3,9 @@ package com.example.lucky13.repository;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.lucky13.models.Question;
-import com.example.lucky13.models.Response;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -16,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +23,7 @@ public class QuestionRepository {
     private static final String TAG = "Question-READING-OPS";
 
     FirebaseFirestore firebaseFirestore;
-    CollectionReference QuestionCollection;
+    CollectionReference questionCollection;
     Map<String, Object> QuestionMap;
 
     public void firestoreInstance() {
@@ -35,7 +32,7 @@ public class QuestionRepository {
 
     public void setQuestionCollection() {
         firestoreInstance();
-        this.QuestionCollection = firebaseFirestore.collection("Questions");
+        this.questionCollection = firebaseFirestore.collection("Questions");
     }
 
     public MutableLiveData<ArrayList<Question>> getAllQuestions() {
@@ -46,7 +43,7 @@ public class QuestionRepository {
         firestoreInstance();
         setQuestionCollection();
 
-        QuestionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        questionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -75,7 +72,7 @@ public class QuestionRepository {
         QuestionMap = new HashMap<>();
         setQuestionCollection();
 
-        QuestionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        questionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {

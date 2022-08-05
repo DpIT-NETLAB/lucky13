@@ -14,37 +14,31 @@
         android:theme="@style/Theme.lucky13."
         tools:targetApi="31">
         <activity
-            android:name=".activities.PatientQuestionActivity"
+            android:name=".activities.patient_path.PatientQuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.GeneralSymptomSelect"
+            android:name=".activities.patient_path.GeneralSymptomSelect"
             android:exported="false" />
         <activity
-            android:name=".activities.TestCRUD"
+            android:name=".activities.patient_path.CreatePatientAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.EmailVerifyActivity"
+            android:name=".activities.doctor_path.CreateDoctorAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CreatePatientAccountActivity"
+            android:name=".activities.patient_path.PatientInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CreateDoctorAccountActivity"
+            android:name=".activities.common_activities.GenderSelectActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PatientInfoActivity"
+            android:name=".activities.common_activities.RoleSelectActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.GenderSelectActivity"
+            android:name=".activities.common_activities.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RoleSelectActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.WelcomePage"
+            android:name=".activities.common_activities.WelcomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
