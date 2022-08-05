@@ -3,10 +3,8 @@ package com.example.lucky13.repository;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.lucky13.models.Question;
 import com.example.lucky13.models.Response;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,66 +14,65 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuestionRepository {
+public class ResponseRepository {
 
-    private static final String TAG = "Question-READING-OPS";
+    private static final String TAG = "Response-READING-OPS";
 
     FirebaseFirestore firebaseFirestore;
-    CollectionReference QuestionCollection;
-    Map<String, Object> QuestionMap;
+    CollectionReference responseCollection;
+    Map<String, Object> responseMap;
 
     public void firestoreInstance() {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
-    public void setQuestionCollection() {
+    public void setResponseCollection() {
         firestoreInstance();
-        this.QuestionCollection = firebaseFirestore.collection("Questions");
+        this.responseCollection = firebaseFirestore.collection("Responses");
     }
 
-    public MutableLiveData<ArrayList<Question>> getAllQuestions() {
+    public MutableLiveData<ArrayList<Response>> getAllResponses() {
 
-        MutableLiveData<ArrayList<Question>> QuestionList = new MutableLiveData<>();
-        ArrayList<Question> tempQuestionList = new ArrayList<>();
+        MutableLiveData<ArrayList<Response>> responseList = new MutableLiveData<>();
+        ArrayList<Response> tempResponseList = new ArrayList<>();
 
         firestoreInstance();
-        setQuestionCollection();
+        setResponseCollection();
 
-        QuestionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        responseCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        Question question = new Question(
+                        Response response = new Response(
                                 (String) document.get("id"),
                                 (String) document.get("text"),
-                                (ArrayList<String>) document.get("reponseUIDs")
+                                (ArrayList<String>) document.get("diseaseUIDs")
                         );
 
-                        tempQuestionList.add(question);
+                        tempResponseList.add(response);
                     }
 
-                    QuestionList.setValue(tempQuestionList);
+                    responseList.setValue(tempResponseList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
             }
         });
 
-        return QuestionList;
+        return responseList;
     }
 
-    public Map<String, Object> getQuestionMap(String UID) {
-        QuestionMap = new HashMap<>();
-        setQuestionCollection();
+    public Map<String, Object> getResponseMap(String UID) {
+        responseMap = new HashMap<>();
+        setResponseCollection();
 
-        QuestionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        responseCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -84,7 +81,7 @@ public class QuestionRepository {
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
 
-                        QuestionMap = document.getData();
+                        responseMap = document.getData();
                     }
                     else {
                         Log.d(TAG, "No document with given UID");
@@ -95,6 +92,6 @@ public class QuestionRepository {
                 }
             }
         });
-        return QuestionMap;
+        return responseMap;
     }
 }
