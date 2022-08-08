@@ -3,6 +3,7 @@ package com.example.lucky13.repository;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.lucky13.models.Doctor;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,9 +39,10 @@ public class DoctorRepository {
         this.doctorCollection = firebaseFirestore.collection("Doctors");
     }
 
-    public ArrayList<Map<String, Object>> getAllDoctors() {
+    public MutableLiveData<ArrayList<Doctor>> getAllDoctors() {
 
-        ArrayList<Map<String, Object>> doctorsList = new ArrayList<>();
+        MutableLiveData<ArrayList<Doctor>> doctorList = new MutableLiveData<>();
+        ArrayList<Doctor> tempDoctorList = new ArrayList<>();
 
         firestoreInstance();
         setDoctorCollection();
@@ -48,19 +50,33 @@ public class DoctorRepository {
         doctorCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                 if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document: task.getResult()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        doctorsList.add(document.getData());
+                        Doctor doctor = new Doctor(
+                                (String) document.get("id"),
+                                "name",
+                                (String) document.get("email"),
+                                (String) document.get("passcode"),
+                                "clinicId",
+                                "medicalField",
+                                new ArrayList<String>(),
+                                "0785",
+                                (double) document.get("review"),
+                                (String) document.get("gender")
+                        );
+
+                        tempDoctorList.add(doctor);
                     }
+
+                    doctorList.setValue(tempDoctorList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
             }
         });
 
-        return doctorsList;
+        return doctorList;
     }
 
     public Map<String, Object> getDoctor(String UID) {

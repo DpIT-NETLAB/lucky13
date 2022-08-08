@@ -12,35 +12,38 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249bf35f-024d-4a96-a954-7bc4e3fdd0f7" name="Changes" comment="Service+Repository for Disease+Symptom">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GeneralSymptomSelect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/short_input_line.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" afterDir="false" />
+    <list default="true" id="f2208398-b4f7-458a-bab4-329837aef2e2" name="Changes" comment="Doctor phone number verification">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PatientQuestionActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/QuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/QuestionConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreateDoctorAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreateDoctorAccountActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreatePatientAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/CreatePatientAccountActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneNumberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneNumberActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/PhoneVerifyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GeneralSymptomSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/GeneralSymptomSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/WelcomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Symptom.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Symptom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/DoctorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/DoctorConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/DoctorConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/PatientConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/PatientConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_account_create.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_phone_number.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_account_create.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_info.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_phone_verify.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/SymptomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/SymptomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/SymptomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/SymptomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/SymptomConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/SymptomConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_general_symptom_select.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +101,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
+        <option value="Interface" />
         <option value="Class" />
-        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -123,6 +126,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.5.0/78111ea263bdb82bc11951a10b6af4d25d944167/fragment-1.5.0-sources.jar!/androidx/fragment/app/Fragment.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.2/a0a6b931c735952c318e94c90b0239966c500c52/appcompat-1.4.2-sources.jar!/androidx/appcompat/app/AppCompatDelegateImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.1/d4d703885d24c61bc0ec39a9a705969e41d773ef/material-1.6.1-sources.jar!/com/google/android/material/chip/ChipGroup.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2B4GdRjrS7cvWUTivC9myt9jFg2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -140,12 +144,19 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.lucky13.utils.converters" />
+      <recent name="com.example.lucky13.models" />
+    </key>
+    <key name="android.template.-1255672213">
+      <recent name="com.example.lucky13.activities" />
+    </key>
     <key name="android.template.1858000621">
       <recent name="com.example.authapp2" />
     </key>
@@ -158,7 +169,64 @@
       <command value="gradle signingReport" />
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android App.PatientQuestionActivity">
+    <configuration name="PatientQuestionActivity" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
+      <module name="lucky13.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="com.example.lucky13.activities.PatientQuestionActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="lucky13.app" />
       <option name="DEPLOY" value="true" />
@@ -258,11 +326,13 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
+      <item itemvalue="Android App.PatientQuestionActivity" />
       <item itemvalue="Gradle.AuthApp2C [signingReport]" />
       <item itemvalue="Gradle.AuthApp2C:app [clean]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Android App.PatientQuestionActivity" />
         <item itemvalue="Gradle.AuthApp2C:app [clean]" />
       </list>
     </recent_temporary>
@@ -273,7 +343,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="249bf35f-024d-4a96-a954-7bc4e3fdd0f7" name="Changes" comment="" />
+      <changelist id="c8ee6832-0c23-435b-8965-1f621b1e44a0" name="Changes" comment="Doctor phone number verification" />
       <created>1656158030837</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -314,14 +384,7 @@
       <option name="project" value="LOCAL" />
       <updated>1659102697495</updated>
     </task>
-    <task id="LOCAL-00006" summary="Service+Repository for Disease+Symptom">
-      <created>1659180353247</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1659180353247</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,7 +417,6 @@
     <MESSAGE value="Pull from Tudor." />
     <MESSAGE value="Patient Sign In with Google" />
     <MESSAGE value="Doctor phone number verification" />
-    <MESSAGE value="Service+Repository for Disease+Symptom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Service+Repository for Disease+Symptom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doctor phone number verification" />
   </component>
 </project>

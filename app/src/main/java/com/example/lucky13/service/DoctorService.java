@@ -1,6 +1,7 @@
 package com.example.lucky13.service;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import com.example.lucky13.models.Doctor;
 import com.example.lucky13.repository.DoctorRepository;
@@ -14,19 +15,12 @@ public class DoctorService {
     private final DoctorRepository repository = new DoctorRepository();
     private final DoctorConverter converter = new DoctorConverter();
 
+    public LiveData<ArrayList<Doctor>> doctorList;
+
     @NonNull
-    public ArrayList<Doctor> getAllDoctors() {
+    public void getAllDoctors() {
 
-        ArrayList<Doctor> doctors = new ArrayList<>();
-
-        ArrayList<Map<String, Object>> doctorsMap = repository.getAllDoctors();
-
-        for (Map<String, Object> doctorMap: doctorsMap) {
-
-            doctors.add(converter.convertFromMapToEntity(doctorMap));
-        }
-
-        return doctors;
+        doctorList = repository.getAllDoctors();
     }
 
     public Doctor getDoctor(String UID) {

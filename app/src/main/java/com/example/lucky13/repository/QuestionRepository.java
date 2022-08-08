@@ -6,7 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.lucky13.models.Symptom;
+import com.example.lucky13.models.Question;
+import com.example.lucky13.models.Response;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -20,61 +21,61 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SymptomRepository {
+public class QuestionRepository {
 
-    private static final String TAG = "SYMPTOM-READING-OPS";
+    private static final String TAG = "Question-READING-OPS";
 
     FirebaseFirestore firebaseFirestore;
-    CollectionReference symptomCollection;
-    Map<String, Object> symptomMap;
+    CollectionReference QuestionCollection;
+    Map<String, Object> QuestionMap;
 
     public void firestoreInstance() {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
-    public void setSymptomCollection() {
+    public void setQuestionCollection() {
         firestoreInstance();
-        this.symptomCollection = firebaseFirestore.collection("Symptoms");
+        this.QuestionCollection = firebaseFirestore.collection("Questions");
     }
 
-    public MutableLiveData<ArrayList<Symptom>> getAllSymptoms() {
+    public MutableLiveData<ArrayList<Question>> getAllQuestions() {
 
-        MutableLiveData<ArrayList<Symptom>> symptomList = new MutableLiveData<>();
-        ArrayList<Symptom> tempSymptomList = new ArrayList<>();
+        MutableLiveData<ArrayList<Question>> QuestionList = new MutableLiveData<>();
+        ArrayList<Question> tempQuestionList = new ArrayList<>();
 
         firestoreInstance();
-        setSymptomCollection();
+        setQuestionCollection();
 
-        symptomCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        QuestionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        Symptom symptom = new Symptom(
+                        Question question = new Question(
                                 (String) document.get("id"),
-                                (String) document.get("name"),
-                                new ArrayList<>()
+                                (String) document.get("text"),
+                                (ArrayList<String>) document.get("reponses")
                         );
 
-                        tempSymptomList.add(symptom);
+                        tempQuestionList.add(question);
                     }
 
-                    symptomList.setValue(tempSymptomList);
+                    QuestionList.setValue(tempQuestionList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
             }
         });
 
-        return symptomList;
+        return QuestionList;
     }
 
-    public Map<String, Object> getSymptomMap(String UID) {
-        symptomMap = new HashMap<>();
-        setSymptomCollection();
+    public Map<String, Object> getQuestionMap(String UID) {
+        QuestionMap = new HashMap<>();
+        setQuestionCollection();
 
-        symptomCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        QuestionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -83,7 +84,7 @@ public class SymptomRepository {
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
 
-                        symptomMap = document.getData();
+                        QuestionMap = document.getData();
                     }
                     else {
                         Log.d(TAG, "No document with given UID");
@@ -94,7 +95,6 @@ public class SymptomRepository {
                 }
             }
         });
-        return symptomMap;
+        return QuestionMap;
     }
-
 }

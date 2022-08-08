@@ -22,19 +22,20 @@ public class WelcomePage extends AppCompatActivity {
         mGetStartedButton = findViewById(R.id.welcomeGetStartedButton);
         mLogInButton = findViewById(R.id.welcomeLogInButton);
 
-        mLogInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(WelcomePage.this, SignInActivity.class));
-            }
-        });
-
         mGetStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 startActivity(new Intent(WelcomePage.this, RoleSelectActivity.class));
+            }
+        });
+
+        mLogInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //TODO: schimba inapoi in log in normal
+                startActivity(new Intent(WelcomePage.this, GeneralSymptomSelect.class));
             }
         });
     }
