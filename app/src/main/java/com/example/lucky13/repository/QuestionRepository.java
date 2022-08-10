@@ -24,7 +24,7 @@ public class QuestionRepository {
 
     FirebaseFirestore firebaseFirestore;
     CollectionReference questionCollection;
-    Map<String, Object> QuestionMap;
+    Map<String, Object> questionMap;
 
     public void firestoreInstance() {
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -37,7 +37,7 @@ public class QuestionRepository {
 
     public MutableLiveData<ArrayList<Question>> getAllQuestions() {
 
-        MutableLiveData<ArrayList<Question>> QuestionList = new MutableLiveData<>();
+        MutableLiveData<ArrayList<Question>> questionList = new MutableLiveData<>();
         ArrayList<Question> tempQuestionList = new ArrayList<>();
 
         firestoreInstance();
@@ -52,24 +52,24 @@ public class QuestionRepository {
                         Question question = new Question(
                                 (String) document.get("id"),
                                 (String) document.get("text"),
-                                (ArrayList<String>) document.get("reponseUIDs")
+                                (ArrayList<String>) document.get("responseUIDs")
                         );
 
                         tempQuestionList.add(question);
                     }
 
-                    QuestionList.setValue(tempQuestionList);
+                    questionList.setValue(tempQuestionList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
             }
         });
 
-        return QuestionList;
+        return questionList;
     }
 
     public Map<String, Object> getQuestionMap(String UID) {
-        QuestionMap = new HashMap<>();
+        questionMap = new HashMap<>();
         setQuestionCollection();
 
         questionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -81,7 +81,7 @@ public class QuestionRepository {
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
 
-                        QuestionMap = document.getData();
+                        questionMap = document.getData();
                     }
                     else {
                         Log.d(TAG, "No document with given UID");
@@ -92,6 +92,6 @@ public class QuestionRepository {
                 }
             }
         });
-        return QuestionMap;
+        return questionMap;
     }
 }
