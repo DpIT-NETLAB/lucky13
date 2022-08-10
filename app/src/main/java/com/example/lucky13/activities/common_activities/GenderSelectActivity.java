@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.common_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.doctor_path.CreateDoctorAccountActivity;
+import com.example.lucky13.activities.patient_path.PatientInfoActivity;
 
 import java.util.Objects;
 

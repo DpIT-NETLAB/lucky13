@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.patient_path;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.common_activities.WelcomePage;
 import com.example.lucky13.models.Symptom;
 import com.example.lucky13.service.SymptomService;
 import com.google.android.material.chip.Chip;
@@ -49,7 +50,8 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
                 ArrayList<String> toSendSymptoms = getAllCheckedSymptoms(symptoms, checkedChip);
 
-                Intent intent = new Intent(GeneralSymptomSelect.this, WelcomePage.class);
+                //TODO: change back to PatientQuestionActivity
+                Intent intent = new Intent(GeneralSymptomSelect.this, DiseasesShowActivity.class);
                 intent.putStringArrayListExtra("symptoms", toSendSymptoms);
                 intent.putExtra("pageOrder", "1");
 

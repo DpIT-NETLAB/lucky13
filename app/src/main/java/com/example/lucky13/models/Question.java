@@ -33,7 +33,7 @@ public class Question {
         this.text = text;
     }
 
-    public ArrayList<String> getReponses() {
+    public ArrayList<String> getResponses() {
         return reponses;
     }
 

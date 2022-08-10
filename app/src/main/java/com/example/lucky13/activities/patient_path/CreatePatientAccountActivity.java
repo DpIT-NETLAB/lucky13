@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.patient_path;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.common_activities.SignInActivity;
 import com.example.lucky13.service.PatientService;
 import com.example.lucky13.utils.EmailVerificationSender;
 import com.google.android.gms.auth.api.Auth;
@@ -138,7 +139,8 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
 
                                     Toast.makeText(CreatePatientAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(CreatePatientAccountActivity.this, TestCRUD.class));
+                                    Intent intent = new Intent(CreatePatientAccountActivity.this, DiseasesShowActivity.class);
+                                    startActivity(intent);
                                 } else {
 
                                     Toast.makeText(CreatePatientAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();

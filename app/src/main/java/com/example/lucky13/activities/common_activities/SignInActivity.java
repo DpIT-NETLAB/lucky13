@@ -1,5 +1,6 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.common_activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -80,6 +82,9 @@ public class SignInActivity extends AppCompatActivity {
 
                             Toast.makeText(SignInActivity.this, "User registered", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "User successfully logged in!");
+
+                            Intent intent = new Intent(SignInActivity.this, DiseasesShowActivity.class);
+                            startActivity(intent);
 
                         } else {
 

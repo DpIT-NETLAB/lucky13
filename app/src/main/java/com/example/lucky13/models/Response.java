@@ -7,7 +7,7 @@ public class Response {
     private String id;
     private String text;
     private ArrayList<String> diseaseUIDs;
-
+    public Response() {}
 
     public Response(String id, String text, ArrayList<String> diseaseUIDs) {
         this.id = id;
