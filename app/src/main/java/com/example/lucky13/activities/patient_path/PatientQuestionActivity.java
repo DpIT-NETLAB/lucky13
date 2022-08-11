@@ -35,11 +35,52 @@ public class PatientQuestionActivity extends AppCompatActivity {
     Triple<String, String, String> relevantQuestions = new Triple<>("", "", "");
     ArrayList<Question> questions = new ArrayList<>();
     ArrayList<String> passedDiseaseUIDs = new ArrayList<>();
+    ArrayList<Symptom> symptoms = new ArrayList<>();
+    ArrayList<Response> responses = new ArrayList<>();
+
+    Integer flag = 0;
 
     TextView questionTextView;
     RadioButton answearRadioButton1;
     RadioButton answearRadioButton2;
     RadioButton answearRadioButton3;
+
+    
+    @NonNull
+    private Question getQuestionByUID(@NonNull ArrayList<Question> questions, String UID) {
+        
+        for (Question question: questions) {
+            
+            if (question.getId().equals(UID))
+                return question;
+        }
+        
+        return new Question();
+    }
+    
+    @NonNull
+    private Symptom getSymptomByUID(@NonNull ArrayList<Symptom> symptoms, String UID) {
+
+        for (Symptom symptom: symptoms) {
+
+            if (symptom.getId().equals(UID))
+                return symptom;
+        }
+
+        return new Symptom();
+    }
+
+    @NonNull
+    private Response getResponseByUID(@NonNull ArrayList<Response> responses, String UID) {
+
+        for (Response response: responses) {
+
+            if (response.getId().equals(UID))
+                return response;
+        }
+
+        return new Response();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,194 +94,567 @@ public class PatientQuestionActivity extends AppCompatActivity {
 
         Intent incomingIntent = getIntent();
         String pageOrder = incomingIntent.getStringExtra("pageOrder");
-        ArrayList<String> symptoms = incomingIntent.getStringArrayListExtra("symptoms");
+        ArrayList<String> givenSymptoms = incomingIntent.getStringArrayListExtra("symptoms");
 
-        relevantQuestions = getMostRelevantQuestions(symptoms);
+        symptomService.getAllSymptoms();
+        symptomService.symptomList.observe(this, symptomsList -> {
 
-        System.out.println(relevantQuestions.getFirst() + "   *************************************************************************************************8");
+            symptoms.clear();
+            symptoms.addAll(symptomsList);
 
-        switch (pageOrder) {
-            case "1":
+            flag++;
 
-                passedDiseaseUIDs.clear();
+            System.out.println(pageOrder);
 
-                Question firstQuestion = questionService.getQuestion(relevantQuestions.getFirst());
-                ArrayList<String> questionResponses = firstQuestion.getResponses();
+            if (flag.equals(3)) {
+                relevantQuestions = getMostRelevantQuestions(symptoms, givenSymptoms);
+
+                switch (pageOrder) {
+                    case "1":
+
+                        passedDiseaseUIDs.clear();
+
+                        Question firstQuestion = new Question();
+                        for (Question question : questions) {
+
+                            if (question.getId().equals(relevantQuestions.getFirst()))
+                                firstQuestion = question;
+                        }
+                        ArrayList<String> firstQuestionResponses = firstQuestion.getResponses();
 
 
-                questionTextView.setText(firstQuestion.getText());
-                answearRadioButton1.setText(questionResponses.get(1));
-                answearRadioButton2.setText(questionResponses.get(2));
-                answearRadioButton3.setText(questionResponses.get(3));
+                        questionTextView.setText(firstQuestion.getText());
+                        answearRadioButton1.setText(getQuestionByUID(this.questions, firstQuestionResponses.get(0)).getText());
+                        answearRadioButton2.setText(getQuestionByUID(this.questions, firstQuestionResponses.get(1)).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
 
 
-                answearRadioButton1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        Response response = responseService.getResponse(questionResponses.get(1));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Response response = responseService.getResponse(firstQuestionResponses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "2");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        Response response = responseService.getResponse(questionResponses.get(2));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Response response = responseService.getResponse(firstQuestionResponses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "2");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        Response response = responseService.getResponse(questionResponses.get(3));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "2");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                startActivity(intent);
+                            }
+                        });
 
-                        startActivity(intent);
-                    }
-                });
+                    case "2":
 
-            case "2":
+                        Question secondQuestion = getQuestionByUID(questions, relevantQuestions.getSecond());
 
-                Question secondQuestion = questionService.getQuestion(relevantQuestions.getSecond());
-                ArrayList<String> question_Responses = secondQuestion.getResponses();
+                        ArrayList<String> question_Responses = secondQuestion.getResponses();
+                        ArrayList<Response> secondQuestionResponses = new ArrayList<>();
 
-                questionTextView.setText(secondQuestion.getText());
-                answearRadioButton1.setText(question_Responses.get(1));
-                answearRadioButton2.setText(question_Responses.get(2));
-                answearRadioButton3.setText(question_Responses.get(3));
+                        for (String responseUID: question_Responses) {
 
-                answearRadioButton1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                            secondQuestionResponses.add(getResponseByUID(this.responses, responseUID));
+                        }
 
-                        Response response = responseService.getResponse(question_Responses.get(2));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                        questionTextView.setText(secondQuestion.getText());
+                        answearRadioButton1.setText(secondQuestionResponses.get(0).getText());
+                        answearRadioButton2.setText(secondQuestionResponses.get(1).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "3");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                                Response response = responseService.getResponse(question_Responses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Response response = responseService.getResponse(question_Responses.get(3));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "3");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                                Response response = responseService.getResponse(question_Responses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Response response = responseService.getResponse(question_Responses.get(3));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
-                        intent.putExtra("pageOrder", "3");
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        startActivity(intent);
-                    }
-                });
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-            case "3":
+                                startActivity(intent);
+                            }
+                        });
 
-                Question thirdQuestion = questionService.getQuestion(relevantQuestions.getThird());
-                ArrayList<String> thirdQuestionResponses = thirdQuestion.getResponses();
+                    case "3":
 
-                questionTextView.setText(thirdQuestion.getText());
-                answearRadioButton1.setText(thirdQuestionResponses.get(1));
-                answearRadioButton2.setText(thirdQuestionResponses.get(2));
-                answearRadioButton3.setText(thirdQuestionResponses.get(3));
+                        Question thirdQuestion = getQuestionByUID(questions, relevantQuestions.getThird());
+                        ArrayList<String> thirdQuestionResponsesUIDs = thirdQuestion.getResponses();
+                        ArrayList<Response> thirdQuestionResponses = new ArrayList<>();
 
-                answearRadioButton1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                        for (String responseUID: thirdQuestionResponsesUIDs) {
 
-                        Response response = responseService.getResponse(thirdQuestionResponses.get(1));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                            thirdQuestionResponses.add(getResponseByUID(this.responses, responseUID));
+                        }
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, WelcomePage.class);
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                        questionTextView.setText(thirdQuestion.getText());
+                        answearRadioButton1.setText(thirdQuestionResponses.get(0).getText());
+                        answearRadioButton2.setText(thirdQuestionResponses.get(1).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        Response response = responseService.getResponse(thirdQuestionResponses.get(2));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Response response = responseService.getResponse(thirdQuestionResponsesUIDs.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, WelcomePage.class);
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        startActivity(intent);
-                    }
-                });
-                answearRadioButton3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                        Response response = responseService.getResponse(thirdQuestionResponses.get(3));
-                        passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+                                Response response = responseService.getResponse(thirdQuestionResponsesUIDs.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
 
-                        Intent intent = new Intent(PatientQuestionActivity.this, WelcomePage.class);
-                        intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
 
-                        startActivity(intent);
-                    }
-                });
-        }
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                }
+            }
+        });
+
+        questionService.getAllQuestions();
         questionService.questionList.observe(this, questionsList -> {
 
             questions.clear();
             questions.addAll(questionsList);
+
+            flag++;
+
+            if (flag.equals(3)) {
+                relevantQuestions = getMostRelevantQuestions(symptoms, givenSymptoms);
+
+                switch (pageOrder) {
+                    case "1":
+
+                        passedDiseaseUIDs.clear();
+
+                        Question firstQuestion = new Question();
+                        for (Question question : questions) {
+
+                            if (question.getId().equals(relevantQuestions.getFirst()))
+                                firstQuestion = question;
+                        }
+                        ArrayList<String> questionResponses = firstQuestion.getResponses();
+
+
+                        questionTextView.setText(firstQuestion.getText());
+                        answearRadioButton1.setText(getQuestionByUID(this.questions, questionResponses.get(0)).getText());
+                        answearRadioButton2.setText(getQuestionByUID(this.questions, questionResponses.get(1)).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
+
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(questionResponses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(questionResponses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+
+                    case "2":
+
+                        Question secondQuestion = getQuestionByUID(questions, relevantQuestions.getSecond());
+
+                        ArrayList<String> question_Responses = secondQuestion.getResponses();
+                        ArrayList<Response> responses = new ArrayList<>();
+
+                        for (String responseUID: question_Responses) {
+
+                            responses.add(getResponseByUID(this.responses, responseUID));
+                        }
+
+                        questionTextView.setText(secondQuestion.getText());
+                        answearRadioButton1.setText(responses.get(0).getText());
+                        answearRadioButton2.setText(responses.get(1).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(question_Responses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(question_Responses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+
+                    case "3":
+
+                        Question thirdQuestion = getQuestionByUID(questions, relevantQuestions.getThird());
+                        ArrayList<String> thirdQuestionResponsesUIDs = thirdQuestion.getResponses();
+                        ArrayList<Response> thirdQuestionResponses = new ArrayList<>();
+
+                        for (String responseUID: thirdQuestionResponsesUIDs) {
+
+                            thirdQuestionResponses.add(getResponseByUID(this.responses, responseUID));
+                        }
+
+                        questionTextView.setText(thirdQuestion.getText());
+                        answearRadioButton1.setText(thirdQuestionResponses.get(0).getText());
+                        answearRadioButton2.setText(thirdQuestionResponses.get(1).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(thirdQuestionResponsesUIDs.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(thirdQuestionResponsesUIDs.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                }
+            }
+        });
+
+        responseService.getAllResponses();
+        responseService.responseList.observe(this, responseList -> {
+
+            responses.clear();
+            responses.addAll(responseList);
+
+            flag++;
+
+            if (flag.equals(3)) {
+                relevantQuestions = getMostRelevantQuestions(symptoms, givenSymptoms);
+
+                switch (pageOrder) {
+                    case "1":
+
+                        passedDiseaseUIDs.clear();
+
+                        Question firstQuestion = new Question();
+                        for (Question question : questions) {
+
+                            if (question.getId().equals(relevantQuestions.getFirst()))
+                                firstQuestion = question;
+                        }
+                        ArrayList<String> questionResponses = firstQuestion.getResponses();
+
+                        questionTextView.setText(firstQuestion.getText());
+                        answearRadioButton1.setText(getResponseByUID(this.responses, questionResponses.get(0)).getText());
+                        answearRadioButton2.setText(getResponseByUID(this.responses, questionResponses.get(1)).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
+
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(questionResponses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(questionResponses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "2");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+
+                    case "2":
+
+                        Question secondQuestion = getQuestionByUID(questions, relevantQuestions.getSecond());
+
+                        ArrayList<String> question_Responses = secondQuestion.getResponses();
+                        ArrayList<Response> responses = new ArrayList<>();
+
+                        for (String responseUID: question_Responses) {
+
+                            responses.add(getResponseByUID(this.responses, responseUID));
+                        }
+
+                        questionTextView.setText(secondQuestion.getText());
+                        answearRadioButton1.setText(responses.get(0).getText());
+                        answearRadioButton2.setText(responses.get(1).getText());
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(question_Responses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(question_Responses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putExtra("pageOrder", "3");
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+
+                    case "3":
+
+                        Question thirdQuestion = getQuestionByUID(questions, relevantQuestions.getThird());
+                        ArrayList<String> thirdQuestionResponses = thirdQuestion.getResponses();
+
+                        questionTextView.setText(thirdQuestion.getText());
+                        answearRadioButton1.setText(getResponseByUID(this.responses, thirdQuestionResponses.get(0)).getText());
+                        answearRadioButton2.setText(getResponseByUID(this.responses, thirdQuestionResponses.get(1)).getText());
+                        answearRadioButton3.setText(R.string.thirdQuestionResponse);
+
+                        answearRadioButton1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(thirdQuestionResponses.get(0));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Response response = responseService.getResponse(thirdQuestionResponses.get(1));
+                                passedDiseaseUIDs.addAll(response.getDiseaseUIDs());
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                        answearRadioButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent intent = new Intent(PatientQuestionActivity.this, PatientQuestionActivity.class);
+                                intent.putStringArrayListExtra("passedDiseaseUIDs", passedDiseaseUIDs);
+
+                                startActivity(intent);
+                            }
+                        });
+                }
+            }
         });
     }
 
     @NonNull
-    @Contract("_ -> new")
-    private Triple<String, String, String> getMostRelevantQuestions(@NonNull ArrayList<String> symptoms) {
+    private Triple<String, String, String> getMostRelevantQuestions(ArrayList<Symptom> symptoms, @NonNull ArrayList<String> givenSymptoms) {
 
         Map<String, Integer> questionsFrequencyMap = new HashMap<>();
 
-        for (String symptomUID: symptoms) {
+        for (String symptomUID: givenSymptoms) {
 
-            Symptom symptom = symptomService.getSymptom(symptomUID);
+            Symptom symptom = getSymptomByUID(symptoms, symptomUID);
 
             for (String relatedQuestionUID: symptom.getRelatedQuestions()) {
 
-                if (questionsFrequencyMap.containsKey(relatedQuestionUID))
+                if (!questionsFrequencyMap.containsKey(relatedQuestionUID))
                     questionsFrequencyMap.put(relatedQuestionUID, 1);
                 else
                     questionsFrequencyMap.put(relatedQuestionUID, questionsFrequencyMap.get(relatedQuestionUID) + 1);
@@ -256,27 +670,30 @@ public class PatientQuestionActivity extends AppCompatActivity {
 
         for (Map.Entry<String, Integer> entry: questionsFrequencyMap.entrySet()) {
 
+            System.out.println(entry.getValue());
+
             if (entry.getValue() > maxFreq3) {
 
                 if (entry.getValue() >= maxFreq2) {
 
                     if (entry.getValue() >= maxFreq1) {
+
                         relevantQuestion3 = relevantQuestion2;
                         relevantQuestion2 = relevantQuestion1;
                         relevantQuestion1 = entry.getKey();
                     } else {
+
                         relevantQuestion3 = relevantQuestion2;
-                        relevantQuestion2 = relevantQuestion1;
                         relevantQuestion2 = entry.getKey();
                     }
                 } else {
-                    relevantQuestion3 = relevantQuestion2;
+
                     relevantQuestion3 = entry.getKey();
                 }
             }
         }
 
-        return new Triple<String, String, String> (
+        return new Triple<> (
                 relevantQuestion1,
                 relevantQuestion2,
                 relevantQuestion3
