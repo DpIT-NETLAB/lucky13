@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
 import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
 
 public class WelcomePage extends AppCompatActivity {

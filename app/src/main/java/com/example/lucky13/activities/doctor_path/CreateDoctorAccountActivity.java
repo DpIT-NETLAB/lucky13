@@ -26,7 +26,6 @@ import java.util.Objects;
 public class CreateDoctorAccountActivity extends AppCompatActivity {
 
     private static final String TAG = "Addition of doctor";
-    private final DoctorService doctorService = new DoctorService();
 
     EditText mPassCode,
             mEmailAddress,
@@ -86,26 +85,14 @@ public class CreateDoctorAccountActivity extends AppCompatActivity {
                     return;
                 }
 
-                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                Intent intent = new Intent(CreateDoctorAccountActivity.this, PhoneNumberActivity.class);
 
-                        if (task.isSuccessful()) {
+                intent.putExtra("passCode", passcode);
+                intent.putExtra("email", email);
+                intent.putExtra("gender", gender);
+                intent.putExtra("password", password);
 
-                            EmailVerificationSender.sendVerificationMail(firebaseAuth);
-
-                            String uid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
-                            doctorService.addDoctor(uid, "name", email, passcode, "clinicId",
-                                    "medicalField", new ArrayList<String>(), "0785",
-                                    0.00, gender);
-
-                            Toast.makeText(CreateDoctorAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
-                        } else {
-
-                            Toast.makeText(CreateDoctorAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                startActivity(intent);
             }
         });
     }

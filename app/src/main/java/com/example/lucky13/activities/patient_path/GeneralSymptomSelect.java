@@ -50,7 +50,8 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
                 ArrayList<String> toSendSymptoms = getAllCheckedSymptoms(symptoms, checkedChip);
 
-                Intent intent = new Intent(GeneralSymptomSelect.this, PatientQuestionActivity.class);
+                //TODO: change back to PatientQuestionActivity
+                Intent intent = new Intent(GeneralSymptomSelect.this, DiseasesShowActivity.class);
                 intent.putStringArrayListExtra("symptoms", toSendSymptoms);
                 intent.putExtra("pageOrder", "1");
 
