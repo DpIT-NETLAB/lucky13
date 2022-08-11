@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TopDoc</string>
     <string name="welcome_to_topdoc">Welcome to TopDoc!</string>
-    <string name="welcome_topdoc_promotion">Find the right doctor for your needs.\nQuick. Easy. Efficient.</string>
+    <string name="welcome_topdoc_promotion">Find the right doctor for your needs. Quick. Easy. Efficient.</string>
     <string name="welcome_get_started">Get started</string>
     <string name="welcome_log_in">Log in</string>
     <string name="welcome_privacy_policy_terms_of_use"><a href="https://www.google.com/">Privacy policy</a> &amp; <a href="https://www.google.com/">Terms of Use</a></string>
@@ -40,14 +40,15 @@
     <string name="uid">UID</string>
     <string name="email">Email</string>
     <string name="check">Check</string>
-    <string name="button">Button</string>
-    <string name="name">Name</string>
-    <string name="general_select_title">Select your symptoms</string>
-    <string name="done">Done</string>
     <string name="phone_number">Phone number</string>
     <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
     <string name="get_code">Get code</string>
     <string name="verification">Verification</string>
     <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
     <string name="verify_phone_number">Verify phone number</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="general_select_title">Select your symptoms</string>
+    <string name="done">Done</string>
+    <string name="thirdQuestionResponse">I don\'t know</string>
 </resources>

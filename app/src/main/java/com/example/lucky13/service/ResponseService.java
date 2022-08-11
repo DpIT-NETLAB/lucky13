@@ -17,12 +17,12 @@ public class ResponseService {
     private final ResponseRepository repository = new ResponseRepository();
     private final ResponseConverter converter = new ResponseConverter();
 
-    public LiveData<ArrayList<Response>> questionList;
+    public LiveData<ArrayList<Response>> responseList;
 
     @NonNull
-    public void getAllQuestions() {
+    public void getAllResponses() {
 
-        questionList = repository.getAllResponses();
+        responseList = repository.getAllResponses();
     }
 
     public Response getResponse(String UID) {
