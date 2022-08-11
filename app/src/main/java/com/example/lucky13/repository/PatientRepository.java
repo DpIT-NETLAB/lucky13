@@ -3,8 +3,10 @@ package com.example.lucky13.repository;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.lucky13.models.Patient;
+import com.example.lucky13.models.Symptom;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,6 +20,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import kotlin.Triple;
 
 public class PatientRepository {
 
@@ -38,9 +42,10 @@ public class PatientRepository {
         this.patientCollection = firebaseFirestore.collection("Patients");
     }
 
-    public ArrayList<Map<String, Object>> getAllPatients() {
+    public MutableLiveData<ArrayList<Patient>> getAllPatients() {
 
-        ArrayList<Map<String, Object>> patientList = new ArrayList<>();
+        MutableLiveData<ArrayList<Patient>> patientList = new MutableLiveData<>();
+        ArrayList<Patient> tempPatientList = new ArrayList<>();
 
         firestoreInstance();
         setPatientCollection();
@@ -48,12 +53,25 @@ public class PatientRepository {
         patientCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                 if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document: task.getResult()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        patientList.add(document.getData());
+                        Patient Patient = new Patient(
+                                (String) document.get("id"),
+                                (String) document.get("firstName"),
+                                (String) document.get("lastName"),
+                                new Triple(0, 0, 0),
+                                (String) document.get("email"),
+                                0,
+                                0,
+                                (String) document.get("gender"),
+                                new ArrayList<>()
+                        );
+
+                        tempPatientList.add(Patient);
                     }
+
+                    patientList.setValue(tempPatientList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
@@ -62,6 +80,7 @@ public class PatientRepository {
 
         return patientList;
     }
+
 
     public Map<String, Object> getPatient(String UID) {
 

@@ -3,79 +3,76 @@ package com.example.lucky13.repository;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.lucky13.models.Symptom;
+import com.example.lucky13.models.Question;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SymptomRepository {
+public class QuestionRepository {
 
-    private static final String TAG = "SYMPTOM-READING-OPS";
+    private static final String TAG = "Question-READING-OPS";
 
     FirebaseFirestore firebaseFirestore;
-    CollectionReference symptomCollection;
-    Map<String, Object> symptomMap;
+    CollectionReference questionCollection;
+    Map<String, Object> questionMap;
 
     public void firestoreInstance() {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
-    public void setSymptomCollection() {
+    public void setQuestionCollection() {
         firestoreInstance();
-        this.symptomCollection = firebaseFirestore.collection("Symptoms");
+        this.questionCollection = firebaseFirestore.collection("Questions");
     }
 
-    public MutableLiveData<ArrayList<Symptom>> getAllSymptoms() {
+    public MutableLiveData<ArrayList<Question>> getAllQuestions() {
 
-        MutableLiveData<ArrayList<Symptom>> symptomList = new MutableLiveData<>();
-        ArrayList<Symptom> tempSymptomList = new ArrayList<>();
+        MutableLiveData<ArrayList<Question>> questionList = new MutableLiveData<>();
+        ArrayList<Question> tempQuestionList = new ArrayList<>();
 
         firestoreInstance();
-        setSymptomCollection();
+        setQuestionCollection();
 
-        symptomCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        questionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        Symptom symptom = new Symptom(
+                        Question question = new Question(
                                 (String) document.get("id"),
-                                (String) document.get("name"),
-                                (ArrayList<String>) document.get("relatedQuestion")
+                                (String) document.get("text"),
+                                (ArrayList<String>) document.get("responseUIDs")
                         );
 
-                        tempSymptomList.add(symptom);
+                        tempQuestionList.add(question);
                     }
 
-                    symptomList.setValue(tempSymptomList);
+                    questionList.setValue(tempQuestionList);
                 } else {
                     Log.d(TAG, "FAILED OPERATION: " + task.getException());
                 }
             }
         });
 
-        return symptomList;
+        return questionList;
     }
 
-    public Map<String, Object> getSymptomMap(String UID) {
-        symptomMap = new HashMap<>();
-        setSymptomCollection();
+    public Map<String, Object> getQuestionMap(String UID) {
+        questionMap = new HashMap<>();
+        setQuestionCollection();
 
-        symptomCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        questionCollection.document(UID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -84,7 +81,7 @@ public class SymptomRepository {
                     if (document.exists()) {
                         Log.d(TAG, "Document snapshot data: " + document.getData());
 
-                        symptomMap = document.getData();
+                        questionMap = document.getData();
                     }
                     else {
                         Log.d(TAG, "No document with given UID");
@@ -95,7 +92,6 @@ public class SymptomRepository {
                 }
             }
         });
-        return symptomMap;
+        return questionMap;
     }
-
 }

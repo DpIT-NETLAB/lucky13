@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.doctor_path;
 
 import android.os.Bundle;
 import android.text.Editable;

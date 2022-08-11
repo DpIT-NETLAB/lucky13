@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.patient_path;
 
 import android.content.Intent;
 import android.os.Bundle;

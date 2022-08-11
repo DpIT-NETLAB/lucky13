@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light_blue"
-    tools:context=".activities.CreateDoctorAccountActivity">
+    tools:context=".activities.doctor_path.CreateDoctorAccountActivity">
 
     <TextView
         android:id="@+id/doctorCreateDescriptionText"

@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.patient_path;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,13 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.common_activities.WelcomePage;
 import com.example.lucky13.models.Symptom;
+import com.example.lucky13.service.SymptomService;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 
 public class GeneralSymptomSelect extends AppCompatActivity {
+
+    SymptomService symptomService = new SymptomService();
 
     AppCompatButton mDoneButton;
     ChipGroup mChipGroup;
@@ -30,19 +34,15 @@ public class GeneralSymptomSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_symptom_select);
 
-        //TODO: aici ar veni ceva tip reposiotry.get general symptoms
-        symptoms.add(new Symptom("123", "raceala", "Ai raceala?"));
-        symptoms.add(new Symptom("234", "febra", "Ai febra?"));
-        symptoms.add(new Symptom("345", "icter", "Ai ochii galbeni?"));
-        symptoms.add(new Symptom("456", "stafilococ", "Ai raceala?"));
-        symptoms.add(new Symptom("567", "infarct", "Ai raceala?"));
-        symptoms.add(new Symptom("678", "olog", "Ai raceala?"));
-        symptoms.add(new Symptom("789", "handicap", "Ai raceala?"));
+        checkedChip = new ArrayList<>();
+        symptomService.getAllSymptoms();
+        symptomService.symptomList.observe(this, symptomList -> {
+            symptoms.addAll(symptomList);
+            addSymptomChips(this.symptoms);
+        });
 
         mChipGroup = findViewById(R.id.generalSymptomSelectChipGroup);
         mDoneButton = findViewById(R.id.generalSymptomSelectButton);
-
-        addSymptomChips(this.symptoms);
 
         mDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +50,9 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
                 ArrayList<String> toSendSymptoms = getAllCheckedSymptoms(symptoms, checkedChip);
 
-                // TODO: trebuie sa modificam din "WelcomePage.class" in altceva
-                Intent intent = new Intent(GeneralSymptomSelect.this, WelcomePage.class);
+                Intent intent = new Intent(GeneralSymptomSelect.this, PatientQuestionActivity.class);
                 intent.putStringArrayListExtra("symptoms", toSendSymptoms);
+                intent.putExtra("pageOrder", "1");
 
                 startActivity(intent);
             }
@@ -99,7 +99,7 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
             if (checkedChip.get(i)) {
 
-                checkedSymptoms.add(symptoms.get(i).getUID());
+                checkedSymptoms.add(symptoms.get(i).getId());
             }
         }
 
