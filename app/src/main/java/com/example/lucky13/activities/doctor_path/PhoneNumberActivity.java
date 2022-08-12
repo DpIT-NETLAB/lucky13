@@ -24,6 +24,8 @@ public class PhoneNumberActivity extends AppCompatActivity {
 
     AppCompatButton mGetCodeButton;
 
+    String password, passcode, email, gender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,12 @@ public class PhoneNumberActivity extends AppCompatActivity {
 
         mPhoneNumber = findViewById(R.id.doctorCreatePhoneNumberTextEdit);
         mGetCodeButton = findViewById(R.id.doctorCreateGetCodeButton);
+
+
+        password = getIntent().getStringExtra("password");
+        passcode = getIntent().getStringExtra("passCode");
+        email = getIntent().getStringExtra("email");
+        gender = getIntent().getStringExtra("gender");
 
         mGetCodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +49,12 @@ public class PhoneNumberActivity extends AppCompatActivity {
                 }
 
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        mPhoneNumber.getText().toString(),
+                        "+40" + mPhoneNumber.getText().toString(),
                         20,
                         TimeUnit.SECONDS,
                         PhoneNumberActivity.this,
                         new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
@@ -60,8 +69,12 @@ public class PhoneNumberActivity extends AppCompatActivity {
                             public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 mGetCodeButton.setEnabled(true);
                                 Intent intent = new Intent(getApplicationContext(), PhoneVerifyActivity.class);
-                                intent.putExtra("phone number", mPhoneNumber.getText().toString());
-                                intent.putExtra("verification id", verificationId);
+                                intent.putExtra("phone number", "+40" + mPhoneNumber.getText().toString());
+                                intent.putExtra("verificationId", verificationId);
+                                intent.putExtra("password", password);
+                                intent.putExtra("passCode", passcode);
+                                intent.putExtra("email", email);
+                                intent.putExtra("gender", gender);
                                 startActivity(intent);
                             }
                         }

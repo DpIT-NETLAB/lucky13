@@ -1,8 +1,10 @@
 package com.example.lucky13.service;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import com.example.lucky13.models.Disease;
+import com.example.lucky13.models.Symptom;
 import com.example.lucky13.repository.DiseaseRepository;
 import com.example.lucky13.utils.converters.DiseaseConverter;
 
@@ -14,16 +16,12 @@ public class DiseaseService {
     private final DiseaseRepository repository = new DiseaseRepository();
     private final DiseaseConverter converter = new DiseaseConverter();
 
+    public LiveData<ArrayList<Disease>> diseasesList;
+
     @NonNull
-    public ArrayList<Disease> getAllDiseases() {
-        ArrayList<Disease> diseases = new ArrayList<>();
+    public void getAllDiseases() {
 
-        ArrayList<Map<String, Object>> diseasesMap = repository.getAllDiseases();
-
-        for (Map<String, Object> diseaseMap: diseasesMap) {
-            diseases.add(converter.convertFromMapToEntity(diseaseMap));
-        }
-        return diseases;
+        diseasesList = repository.getAllDiseases();
     }
 
     public Disease getDisease(String UID) {
