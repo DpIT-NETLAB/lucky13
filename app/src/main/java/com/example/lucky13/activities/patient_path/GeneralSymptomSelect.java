@@ -12,7 +12,11 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.models.Question;
+import com.example.lucky13.models.Response;
 import com.example.lucky13.models.Symptom;
+import com.example.lucky13.service.QuestionService;
+import com.example.lucky13.service.ResponseService;
 import com.example.lucky13.service.SymptomService;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -22,12 +26,18 @@ import java.util.ArrayList;
 public class GeneralSymptomSelect extends AppCompatActivity {
 
     SymptomService symptomService = new SymptomService();
+    QuestionService questionService = new QuestionService();
+    ResponseService responseService = new ResponseService();
 
     AppCompatButton mDoneButton;
     ChipGroup mChipGroup;
 
     ArrayList<Symptom> symptoms = new ArrayList<>();
+    ArrayList<Question> questions = new ArrayList<>();
+    ArrayList<Response> responses = new ArrayList<>();
     ArrayList<Boolean> checkedChip = new ArrayList<>();
+
+    Integer servicesFinished = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +48,17 @@ public class GeneralSymptomSelect extends AppCompatActivity {
         symptomService.getAllSymptoms();
         symptomService.symptomList.observe(this, symptomList -> {
             symptoms.addAll(symptomList);
+            servicesFinished++;
+
             addSymptomChips(this.symptoms);
+        });
+        questionService.questionList.observe(this, questionList -> {
+            questions.addAll(questionList);
+            servicesFinished++;
+        });
+        responseService.responseList.observe(this, responseList -> {
+            responses.addAll(responseList);
+            servicesFinished++;
         });
 
         mChipGroup = findViewById(R.id.generalSymptomSelectChipGroup);
@@ -48,13 +68,19 @@ public class GeneralSymptomSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ArrayList<String> toSendSymptoms = getAllCheckedSymptoms(symptoms, checkedChip);
+                if (servicesFinished.equals(3)) {
 
-                Intent intent = new Intent(GeneralSymptomSelect.this, PatientQuestionActivity.class);
-                intent.putStringArrayListExtra("symptoms", toSendSymptoms);
-                intent.putExtra("pageOrder", "1");
+                    ArrayList<String> toSendSymptoms = getAllCheckedSymptoms(symptoms, checkedChip);
 
-                startActivity(intent);
+                    Intent intent = new Intent(GeneralSymptomSelect.this, PatientQuestionActivity.class);
+
+                    intent.putExtra("symptoms", symptoms);
+                    intent.putExtra("questions", questions);
+                    intent.putExtra("responses", responses);
+                    intent.putStringArrayListExtra("checkedSymptoms", toSendSymptoms);
+
+                    startActivity(intent);
+                }
             }
         });
     }
