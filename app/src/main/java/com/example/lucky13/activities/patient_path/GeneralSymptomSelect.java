@@ -52,10 +52,12 @@ public class GeneralSymptomSelect extends AppCompatActivity {
 
             addSymptomChips(this.symptoms);
         });
+        questionService.getAllQuestions();
         questionService.questionList.observe(this, questionList -> {
             questions.addAll(questionList);
             servicesFinished++;
         });
+        responseService.getAllResponses();
         responseService.responseList.observe(this, responseList -> {
             responses.addAll(responseList);
             servicesFinished++;
