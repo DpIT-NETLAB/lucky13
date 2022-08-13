@@ -23,4 +23,11 @@ public class Utils {
 
         return -1;
     }
+
+    public static double calculateBMIValue(double weight, double height) {
+
+        double heightSquared = height * height;
+
+        return (double)(weight / heightSquared);
+    }
 }
