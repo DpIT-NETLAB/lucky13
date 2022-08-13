@@ -51,4 +51,7 @@
     <string name="general_select_title">Select your symptoms</string>
     <string name="done">Done</string>
     <string name="thirdQuestionResponse">I don\'t know</string>
+    <string name="yourBMI">Your BMI:</string>
+    <string name="emptyBMIValue">-</string>
+    <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
 </resources>
