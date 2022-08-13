@@ -17,6 +17,9 @@
             android:name=".activities.patient_path.BMICalculatorActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.patient_path.DiseasesShowActivity"
+            android:exported="false"/>
+        <activity
             android:name=".activities.patient_path.PatientQuestionActivity"
             android:exported="false" />
         <activity
