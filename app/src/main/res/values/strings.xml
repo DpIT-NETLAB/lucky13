@@ -54,4 +54,5 @@
     <string name="verification">Verification</string>
     <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
     <string name="verify_phone_number">Verify phone number</string>
+    <string name="homeActivity">Home</string>
 </resources>
