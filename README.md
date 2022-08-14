@@ -1,7 +1,7 @@
 
 # TopDoc - Android App
 
-![Image](readme/topdoc_github_profile_pic.jpg)
+![Image](readme/topdoc_readme_icon.jpg)
 [ ![Get it on Google Play](https://bit.ly/3w7eXpR "Google Play")](https://play.google.com/store/apps/details?id=com.topdoc)  (COMING SOON)
 
 
