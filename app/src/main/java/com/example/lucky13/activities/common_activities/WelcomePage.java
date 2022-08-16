@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
-import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
-import com.example.lucky13.models.Disease;
+import com.example.lucky13.activities.doctor_path.ApptEventFormActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -37,7 +35,9 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, SignInActivity.class));
+                Intent intent = new Intent(WelcomePage.this, ApptEventFormActivity.class);
+                intent.putExtra("patientEmail", "tudoreduard2004@gmail.com");
+                startActivity(intent);
             }
         });
     }
