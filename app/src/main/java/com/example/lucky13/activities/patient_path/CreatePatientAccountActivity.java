@@ -65,6 +65,9 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
         String incomingFirstName = incomingIntent.getStringExtra("firstName");
         String incomingLastName = incomingIntent.getStringExtra("lastName");
         String incomingGender = incomingIntent.getStringExtra("gender");
+        double incomingHeight = incomingIntent.getDoubleExtra("height", 0);
+        double incomingWeight = incomingIntent.getDoubleExtra("weight", 0);
+        String incomingBMIString = incomingIntent.getStringExtra("BMI");
 
         fAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -135,7 +138,7 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
 
                                     String uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                                     patientService.addPatient(uid, incomingFirstName, incomingLastName, new Triple(0, 0, 0),
-                                            email, 0, 0, incomingGender, new ArrayList<String>());
+                                            email, incomingHeight, incomingWeight, incomingBMIString, incomingGender, new ArrayList<String>());
 
                                     Toast.makeText(CreatePatientAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
 
@@ -171,12 +174,15 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
         }
     }
 
-    private void handleSignInResult(GoogleSignInResult result) {
+    private void handleSignInResult(@NonNull GoogleSignInResult result) {
 
         Intent incomingIntent = getIntent();
         String incomingFirstName = incomingIntent.getStringExtra("firstName");
         String incomingLastName = incomingIntent.getStringExtra("lastName");
         String incomingGender = incomingIntent.getStringExtra("gender");
+        double incomingHeight = incomingIntent.getDoubleExtra("height", 0);
+        double incomingWeight = incomingIntent.getDoubleExtra("weight", 0);
+        String incomingBMIString = incomingIntent.getStringExtra("BMI");
 
         Log.d(TAG, "handleSignInResult" + result.isSuccess());
         if (result.isSuccess()) {
@@ -199,7 +205,7 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
 
                                 String uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                                 patientService.addPatient(uid, incomingFirstName, incomingLastName, new Triple(0, 0, 0),
-                                        email, 0, 0, incomingGender, new ArrayList<String>());
+                                        email, incomingHeight, incomingHeight, incomingBMIString, incomingGender, new ArrayList<String>());
                             } else {
                                 Toast.makeText(CreatePatientAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();
                             }

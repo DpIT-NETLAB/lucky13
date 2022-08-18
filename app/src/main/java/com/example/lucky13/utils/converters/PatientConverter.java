@@ -12,7 +12,8 @@ import kotlin.Triple;
 
 public class PatientConverter {
 
-    public static Map<String, Object> convertFromEntityToMap(Patient patient) {
+    @NonNull
+    public static Map<String, Object> convertFromEntityToMap(@NonNull Patient patient) {
 
         Map<String, Object> patientMap = new HashMap<>();
 
@@ -21,6 +22,9 @@ public class PatientConverter {
         patientMap.put("firstName", patient.getFirstName());
         patientMap.put("lastName", patient.getLastName());
         patientMap.put("gender", patient.getGender());
+        patientMap.put("height", patient.getHeight());
+        patientMap.put("weight", patient.getWeight());
+        patientMap.put("BMI", patient.getBMI());
 
         return patientMap;
     }
@@ -31,7 +35,10 @@ public class PatientConverter {
                 email = "",
                 firstName = "",
                 lastName = "",
-                gender = "";
+                gender = "",
+                BMI = "";
+        double height = 0,
+                weight = 0;
 
         for (Map.Entry<String, Object> entry: patientMap.entrySet()) {
 
@@ -45,6 +52,12 @@ public class PatientConverter {
                 lastName = (String) entry.getValue();
             else if (entry.getKey().equals("gender"))
                 gender = (String) entry.getValue();
+            else if (entry.getKey().equals("height"))
+                height = (double) entry.getValue();
+            else if (entry.getKey().equals("weight"))
+                weight = (double) entry.getValue();
+            else if (entry.getKey().equals("BMI"))
+                BMI = (String) entry.getValue();
         }
 
         return new Patient(
@@ -53,8 +66,9 @@ public class PatientConverter {
                 lastName,
                 new Triple(0, 0, 0),
                 email,
-                0,
-                0,
+                height,
+                weight,
+                BMI,
                 gender,
                 new ArrayList<>()
         );

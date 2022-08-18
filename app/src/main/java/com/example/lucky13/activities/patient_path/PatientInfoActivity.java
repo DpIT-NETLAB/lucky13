@@ -24,6 +24,9 @@ public class PatientInfoActivity extends AppCompatActivity {
 
         Intent incomingIntent = getIntent();
         String incomingGenderString = incomingIntent.getStringExtra("gender");
+        double incomingHeightDouble = incomingIntent.getDoubleExtra("height", 0);
+        double incomingWeightDouble = incomingIntent.getDoubleExtra("weight", 0);
+        String incomingBMIString = incomingIntent.getStringExtra("BMI");
 
         mFirstName = findViewById(R.id.patientinfoFirstNameTextEdit);
         mLastName = findViewById(R.id.patientinfoLastNameTextEdit);
@@ -51,6 +54,9 @@ public class PatientInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(PatientInfoActivity.this, CreatePatientAccountActivity.class);
 
                 intent.putExtra("gender", incomingGenderString);
+                intent.putExtra("height", incomingHeightDouble);
+                intent.putExtra("weight", incomingWeightDouble);
+                intent.putExtra("BMI", incomingBMIString);
                 intent.putExtra("firstName", firstName);
                 intent.putExtra("lastName", lastName);
 

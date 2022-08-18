@@ -9,10 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
@@ -36,7 +34,10 @@ public class BMICalculatorActivity extends AppCompatActivity {
         bmiText = findViewById(R.id.bmi_calculator_bmiTextView);
         correctBMIButton = findViewById(R.id.bmi_calculator_correctBMIButton);
 
-        DecimalFormat df =new DecimalFormat("#.#");
+        Intent incomingIntent = getIntent();
+        String gender = incomingIntent.getStringExtra("gender");
+
+        DecimalFormat df = new DecimalFormat("#.#");
 
         weightRulerPicker.selectValue(60);
         heightRulerPicker.selectValue(150);
@@ -78,8 +79,12 @@ public class BMICalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: trebuie sa mai modificam sa integram in path-ul pacientului (adica si extra urile)
-                Intent intent = new Intent(BMICalculatorActivity.this, WelcomePage.class);
+                Intent intent = new Intent(BMICalculatorActivity.this, PatientInfoActivity.class);
+                intent.putExtra("gender", gender);
+                intent.putExtra("height", height[0]);
+                intent.putExtra("weight", weight[0]);
+                intent.putExtra("BMI", df.format(calculateBMIValue(weight[0], height[0])));
+
                 startActivity(intent);
             }
         });

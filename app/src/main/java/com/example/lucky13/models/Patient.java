@@ -16,6 +16,7 @@ public class Patient {
 
     private double height;
     private double weight;
+    private String BMI;
     private String gender;
 
     private ArrayList<String> medicalRecord;
@@ -25,7 +26,7 @@ public class Patient {
     }
 
     public Patient(String UID, String firstName, String lastName, Triple dateOfBirth, String email,
-                   double height, double weight, String gender,
+                   double height, double weight, String bmi, String gender,
                    ArrayList<String> medicalRecord) {
 
         this.UID = UID;
@@ -35,6 +36,7 @@ public class Patient {
         this.email = email;
         this.height = height;
         this.weight = weight;
+        this.BMI = bmi;
         this.gender = gender;
         this.medicalRecord = medicalRecord;
     }
@@ -86,6 +88,13 @@ public class Patient {
     }
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public String getBMI() {
+        return BMI;
+    }
+    public void setBMI(String BMI) {
+        this.BMI = BMI;
     }
 
     public String getGender() {

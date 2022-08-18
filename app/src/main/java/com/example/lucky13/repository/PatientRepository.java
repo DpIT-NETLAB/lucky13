@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.lucky13.models.Patient;
-import com.example.lucky13.models.Symptom;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,19 +55,20 @@ public class PatientRepository {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        Patient Patient = new Patient(
+                        Patient patient = new Patient(
                                 (String) document.get("id"),
                                 (String) document.get("firstName"),
                                 (String) document.get("lastName"),
                                 new Triple(0, 0, 0),
                                 (String) document.get("email"),
-                                0,
-                                0,
+                                (double) document.get("height"),
+                                (double) document.get("weight"),
+                                (String) document.get("BMI"),
                                 (String) document.get("gender"),
                                 new ArrayList<>()
                         );
 
-                        tempPatientList.add(Patient);
+                        tempPatientList.add(patient);
                     }
 
                     patientList.setValue(tempPatientList);

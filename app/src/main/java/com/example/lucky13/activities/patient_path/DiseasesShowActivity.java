@@ -68,7 +68,7 @@ public class DiseasesShowActivity extends AppCompatActivity {
         });
     }
 
-    private void CheckDisease(ArrayList<Disease> list, ArrayList<String> symptoms) {
+    private void CheckDisease(@NonNull ArrayList<Disease> list, ArrayList<String> symptoms) {
         ArrayList<Disease> mostRelevant = new ArrayList<>();
         int[] counters = new int[list.size()];
         int i=0, max=0;

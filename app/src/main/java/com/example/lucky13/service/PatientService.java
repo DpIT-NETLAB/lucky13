@@ -30,7 +30,7 @@ public class PatientService {
     }
 
     public void addPatient(String uid, String firstName, String lastName, Triple<Integer, Integer, Integer> dateOfBirth,
-                           String email, double height, double weight, String gender, ArrayList<String> medicalRecord) {
+                           String email, double height, double weight, String bmi, String gender, ArrayList<String> medicalRecord) {
 
         Patient patient = new Patient(
                 uid,
@@ -40,6 +40,7 @@ public class PatientService {
                 email,
                 height,
                 weight,
+                bmi,
                 gender,
                 medicalRecord
         );
