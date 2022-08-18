@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.lucky13.R;
 import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
 import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
+import com.example.lucky13.models.Disease;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -36,8 +37,7 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: schimba inapoi in log in normal
-                startActivity(new Intent(WelcomePage.this, GeneralSymptomSelect.class));
+                startActivity(new Intent(WelcomePage.this, SignInActivity.class));
             }
         });
     }
