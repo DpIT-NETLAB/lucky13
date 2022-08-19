@@ -1,4 +1,4 @@
-package com.example.lucky13.activities.patient_path;
+package com.example.lucky13.activities;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.WelcomePage;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
