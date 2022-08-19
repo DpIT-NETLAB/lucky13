@@ -55,13 +55,13 @@ public class DoctorRepository {
 
                         Doctor doctor = new Doctor(
                                 (String) document.get("id"),
-                                "name",
+                                (String) document.get("name"),
                                 (String) document.get("email"),
                                 (String) document.get("passcode"),
-                                "clinicId",
-                                "medicalField",
+                                (String) document.get("clinicId"),
+                                (String) document.get("medicalField"),
                                 new ArrayList<String>(),
-                                "0785",
+                                (String) document.get("phone"),
                                 (double) document.get("review"),
                                 (String) document.get("gender")
                         );
