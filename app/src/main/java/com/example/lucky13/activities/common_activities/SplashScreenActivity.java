@@ -15,8 +15,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        // TODO: TOP DOC LOGO ANIMATION - ar fi frumos sa avem asa ceva :
+        // TODO: TOP DOC LOGO ANIMATION - ar fi frumos sa avem asa ceva:
         // https://developer.android.com/guide/topics/ui/splash-screen ca si asta de la gmail
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -25,5 +26,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                 finish();
             }
         }, 1500);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        startActivity(new Intent(SplashScreenActivity.this, WelcomePage.class));
     }
 }
