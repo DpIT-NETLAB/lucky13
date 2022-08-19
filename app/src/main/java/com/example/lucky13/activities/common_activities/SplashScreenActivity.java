@@ -2,12 +2,14 @@ package com.example.lucky13.activities.common_activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.lucky13.R;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -25,13 +27,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashScreenActivity.this, WelcomePage.class));
                 finish();
             }
-        }, 1500);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        startActivity(new Intent(SplashScreenActivity.this, WelcomePage.class));
+        }, 1750);
     }
 }
