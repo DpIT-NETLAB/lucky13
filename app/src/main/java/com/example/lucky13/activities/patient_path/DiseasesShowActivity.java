@@ -17,9 +17,14 @@ import com.example.lucky13.models.Disease;
 import com.example.lucky13.service.DiseaseService;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class DiseasesShowActivity extends AppCompatActivity {
@@ -32,6 +37,7 @@ public class DiseasesShowActivity extends AppCompatActivity {
     private DiseaseAdapter adapter;
 
     private ArrayList<Disease> diseaseArrayList;
+    HashMap<Disease, Integer> diseaseMap;
 
 
     Button mFindDoctorsButton;
@@ -43,22 +49,27 @@ public class DiseasesShowActivity extends AppCompatActivity {
         mFindDoctorsButton = findViewById(R.id.findDoctorsButton);
 
         Intent incomingIntent = getIntent();
-        ArrayList<String> symptoms = incomingIntent.getStringArrayListExtra("symptoms");
+        ArrayList<String> diseaseUIDs = incomingIntent.getStringArrayListExtra("diseaseUIDs");
+        ArrayList<Integer> diseaseFrequency = incomingIntent.getIntegerArrayListExtra("diseaseUIDsFrequency");
+
+
 
         InitializeCard();
 
-        CreateDataForCards(symptoms);
+        ConvertToHashmap(diseaseUIDs, diseaseFrequency);
+
+        //CreateDataForCards(diseaseMap);
 
 
         mFindDoctorsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "&&&&&&&&&&&&&&&&&&&&&&&&&&");
-                Intent intent = new Intent(DiseasesShowActivity.this, DoctorsShowActivity.class);
-                intent.putExtra("field", GetField(diseaseArrayList));
+                Intent intent = new Intent(DiseasesShowActivity.this, FindDoctorsNearby.class);
+                intent.putExtra("number", "1");
+                intent.putExtra("field", GetMostCommonField(diseaseArrayList, diseaseFrequency));
                 startActivity(intent);
             }
-            private String GetField(ArrayList<Disease> list) {
+            private String GetMostCommonField(ArrayList<Disease> list, ArrayList<Integer> diseaseFrequency) {
                 String[] medicalFields = new String[list.size()];
                 int i=0;
                 for (Disease disease : list) {
@@ -70,10 +81,10 @@ public class DiseasesShowActivity extends AppCompatActivity {
 
                 for (i=0; i<medicalFields.length; i++) {
                     if (fieldOccurrences.containsKey(medicalFields[i])) {
-                        fieldOccurrences.put(medicalFields[i], fieldOccurrences.get(medicalFields[i]) + 1);
+                        fieldOccurrences.put(medicalFields[i], fieldOccurrences.get(medicalFields[i]) + diseaseFrequency.get(i));
                     }
                     else {
-                        fieldOccurrences.put(medicalFields[i], 1);
+                        fieldOccurrences.put(medicalFields[i], diseaseFrequency.get(i));
                     }
                 }
 
@@ -88,8 +99,50 @@ public class DiseasesShowActivity extends AppCompatActivity {
 
                     }
                 }
+                Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + key);
                 return key;
             }
+
+        });
+    }
+
+    private HashMap<Disease, Integer> SortDiseases(HashMap<Disease, Integer> diseaseMap) {
+
+        List<Map.Entry<Disease, Integer>> list = new LinkedList<Map.Entry<Disease, Integer>>(diseaseMap.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<Disease, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Disease, Integer> freq1, Map.Entry<Disease, Integer> freq2) {
+                return (freq1.getValue()).compareTo(freq2.getValue());
+            }
+        });
+        HashMap<Disease, Integer> temp = new LinkedHashMap<Disease, Integer>();
+        for (Map.Entry<Disease, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
+    }
+
+    private void ConvertToHashmap(ArrayList<String> diseaseUIDs, ArrayList<Integer> diseaseFrequency) {
+        diseaseMap = new HashMap<>();
+
+        //ArrayList<Disease> diseaseList = new ArrayList<>();
+        diseaseService.getAllDiseases();
+        diseaseService.diseasesList.observe(this, diseaseList -> {
+            diseaseArrayList.addAll(diseaseList);
+            for (int i=0; i<diseaseUIDs.size(); i++) {
+                for (Disease disease : diseaseArrayList) {
+                    if (Objects.equals(disease.getUID(), diseaseUIDs.get(i))) {
+                        Log.d(TAG, " @@@@@@@@@@@@@@@@@@@@@@@@ " + disease.getName());
+                        diseaseMap.put(disease, diseaseFrequency.get(i));
+                    }
+                }
+            }
+            diseaseArrayList.clear();
+            diseaseArrayList.addAll(diseaseMap.keySet());
+            adapter.notifyDataSetChanged();
+            String field = GetMostCommonField(diseaseArrayList, diseaseFrequency);
+            Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + field);
 
         });
     }
@@ -104,15 +157,13 @@ public class DiseasesShowActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void CreateDataForCards(ArrayList<String> symptoms) {
-        diseaseService.getAllDiseases();
-        diseaseService.diseasesList.observe(this, diseaseList -> {
-            diseaseArrayList.addAll(diseaseList);
-            CheckDisease(diseaseArrayList, symptoms);
-            adapter.notifyDataSetChanged();
-            String field = GetMostCommonField(diseaseArrayList);
-            Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + field);
-        });
+    private void CreateDataForCards(HashMap<Disease, Integer> diseaseMap) {
+        //HashMap<Disease, Integer> sorted = SortDiseases(diseaseMap);
+        diseaseArrayList = new ArrayList<>(diseaseMap.keySet());
+        Log.d(TAG, "diseaseMap.");
+        adapter.notifyDataSetChanged();
+//        String field = GetMostCommonField(diseaseArrayList);
+//        Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + field);
     }
 
     private void CheckDisease(ArrayList<Disease> list, ArrayList<String> symptoms) {
@@ -142,20 +193,15 @@ public class DiseasesShowActivity extends AppCompatActivity {
             }
             Log.d(TAG, "COUNTERS " + counters[i]);
         }
-        for (Disease disease : mostRelevant) {
-            Log.d(TAG, "#####################################################" + disease.getName());
-        }
         list.clear();
         list.addAll(mostRelevant);
     }
 
-    private String GetMostCommonField(ArrayList<Disease> list) {
+    private String GetMostCommonField(ArrayList<Disease> list, ArrayList<Integer> diseaseFrequency) {
         String[] medicalFields = new String[list.size()];
-        Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111111111111");
         int i=0;
         for (Disease disease : list) {
             medicalFields[i] = disease.getMedicalField();
-            Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + medicalFields[i]);
             i++;
         }
 
@@ -163,10 +209,10 @@ public class DiseasesShowActivity extends AppCompatActivity {
 
         for (i=0; i<medicalFields.length; i++) {
             if (fieldOccurrences.containsKey(medicalFields[i])) {
-                fieldOccurrences.put(medicalFields[i], fieldOccurrences.get(medicalFields[i]) + 1);
+                fieldOccurrences.put(medicalFields[i], fieldOccurrences.get(medicalFields[i]) + diseaseFrequency.get(i));
             }
             else {
-                fieldOccurrences.put(medicalFields[i], 1);
+                fieldOccurrences.put(medicalFields[i], diseaseFrequency.get(i));
             }
         }
 

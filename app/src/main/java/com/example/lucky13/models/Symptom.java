@@ -2,7 +2,7 @@ package com.example.lucky13.models;
 
 import java.util.ArrayList;
 
-public class Symptom {
+public class Symptom implements java.io.Serializable {
 
     private String id;
     private String name;

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TopDoc</string>
     <string name="welcome_to_topdoc">Welcome to TopDoc!</string>
-    <string name="welcome_topdoc_promotion">Find the right doctor for your needs. Quick. Easy. Efficient.</string>
+    <string name="welcome_topdoc_promotion">Find the right doctor for your needs.\nQuick. Easy. Efficient.</string>
     <string name="welcome_get_started">Get started</string>
     <string name="welcome_log_in">Log in</string>
     <string name="welcome_privacy_policy_terms_of_use"><a href="https://www.google.com/">Privacy policy</a> &amp; <a href="https://www.google.com/">Terms of Use</a></string>
@@ -51,4 +51,9 @@
     <string name="general_select_title">Select your symptoms</string>
     <string name="done">Done</string>
     <string name="thirdQuestionResponse">I don\'t know</string>
+    <string name="take_quiz">Take quiz</string>
+    <string name="find_doctors_nearby">Find doctors nearby</string>
+    <string name="book_appointment_button">Book appointment</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_key">AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc</string>
 </resources>
