@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -48,31 +50,41 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             monthYearTextView.setText(getMonthFromLocalDate(selectedDate));
-            ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+            ArrayList<TextView> daysInMonth = daysInMonthArray(selectedDate);
 
             CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
+
+            calendarRecyclerView.setLayoutManager(layoutManager);
             calendarRecyclerView.setAdapter(calendarAdapter);
         }
     }
 
     @NonNull
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private ArrayList<String> daysInMonthArray(LocalDate date) {
+    private ArrayList<TextView> daysInMonthArray(LocalDate date) {
 
-        ArrayList<String> daysInMonthArray = new ArrayList<>();
+        ArrayList<TextView> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);
 
         int daysInMonth = yearMonth.lengthOfMonth();
         LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
-        int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
+        int dayOfWeek = firstOfMonth.getDayOfWeek().getValue() - 1;
 
-        for (int i = 0; i <= 42; i++) {
+        for (int i = 1; i <= 42; i++) {
 
-            if (i <= dayOfWeek || i > daysInMonth + dayOfWeek)
-                daysInMonthArray.add("");
-            else
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+            TextView textView = new TextView(this);
+            Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/montserrat_basic.ttf");
+            textView.setTypeface(typeface);
+
+            if (i <= dayOfWeek || i > daysInMonth + dayOfWeek) {
+                textView.setText("");
+                daysInMonthArray.add(textView);
+            }
+            else {
+                textView.setText(String.valueOf(i - dayOfWeek));
+                daysInMonthArray.add(textView);
+            }
         }
 
         return daysInMonthArray;
@@ -102,8 +114,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     @Override
     public void onItemClick(int position, @NonNull String dayText) {
 
-        if (dayText.equals("")) {
-            Toast.makeText(this, dayText, Toast.LENGTH_SHORT).show();
-        }
+        
     }
 }
