@@ -8,9 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
-import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
-import com.example.lucky13.models.Disease;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -42,3 +39,6 @@ public class WelcomePage extends AppCompatActivity {
         });
     }
 }
+//todo: primele timpuri disponibile
+//todo: medicul sa isi selecteze partea libera
+//todo: sa isi selecteze partea ocupata (plus recurring)
