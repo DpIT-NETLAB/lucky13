@@ -1,27 +1,20 @@
 package com.example.lucky13.activities.patient_path;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 
 import com.example.lucky13.R;
 
-import com.example.lucky13.adapter.DiseaseAdapter;
+import com.example.lucky13.adapters.DiseaseAdapter;
 import com.example.lucky13.models.Disease;
 import com.example.lucky13.service.DiseaseService;
-import com.google.android.gms.common.util.ArrayUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DiseasesShowActivity extends AppCompatActivity {

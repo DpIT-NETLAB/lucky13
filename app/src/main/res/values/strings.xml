@@ -57,4 +57,14 @@
     <string name="titleText">Title</string>
     <string name="descriptionText">Description</string>
     <string name="addApptText">Add Appt.</string>
+
+<!--    Days' of the week abbreviations-->
+    <string name="mondayText">Mon</string>
+    <string name="tuesdayText">Tue</string>
+    <string name="wednesdayText">Wed</string>
+    <string name="thursdayText">Thu</string>
+    <string name="fridayText">Fri</string>
+    <string name="saturdayText">Sat</string>
+    <string name="sundayText">Sun</string>
+<!--    -->
 </resources>

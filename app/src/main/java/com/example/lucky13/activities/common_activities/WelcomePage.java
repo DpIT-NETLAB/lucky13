@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.doctor_path.ApptEventFormActivity;
+import com.example.lucky13.activities.doctor_path.CalendarActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(WelcomePage.this, ApptEventFormActivity.class);
+                Intent intent = new Intent(WelcomePage.this, CalendarActivity.class);
                 intent.putExtra("patientEmail", "tudoreduard2004@gmail.com");
                 startActivity(intent);
             }
