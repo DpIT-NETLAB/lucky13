@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.doctor_path.ApptEventFormActivity">
+    tools:context=".activities.doctor_path.ApptEventFormActivity" >
 
 
     <EditText
         android:id="@+id/apptEventTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="150dp"
 
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/titleText"
         android:fontFamily="@font/montserrat_basic"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -33,8 +33,8 @@
         android:fontFamily="@font/montserrat_basic"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/apptEventTitleText"
 
         app:layout_constraintVertical_bias="0.02" />
@@ -43,20 +43,115 @@
         android:id="@+id/apptEventAddEventButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
 
         android:background="@drawable/blue_round_button"
-        android:text="@string/addApptText"
         android:fontFamily="@font/montserrat_basic"
-        android:textAllCaps="false"
         android:gravity="center"
+        android:text="@string/addApptText"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/apptEventRightGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/apptEventRadioBttnEveryWeek" />
+
+    <TimePicker
+        android:id="@+id/apptEventStartTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+
+        android:scaleY="0.70"
+        android:scaleX="0.70"
+
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/apptEventDescriptionText" />
+
+    <TimePicker
+        android:id="@+id/apptEventEndTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+
+        android:timePickerMode="spinner"
+
+        android:scaleY="0.70"
+        android:scaleX="0.70"
+
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/apptEventDescriptionText" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/apptEventLeftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintGuide_begin="100dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/apptEventRightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintGuide_end="100dp" />
+
+    <RadioButton
+        android:id="@+id/apptEventRadioBttnOneDay"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apptFormJustOneDay"
+
+        android:layout_marginTop="120dp"
+
+        android:onClick="onClickRadioBttn"
+
+        app:layout_constraintBottom_toBottomOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintEnd_toEndOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintStart_toStartOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintTop_toTopOf="@+id/apptEventEndTimePicker"
+
+        tools:ignore="UsingOnClickInXml" />
+    <RadioButton
+        android:id="@+id/apptEventRadioBttnEveryDay"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apptFormEveryDay"
+
+        android:layout_marginTop="210dp"
+
+        android:onClick="onClickRadioBttn"
+
+        app:layout_constraintBottom_toBottomOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintEnd_toEndOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintStart_toStartOf="@+id/apptEventEndTimePicker"
+        app:layout_constraintTop_toTopOf="@+id/apptEventEndTimePicker"
+
+        tools:ignore="UsingOnClickInXml" />
+    <RadioButton
+        android:id="@+id/apptEventRadioBttnEveryWeek"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+
+        android:text="@string/apptEventFormEveryWeek"
+
+        android:onClick="onClickRadioBttn"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apptEventDescriptionText"
+        app:layout_constraintTop_toBottomOf="@+id/apptEventStartTimePicker"
 
-        app:layout_constraintVertical_bias="0.05" />
+        tools:ignore="UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

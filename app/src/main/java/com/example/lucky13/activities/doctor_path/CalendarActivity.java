@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,10 @@ import android.widget.Toast;
 import com.example.lucky13.R;
 import com.example.lucky13.adapters.CalendarAdapter;
 
+import org.w3c.dom.Text;
+
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     private TextView monthYearTextView;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
+    private ArrayList<TextView> daysInMonth;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -50,7 +53,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             monthYearTextView.setText(getMonthFromLocalDate(selectedDate));
-            ArrayList<TextView> daysInMonth = daysInMonthArray(selectedDate);
+            daysInMonth = daysInMonthArray(selectedDate);
 
             CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
@@ -74,8 +77,8 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         for (int i = 1; i <= 42; i++) {
 
             TextView textView = new TextView(this);
-            Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/montserrat_basic.ttf");
-            textView.setTypeface(typeface);
+//            Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/montserrat_basic.ttf");
+//            textView.setTypeface(typeface);
 
             if (i <= dayOfWeek || i > daysInMonth + dayOfWeek) {
                 textView.setText("");
@@ -111,9 +114,31 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         setMonthView();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onItemClick(int position, @NonNull String dayText) {
 
-        
+        Intent intent = new Intent(CalendarActivity.this, ApptEventFormActivity.class);
+
+        Month monthObject = selectedDate.getMonth();
+        Integer month = monthObject.getValue();
+        Integer day = Integer.valueOf(daysInMonth.get(position).getText().toString());
+
+        intent.putExtra("day", day);
+        intent.putExtra("month", month);
+
+        startActivity(intent);
+
+//        TODO: o sa incerc sa fac la un moment dat sa poti da long click pe elementele din rv
+//        ArrayList<TextView> textViews = daysInMonthArray(selectedDate);
+//        TextView textView = textViews.get(position);
+//        textView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//
+//                Toast.makeText(CalendarActivity.this, "OOKKKKK DECI MERGEEEE", Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//        });
     }
 }

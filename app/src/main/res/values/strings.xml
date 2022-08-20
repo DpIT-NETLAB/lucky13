@@ -66,5 +66,8 @@
     <string name="fridayText">Fri</string>
     <string name="saturdayText">Sat</string>
     <string name="sundayText">Sun</string>
-<!--    -->
+    <string name="apptFormJustOneDay">Just one day</string>
+    <string name="apptFormEveryDay">Every day</string>
+    <string name="apptEventFormEveryWeek">Every week</string>
+    <!--    -->
 </resources>
