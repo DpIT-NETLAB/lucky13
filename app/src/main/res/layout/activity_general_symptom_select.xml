@@ -44,6 +44,7 @@
         android:layout_width="129dp"
         android:layout_height="48dp"
 
+        android:text="@string/symptom_next"
         android:background="@drawable/blue_gray_round_textedit"
         android:backgroundTint="#2196F3"
         android:fontFamily="@font/montserrat_regular"
@@ -54,8 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generalSymptomSelectChipGroup"
-        app:layout_constraintVertical_bias="0.45"
-
-        tools:text="@string/symptom_next" />
+        app:layout_constraintVertical_bias="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
