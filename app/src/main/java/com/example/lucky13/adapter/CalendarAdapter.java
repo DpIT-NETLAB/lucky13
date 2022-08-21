@@ -1,4 +1,4 @@
-package com.example.lucky13.adapters;
+package com.example.lucky13.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucky13.R;
 import com.example.lucky13.view_holders.CalendarViewHolder;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

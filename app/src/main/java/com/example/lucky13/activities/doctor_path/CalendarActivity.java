@@ -11,16 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.adapters.CalendarAdapter;
-
-import org.w3c.dom.Text;
+import com.example.lucky13.adapter.CalendarAdapter;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

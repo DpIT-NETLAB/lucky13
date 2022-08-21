@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucky13.R;
 
-import com.example.lucky13.adapters.DiseaseAdapter;
+import com.example.lucky13.adapter.DiseaseAdapter;
 import com.example.lucky13.models.Disease;
 import com.example.lucky13.service.DiseaseService;
 

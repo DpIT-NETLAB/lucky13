@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucky13.R;
-import com.example.lucky13.adapters.CalendarAdapter;
+import com.example.lucky13.adapter.CalendarAdapter;
 
 public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

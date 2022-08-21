@@ -1,4 +1,4 @@
-package com.example.lucky13.adapters;
+package com.example.lucky13.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
