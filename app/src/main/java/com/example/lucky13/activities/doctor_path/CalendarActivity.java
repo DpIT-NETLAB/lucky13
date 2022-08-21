@@ -20,6 +20,7 @@ import org.w3c.dom.Text;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -121,11 +122,14 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         Intent intent = new Intent(CalendarActivity.this, ApptEventFormActivity.class);
 
         Month monthObject = selectedDate.getMonth();
+        int yearObject = selectedDate.getYear();
         Integer month = monthObject.getValue();
         Integer day = Integer.valueOf(daysInMonth.get(position).getText().toString());
+        Integer year = yearObject;
 
         intent.putExtra("day", day);
         intent.putExtra("month", month);
+        intent.putExtra("year", year);
 
         startActivity(intent);
 

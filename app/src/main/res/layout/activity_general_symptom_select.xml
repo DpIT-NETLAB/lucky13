@@ -4,44 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".activities.patient_path.GeneralSymptomSelect">
+    android:background="@color/background_light_blue">
+
 
     <TextView
-        android:id="@+id/generalSymptomSelectText"
+        android:id="@+id/symptomSelectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-
-        android:text="@string/general_select_title"
-        android:textSize="20sp"
         android:fontFamily="@font/montserrat_bold"
-        android:textColor="@color/very_dark_grey"
-
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/symptom_select_text"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/generalSymptomSelectChipGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-
+        android:layout_width="373dp"
+        android:layout_height="151dp"
         android:layout_marginTop="60dp"
-
-        app:layout_constraintEnd_toEndOf="@+id/generalSymptomSelectText"
-        app:layout_constraintStart_toStartOf="@+id/generalSymptomSelectText"
-        app:layout_constraintTop_toBottomOf="@+id/generalSymptomSelectText" />
+        app:chipSpacingHorizontal="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symptomSelectText"
+        app:layout_constraintVertical_bias="0.104"
+        app:singleLine="false"
+        app:singleSelection="false">
+    </com.google.android.material.chip.ChipGroup>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/generalSymptomSelectButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
 
-        android:text="@string/done"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+
+        android:background="@drawable/blue_gray_round_textedit"
+        android:backgroundTint="#2196F3"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generalSymptomSelectChipGroup"
+        app:layout_constraintVertical_bias="0.45"
+
+        tools:text="@string/symptom_next" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

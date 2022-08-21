@@ -70,4 +70,7 @@
     <string name="apptFormEveryDay">Every day</string>
     <string name="apptEventFormEveryWeek">Every week</string>
     <!--    -->
+
+    <string name="symptom_select_text">Please select your symptoms:</string>
+    <string name="symptom_next">Next</string>
 </resources>

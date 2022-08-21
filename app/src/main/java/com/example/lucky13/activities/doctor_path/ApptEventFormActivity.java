@@ -15,8 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.lucky13.R;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,8 +47,9 @@ public class ApptEventFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_appt_event_form);
 
         Intent incomingIntent = getIntent();
-        Integer day = incomingIntent.getIntExtra("day", 0);
-        Integer month = incomingIntent.getIntExtra("month", 0);
+        Integer day = incomingIntent.getIntExtra("day", 1);
+        Integer month = incomingIntent.getIntExtra("month", 1);
+        Integer year = incomingIntent.getIntExtra("year", 2022);
 
         initialiseWidgets();
 
@@ -75,16 +79,10 @@ public class ApptEventFormActivity extends AppCompatActivity {
 
                 Calendar beginTime = Calendar.getInstance();
                 Calendar endTime = Calendar.getInstance();
-                beginTime.set(2022, month, day, startHour, startMinute);
-                endTime.set(2022, month, day, endHour, endMinute);
+                beginTime.set(actualYear(year, month), previousMonth(month), day, startHour, startMinute);
+                endTime.set(actualYear(year, month), previousMonth(month), day, endHour, endMinute);
 
                 startActivity(getIntentByEventDetails(title, description, beginTime, endTime, "La clinică"));
-                                                                                                      //TODO: clinic's actual location
-//                if (intent.resolveActivity(getPackageManager()) != null) {
-//                    startActivity(intent);
-//                } else {
-//                    Toast.makeText(ApptEventFormActivity.this, "No app can support this action", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
 
@@ -147,5 +145,21 @@ public class ApptEventFormActivity extends AppCompatActivity {
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location); // TODO: clinic's actual location
 
         return intent;
+    }
+
+    @NonNull
+    @Contract(pure = true)
+    private Integer previousMonth(Integer monthIndex) {
+
+        if (monthIndex == 1)
+            return 12;
+        return monthIndex - 1;
+    }
+
+    private Integer actualYear(Integer yearIndex, Integer monthIndex) {
+
+        if (monthIndex == 1)
+            return yearIndex - 1;
+        return yearIndex;
     }
 }
