@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_light_blue">#e8f4f8</color>
+    <color name="navbar">#10D2D4</color>
     <color name="light_blue">#36b2eb</color>
     <color name="very_dark_grey">#202A44</color>
     <color name="dark_grey">#444444</color>
@@ -15,4 +16,6 @@
     <color name="light_blue_gray">#9299ad</color>
     <color name="background_color_chip_state_list">#90BEDE</color>
     <color name="topic_social_pressed">#73C94F</color>
+    <color name="dark_mode">#09283C</color>
+    <color name="dark_mode_navbar">#0B384A</color>
 </resources>

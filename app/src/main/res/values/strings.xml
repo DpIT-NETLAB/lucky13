@@ -69,5 +69,6 @@
     <string name="chip_text8">stuffy nose</string>
     <string name="chip_text9">high temperature</string>
     <string name="chip_text10">reflux</string>
+    <string name="home_text">Home</string>
 
 </resources>
