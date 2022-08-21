@@ -57,4 +57,17 @@
     <string name="bmi_calculator_next">Next</string>
     <string name="height_text">Select your height: </string>
     <string name="weight_text">Select your weight: </string>
+    <string name="symptom_select_text">Please select your symptoms:</string>
+    <string name="symptom_next">Next</string>
+    <string name="chip_text1">nausea</string>
+    <string name="chip_text2">dizziness</string>
+    <string name="chip_text3">fever</string>
+    <string name="chip_text4">headache</string>
+    <string name="chip_text5">bicep pain</string>
+    <string name="chip_text6">fatigue</string>
+    <string name="chip_text7">ear pain</string>
+    <string name="chip_text8">stuffy nose</string>
+    <string name="chip_text9">high temperature</string>
+    <string name="chip_text10">reflux</string>
+
 </resources>
