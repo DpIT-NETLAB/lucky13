@@ -33,8 +33,7 @@ public class PatientChoicesActivity extends AppCompatActivity {
         mFindDoctorsNearbyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PatientChoicesActivity.this, FindDoctorsNearby.class);
-                intent.putExtra("number", "2");
+                Intent intent = new Intent(PatientChoicesActivity.this, ShowClinics.class);
                 startActivity(intent);
             }
         });

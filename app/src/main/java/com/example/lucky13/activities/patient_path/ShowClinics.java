@@ -20,37 +20,32 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucky13.R;
+import com.example.lucky13.adapter.ClinicAdapter;
 import com.example.lucky13.adapter.DoctorAdapter;
 import com.example.lucky13.models.Clinic;
-import com.example.lucky13.models.Doctor;
 import com.example.lucky13.service.ClinicService;
-import com.example.lucky13.service.DoctorService;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-public class FindDoctorsNearby extends AppCompatActivity implements LocationListener {
-    private static final String TAG = "DOCTORS LIST";
+public class ShowClinics extends AppCompatActivity implements LocationListener {
 
-    DoctorService doctorService = new DoctorService();
+    private static final String TAG = "CLINICS LIST";
+
     ClinicService clinicService = new ClinicService();
 
     private RecyclerView recyclerView;
-    private DoctorAdapter adapter;
+    private ClinicAdapter adapter;
 
-    private ArrayList<Doctor> doctorArrayList;
     private ArrayList<Clinic> clinicArrayList;
 
     String[] permissions_all = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
@@ -62,44 +57,21 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
 
     Location location;
 
-    String number;
-    String field;
-
-    Clinic clinic;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_show);
 
-        Intent incomingIntent = getIntent();
-        number = incomingIntent.getStringExtra("number");
-        Log.d(TAG, number);
-        if (Objects.equals(number, "1")) {
-            field = incomingIntent.getStringExtra("field");
-            Log.d(TAG, field);
-            GetLocation();
-            InitializeCard();
 
-        }
-        else {
-            String clinicUID = incomingIntent.getStringExtra("clinic");
-            clinicService.getAllClinics();
-            clinicService.clinicList.observe(this, clinicList -> {
-                for (Clinic clinic1 : clinicList) {
-                    if (Objects.equals(clinic1.getUID(), clinicUID)) {
-                        clinic = clinic1;
-                        Log.d(TAG, clinic.getName());
-                        GetLocation();
-                        InitializeCard();
-                    }
-                }
-            });
-        }
+        GetLocation();
+        InitializeCard();
+
+//        Intent intent = new Intent(ShowClinics.this, FindDoctorsNearby.class);
+//        intent.putExtra("number", "2");
+//
+//        startActivity(intent);
 
     }
-
-    //GET USER LOCATION
 
     private void GetLocation() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -141,7 +113,7 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
     private void GetFinalLocation() {
         try{
             if(isGpsProvider){
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000 * 60,10, (LocationListener) FindDoctorsNearby.this);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000 * 60,10, (LocationListener) ShowClinics.this);
                 if(locationManager!=null){
                     location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     if(location!=null){
@@ -150,7 +122,7 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
                 }
             }
             else if(isNetworkProvider){
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000 * 60,10, (LocationListener) FindDoctorsNearby.this);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000 * 60,10, (LocationListener) ShowClinics.this);
                 if(locationManager!=null){
                     location=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                     if(location!=null){
@@ -172,17 +144,13 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
             GetCurrentLocation();
         }
         else{
-            Log.d(TAG, "Location : "+loc.getLatitude()+" , "+loc.getLongitude());
-            if (!Objects.equals(number, "1")) {
-                CreateDataForCardsClinic();
-            }
-            else CreateDataForCards(loc.getLatitude(), loc.getLongitude(), field);
+            CreateClinicsList(loc.getLatitude(), loc.getLongitude());
         }
 
     }
 
     private void showAlert() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(FindDoctorsNearby.this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(ShowClinics.this);
 
         alert.setMessage("Enable Gps Services");
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -204,7 +172,7 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
 
     private boolean CheckPermission() {
         for (int i = 0; i < permissions_all.length; i++) {
-            int result = ContextCompat.checkSelfPermission(FindDoctorsNearby.this, permissions_all[i]);
+            int result = ContextCompat.checkSelfPermission(ShowClinics.this, permissions_all[i]);
             if(result== PackageManager.PERMISSION_GRANTED){
                 continue;
             }
@@ -216,7 +184,7 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
     }
 
     private void RequestPermission() {
-        ActivityCompat.requestPermissions(FindDoctorsNearby.this, permissions_all, PERMISSION_CODE);
+        ActivityCompat.requestPermissions(ShowClinics.this, permissions_all, PERMISSION_CODE);
     }
 
     @Override
@@ -237,64 +205,69 @@ public class FindDoctorsNearby extends AppCompatActivity implements LocationList
     }
 
 
-    //MAKE CARDS
-
     private void InitializeCard() {
         recyclerView = findViewById(R.id.doctors_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        doctorArrayList = new ArrayList<>();
+        clinicArrayList = new ArrayList<>();
 
-        adapter = new DoctorAdapter(this, doctorArrayList, location);
+        adapter = new ClinicAdapter(this, clinicArrayList);
         recyclerView.setAdapter(adapter);
     }
 
-    private void CreateDataForCardsClinic() {
-        doctorService.getAllDoctors();
-        doctorService.doctorList.observe(this, doctorList -> {
-            doctorArrayList.addAll(doctorList);
-            Log.d(TAG, clinic.getName());
-            ModifyList(doctorArrayList);
+    public void CreateClinicsList(double latitude, double longitude) {
+        clinicArrayList = new ArrayList<>();
+        clinicService.getAllClinics();
+        clinicService.clinicList.observe(this, clinicList -> {
+            clinicArrayList.addAll(clinicList);
+            ArrayList<Clinic> clinics = OrderClinics(clinicArrayList, latitude, longitude);
+            clinicArrayList.clear();
+            clinicArrayList.addAll(clinics);
+            Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + clinicArrayList.get(1));
             adapter.notifyDataSetChanged();
         });
     }
 
-    private void ModifyList(ArrayList<Doctor> doctorList) {
-        //HashMap<Doctor, Double> DoctorsDistance = new HashMap<>();
-        ArrayList<Doctor> doctorsClinic = new ArrayList<>();
-        Log.d(TAG, clinic.getName());
-        for (Doctor doctor : doctorList) {
-            if (clinic.getDoctorUIDs().contains(doctor.getUID())) {
-                doctorsClinic.add(doctor);
-            }
+    private ArrayList<Clinic> OrderClinics(ArrayList<Clinic> clinicArrayList, double latitude, double longitude) {
+        HashMap<Clinic, Double> clinicMap = new HashMap<>();
+        for (Clinic clinic : clinicArrayList) {
+            double distance = GetDistance(clinic.getLocation().getLatitude(), clinic.getLocation().getLongitude(),
+                    latitude, longitude);
+            Log.d(TAG, "DISTANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + distance + " " + clinic.getLocation().getLongitude());
+            clinicMap.put(clinic, distance);
         }
-        doctorList.clear();
-        doctorList.addAll(doctorsClinic);
-    }
+        List<Map.Entry<Clinic, Double>> list = new LinkedList<Map.Entry<Clinic, Double>>(clinicMap.entrySet());
 
-    private void CreateDataForCards(double latitude, double longitude, String field) {
-        doctorService.getAllDoctors();
-        location.setLongitude(longitude);
-        location.setLatitude(latitude);
-        doctorService.doctorList.observe(this, doctorList -> {
-            doctorArrayList.addAll(doctorList);
-            SortByField(doctorArrayList, field);
-            Log.d(TAG, field);
-            adapter.notifyDataSetChanged();
+        Collections.sort(list, new Comparator<Map.Entry<Clinic, Double>>() {
+            @Override
+            public int compare(Map.Entry<Clinic, Double> loc1, Map.Entry<Clinic, Double> loc2) {
+                return (loc1.getValue()).compareTo(loc2.getValue());
+            }
         });
+        ArrayList<Clinic> temp = new ArrayList<>();
+        for (Map.Entry<Clinic, Double> aa : list) {
+            temp.add(aa.getKey());
+        }
+        return temp;
     }
 
-    private void SortByField(ArrayList<Doctor> list, String field) {
-        ArrayList<Doctor> doctorsInField = new ArrayList<>();
-        Log.d(TAG, field);
-        for (Doctor doctor : list) {
-            if (field.equals(doctor.getMedicalField())) {
-                doctorsInField.add(doctor);
-            }
-        }
-        list.clear();
-        list.addAll(doctorsInField);
+
+    private double GetDistance(double latitude1, double longitude1, double latitude2, double longitude2) {
+        final int R = 6371;
+
+        double latitudeDistance = Math.toRadians(latitude1 - latitude2);
+        double longitudeDistance = Math.toRadians(longitude1 - longitude2);
+
+        double a = Math.sin(latitudeDistance / 2) * Math.sin(latitudeDistance / 2)
+                + Math.cos(Math.toRadians(latitude1)) * Math.cos(Math.toRadians(latitude2))
+                * Math.sin(longitudeDistance / 2) * Math.sin(longitudeDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return R * c * 1000;
     }
+
+
+
+
 
 }
-

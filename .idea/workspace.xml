@@ -19,38 +19,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d29be6b3-cba4-47c6-9de0-5d960f741697" name="Changes" comment="Show doctors for diseases.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DoctorPresentationActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/FindDoctorsNearby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/MapsActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientChoicesActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/directionhelpers/DataParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/directionhelpers/FetchURL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/directionhelpers/PointsParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/directionhelpers/TaskLoadedCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/repository/ClinicRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/service/ClinicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_presentation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_patient_choices.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d29be6b3-cba4-47c6-9de0-5d960f741697" name="Changes" comment="Implement map.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/ShowClinics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/adapter/ClinicAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/WelcomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DiseasesShowActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DiseasesShowActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DoctorsShowActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DoctorsShowActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/GeneralSymptomSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/GeneralSymptomSelect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientQuestionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientQuestionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DoctorsShowActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/FindDoctorsNearby.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/FindDoctorsNearby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/MapsActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientChoicesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/PatientChoicesActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/adapter/DoctorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/adapter/DoctorAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Clinic.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Clinic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Symptom.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/models/Symptom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/ClinicConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/utils/converters/ClinicConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660231767788</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implement map.">
+      <created>1660907958337</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660907958338</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,6 +426,7 @@
     <MESSAGE value="Doctor phone number verification" />
     <MESSAGE value="Show relevant doctors." />
     <MESSAGE value="Show doctors for diseases." />
-    <option name="LAST_COMMIT_MESSAGE" value="Show doctors for diseases." />
+    <MESSAGE value="Implement map." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement map." />
   </component>
 </project>

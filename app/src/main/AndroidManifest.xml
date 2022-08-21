@@ -32,6 +32,9 @@
             android:name=".activities.patient_path.FindDoctorsNearby"
             android:exported="false" />
         <activity
+            android:name=".activities.patient_path.ShowClinics"
+            android:exported="false" />
+        <activity
             android:name=".activities.patient_path.PatientChoicesActivity"
             android:exported="false" />
         <activity

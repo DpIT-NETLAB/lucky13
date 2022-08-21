@@ -64,10 +64,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
                     Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + location.getLatitude());
                     clinicService.getAllClinics();
                     clinicService.clinicList.observe((LifecycleOwner) context, clinicList -> {
-                        Log.d(TAG, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                         for (Clinic clinic : clinicList) {
                             if (clinic.getDoctorUIDs().contains(doctor.getUID())) {
-                                Log.d(TAG, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                                 intent.putExtra("clinicLocation", location);
                                 Log.d(TAG, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " + location.getLatitude());
                                 context.startActivity(intent);
