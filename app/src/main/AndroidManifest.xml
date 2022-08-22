@@ -57,7 +57,11 @@
             android:exported="false" />
         <activity
             android:name=".activities.common_activities.WelcomePage"
-            android:exported="true">
+            android:label="@string/homeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.common_activities.SplashScreenActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
