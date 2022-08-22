@@ -54,5 +54,24 @@
     <string name="verification">Verification</string>
     <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
     <string name="verify_phone_number">Verify phone number</string>
+    <string name="titleText">Title</string>
+    <string name="descriptionText">Description</string>
+    <string name="addApptText">Add Appt.</string>
+
+    <!--    Days' of the week abbreviations-->
+    <string name="mondayText">Mon</string>
+    <string name="tuesdayText">Tue</string>
+    <string name="wednesdayText">Wed</string>
+    <string name="thursdayText">Thu</string>
+    <string name="fridayText">Fri</string>
+    <string name="saturdayText">Sat</string>
+    <string name="sundayText">Sun</string>
+    <string name="apptFormJustOneDay">Just one day</string>
+    <string name="apptFormEveryDay">Every day</string>
+    <string name="apptEventFormEveryWeek">Every week</string>
+    <!--    -->
+
+    <string name="symptom_select_text">Please select your symptoms:</string>
+    <string name="symptom_next">Next</string>
     <string name="homeActivity">Home</string>
 </resources>
