@@ -57,6 +57,7 @@
     <string name="titleText">Title</string>
     <string name="descriptionText">Description</string>
     <string name="addApptText">Add Appt.</string>
+    <string name="homeActivity">Home</string>
 
     <!--    Days' of the week abbreviations-->
     <string name="mondayText">Mon</string>
@@ -73,5 +74,13 @@
 
     <string name="symptom_select_text">Please select your symptoms:</string>
     <string name="symptom_next">Next</string>
-    <string name="homeActivity">Home</string>
+
+    <!--    Sidebar-navigation titles-->
+    <string name="nav_sidebar_your_profile">Your profile</string>
+    <string name="nav_sidebar_new_diagnosis">New diagnosis</string>
+    <string name="nav_sidebar_your_history">Your history</string>
+    <string name="nav_sidebar_bmi_calculator">BMI calculator</string>
+    <string name="nav_sidebar_map">Map</string>
+    <string name="nav_sidebar_settings">Settings</string>
+    <!--     -->
 </resources>

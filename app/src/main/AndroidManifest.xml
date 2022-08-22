@@ -14,6 +14,12 @@
         android:theme="@style/Theme.lucky13."
         tools:targetApi="31">
         <activity
+            android:name=".DrawerBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.common_activities.side_bar.DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.doctor_path.CalendarActivity"
             android:exported="false" />
         <activity

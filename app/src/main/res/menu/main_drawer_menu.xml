@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_your_profile"
+            android:title="@string/nav_sidebar_your_profile" />
+        <item
+            android:id="@+id/nav_new_diagnosis"
+            android:title="@string/nav_sidebar_new_diagnosis" />
+        <item
+            android:id="@+id/nav_your_history"
+            android:title="@string/nav_sidebar_your_history" />
+        <item
+            android:id="@+id/nav_empty_space"
+            android:title="" />
+        <item
+            android:id="@+id/nav_bmi_calculator"
+            android:title="@string/nav_sidebar_bmi_calculator" />
+        <item
+            android:id="@+id/nav_map"
+            android:title="@string/nav_sidebar_map" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/nav_sidebar_settings" />
+    </group>
+
+</menu>
