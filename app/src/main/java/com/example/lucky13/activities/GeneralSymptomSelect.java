@@ -30,7 +30,7 @@ public class GeneralSymptomSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_symptom_select);
 
-        //TODO: aici ar veni ceva tip reposiotry.get general symptoms
+        //TODO: aici ar veni ceva tip repository.get general symptoms
         symptoms.add(new Symptom("123", "raceala", "Ai raceala?"));
         symptoms.add(new Symptom("234", "febra", "Ai febra?"));
         symptoms.add(new Symptom("345", "icter", "Ai ochii galbeni?"));
