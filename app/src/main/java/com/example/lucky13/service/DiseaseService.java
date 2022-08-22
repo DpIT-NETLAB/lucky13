@@ -4,12 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.example.lucky13.models.Disease;
-import com.example.lucky13.models.Symptom;
 import com.example.lucky13.repository.DiseaseRepository;
 import com.example.lucky13.utils.converters.DiseaseConverter;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class DiseaseService {
 
