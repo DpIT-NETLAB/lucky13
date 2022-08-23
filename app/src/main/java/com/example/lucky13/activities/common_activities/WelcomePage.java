@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.doctor_path.ApptEventFormActivity;
-import com.example.lucky13.activities.doctor_path.CalendarActivity;
-import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
+import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
+import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -29,7 +28,8 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, RoleSelectActivity.class));
+                Intent intent = new Intent(WelcomePage.this, DashboardActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -74,7 +74,7 @@
     <string name="symptom_select_text">Please select your symptoms:</string>
     <string name="symptom_next">Next</string>
 
-    <!--    Sidebar-navigation titles-->
+    <!--    Sidebar-navigation menu-item titles-->
     <string name="nav_sidebar_your_profile">Your profile</string>
     <string name="nav_sidebar_new_diagnosis">New diagnosis</string>
     <string name="nav_sidebar_your_history">Your history</string>
@@ -82,4 +82,7 @@
     <string name="nav_sidebar_map">Map</string>
     <string name="nav_sidebar_settings">Settings</string>
     <!--     -->
+
+    <string name="menu_open_drawer">Drawer Open</string>
+    <string name="menu_close_drawer">Drawer Close</string>
 </resources>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.common_activities.side_bar.DashboardActivity" >
+    tools:openDrawer="start"
+    tools:context=".activities.common_activities.side_bar.DrawerBaseActivity" >
 
-    <include layout="@layout/content_layout"
+    <include
+        layout="@layout/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </include>
