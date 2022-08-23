@@ -43,3 +43,6 @@ public class WelcomePage extends AppCompatActivity {
         });
     }
 }
+//todo: primele timpuri disponibile
+//todo: medicul sa isi selecteze partea libera
+//todo: sa isi selecteze partea ocupata (plus recurring)
