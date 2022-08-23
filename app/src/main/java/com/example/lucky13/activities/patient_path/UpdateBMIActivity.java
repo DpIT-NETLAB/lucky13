@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
 import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
 import com.example.lucky13.databinding.ActivityDashboardBinding;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
@@ -17,31 +18,30 @@ import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
 import java.text.DecimalFormat;
 
-public class BMICalculatorActivity extends DrawerBaseActivity {
-
-    ActivityDashboardBinding activityDashboardBinding;
+public class UpdateBMIActivity extends DrawerBaseActivity {
 
     RulerValuePicker weightRulerPicker,
-                    heightRulerPicker;
+            heightRulerPicker;
     Button correctBMIButton;
     TextView bmiText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmicalculator);
+        setContentView(R.layout.activity_update_bmiactivity);
 
-        weightRulerPicker = findViewById(R.id.bmi_calculator_weightPicker);
-        heightRulerPicker = findViewById(R.id.bmi_calculator_heightPicker);
-        bmiText = findViewById(R.id.bmi_calculator_bmiTextView);
-        correctBMIButton = findViewById(R.id.bmi_calculator_correctBMIButton);
+//        activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Update BMI");
+//        setContentView(activityDashboardBinding.getRoot());
 
-        Intent incomingIntent = getIntent();
-        String gender = incomingIntent.getStringExtra("gender");
+        bmiText = findViewById(R.id.update_bmi_bmiTextView);
+        weightRulerPicker = findViewById(R.id.update_bmi_weightPicker);
+        heightRulerPicker = findViewById(R.id.update_bmi_heightPicker);
+        correctBMIButton = findViewById(R.id.update_bmi_updateBMIButton);
 
         DecimalFormat df = new DecimalFormat("#.#");
 
-        weightRulerPicker.selectValue(60); // default values for bmi ruler picker
+        weightRulerPicker.selectValue(60);
         heightRulerPicker.selectValue(150);
 
         final double[] weight = new double[1];
@@ -61,6 +61,7 @@ public class BMICalculatorActivity extends DrawerBaseActivity {
 
             }
         });
+
         heightRulerPicker.setValuePickerListener(new RulerValuePickerListener() {
             @Override
             public void onValueChange(int i) {
@@ -80,12 +81,9 @@ public class BMICalculatorActivity extends DrawerBaseActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(BMICalculatorActivity.this, PatientInfoActivity.class);
-                intent.putExtra("gender", gender);
-                intent.putExtra("height", height[0]);
-                intent.putExtra("weight", weight[0]);
-                intent.putExtra("BMI", df.format(calculateBMIValue(weight[0], height[0])));
-
+                //TODO: actually update the user
+                Intent intent = new Intent(UpdateBMIActivity.this, DashboardActivity.class);
+                Toast.makeText(UpdateBMIActivity.this, bmiText.getText().toString(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
