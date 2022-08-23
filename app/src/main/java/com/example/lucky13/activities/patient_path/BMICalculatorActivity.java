@@ -2,24 +2,24 @@ package com.example.lucky13.activities.patient_path;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
+import com.example.lucky13.databinding.ActivityDashboardBinding;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
 import java.text.DecimalFormat;
 
-public class BMICalculatorActivity extends AppCompatActivity {
+public class BMICalculatorActivity extends DrawerBaseActivity {
 
+    ActivityDashboardBinding activityDashboardBinding;
 
     RulerValuePicker weightRulerPicker,
                     heightRulerPicker;
@@ -29,16 +29,19 @@ public class BMICalculatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmicalculator);
+
+        activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("BMI Calculator");
+        setContentView(activityDashboardBinding.getRoot());
 
         weightRulerPicker = findViewById(R.id.bmi_calculator_weightPicker);
         heightRulerPicker = findViewById(R.id.bmi_calculator_heightPicker);
         bmiText = findViewById(R.id.bmi_calculator_bmiTextView);
         correctBMIButton = findViewById(R.id.bmi_calculator_correctBMIButton);
 
-        DecimalFormat df =new DecimalFormat("#.#");
+        DecimalFormat df = new DecimalFormat("#.#");
 
-        weightRulerPicker.selectValue(60);
+        weightRulerPicker.selectValue(60); // default values for bmi ruler picker
         heightRulerPicker.selectValue(150);
 
         final double[] weight = new double[1];
@@ -58,7 +61,6 @@ public class BMICalculatorActivity extends AppCompatActivity {
 
             }
         });
-
         heightRulerPicker.setValuePickerListener(new RulerValuePickerListener() {
             @Override
             public void onValueChange(int i) {
