@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.patient_path.BMICalculatorActivity;
+import com.example.lucky13.activities.patient_path.UpdateBMIActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,7 +54,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             //TODO: add the rest of options
 
             case R.id.nav_bmi_calculator:
-                startActivity(new Intent(DrawerBaseActivity.this, BMICalculatorActivity.class));
+                startActivity(new Intent(DrawerBaseActivity.this, UpdateBMIActivity.class));
                 overridePendingTransition(0, 0);
                 break;
         }

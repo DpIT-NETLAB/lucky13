@@ -47,6 +47,8 @@
     <string name="thirdQuestionResponse">I don\'t know</string>
     <string name="yourBMI">Your BMI:</string>
     <string name="emptyBMIValue">-</string>
+    <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
+    <string name="update_bmi_calculateBMIButton">Update BMI</string>
     <string name="bmi_calculator_next">Next</string>
     <string name="phone_number">Phone number</string>
     <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
