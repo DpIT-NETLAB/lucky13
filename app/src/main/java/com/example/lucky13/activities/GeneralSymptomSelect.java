@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.common_activities.WelcomePage;
 import com.example.lucky13.models.Symptom;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
