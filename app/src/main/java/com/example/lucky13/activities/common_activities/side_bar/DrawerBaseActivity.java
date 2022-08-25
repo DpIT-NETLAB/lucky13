@@ -1,25 +1,27 @@
 package com.example.lucky13.activities.common_activities.side_bar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.BMICalculatorActivity;
-import com.example.lucky13.activities.patient_path.UpdateBMIActivity;
+import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
+import com.example.lucky13.activities.patient_path.menu_options.SettingsActivity;
+import com.example.lucky13.activities.patient_path.menu_options.UpdateBMIActivity;
+import com.example.lucky13.activities.patient_path.menu_options.YourHistoryActivity;
+import com.example.lucky13.activities.patient_path.menu_options.YourProfileActivity;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -44,6 +46,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         toggle.syncState();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -53,8 +56,28 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
             //TODO: add the rest of options
 
+            case R.id.nav_your_profile:
+                startActivity(new Intent(DrawerBaseActivity.this, YourProfileActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+            case R.id.nav_new_diagnosis:
+                startActivity(new Intent(DrawerBaseActivity.this, GeneralSymptomSelect.class));
+                overridePendingTransition(0, 0);
+                break;
+            case R.id.nav_your_history:
+                startActivity(new Intent(DrawerBaseActivity.this, YourHistoryActivity.class));
+                overridePendingTransition(0, 0);
+                break;
             case R.id.nav_bmi_calculator:
                 startActivity(new Intent(DrawerBaseActivity.this, UpdateBMIActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+//            case R.id.nav_map:
+//                startActivity(new Intent(DrawerBaseActivity.this, MapActivity.class)); *** nu stiu ce ar trebui sa fie asta :')
+//                overridePendingTransition(0, 0);
+//                break;
+            case R.id.nav_settings:
+                startActivity(new Intent(DrawerBaseActivity.this, SettingsActivity.class));
                 overridePendingTransition(0, 0);
                 break;
         }

@@ -19,7 +19,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
 
     class DoctorHolder extends RecyclerView.ViewHolder {
         private TextView mDoctorName, mDoctorMedicalField, mDoctorGender, mDoctorReview;
-
+    
         DoctorHolder(View itemView) {
             super(itemView);
             mDoctorName = itemView.findViewById(R.id.doctor_name);
@@ -28,7 +28,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
             mDoctorReview = itemView.findViewById(R.id.doctor_review);
         }
 
-        void setDetails(Doctor doctor) {
+        void setDetails(@NonNull Doctor doctor) {
             mDoctorName.setText(doctor.getName());
             mDoctorMedicalField.setText(doctor.getMedicalField());
             mDoctorGender.setText(doctor.getGender());

@@ -9,7 +9,6 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
-import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -43,6 +42,3 @@ public class WelcomePage extends AppCompatActivity {
         });
     }
 }
-//todo: primele timpuri disponibile
-//todo: medicul sa isi selecteze partea libera
-//todo: sa isi selecteze partea ocupata (plus recurring)

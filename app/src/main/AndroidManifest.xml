@@ -14,6 +14,15 @@
         android:theme="@style/Theme.lucky13."
         tools:targetApi="31">
         <activity
+            android:name=".activities.patient_path.menu_options.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.common_activities.side_bar.DrawerBaseActivity"
             android:exported="false" />
         <activity
@@ -29,7 +38,7 @@
             android:name=".activities.patient_path.BMICalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.patient_path.UpdateBMIActivity"
+            android:name=".activities.patient_path.menu_options.UpdateBMIActivity"
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.DiseasesShowActivity"
@@ -60,11 +69,11 @@
             android:exported="false" />
         <activity
             android:name=".activities.common_activities.WelcomePage"
-            android:label="@string/homeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/homeActivity" />
         <activity
             android:name=".activities.common_activities.SplashScreenActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,4 +81,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

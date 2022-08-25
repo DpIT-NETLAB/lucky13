@@ -1,4 +1,4 @@
-package com.example.lucky13.activities.patient_path;
+package com.example.lucky13.activities.patient_path.menu_options;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
 import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
-import com.example.lucky13.databinding.ActivityDashboardBinding;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
