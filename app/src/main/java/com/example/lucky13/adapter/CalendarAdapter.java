@@ -23,7 +23,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
         this.onItemListener = onItemListener;
     }
 
-
     @NonNull
     @Override
     public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

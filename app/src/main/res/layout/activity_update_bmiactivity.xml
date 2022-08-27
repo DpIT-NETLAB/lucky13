@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.patient_path.UpdateBMIActivity">
+    tools:context=".activities.patient_path.menu_options.UpdateBMIActivity">
 
     <com.kevalpatel2106.rulerpicker.RulerValuePicker
         android:id="@+id/update_bmi_weightPicker"
