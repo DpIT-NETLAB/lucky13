@@ -15,6 +15,7 @@ import com.example.lucky13.activities.patient_path.FindDoctorsNearby;
 import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
 import com.example.lucky13.activities.patient_path.PatientChoicesActivity;
 import com.example.lucky13.activities.patient_path.ShowClinics;
+import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -33,7 +34,8 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, ShowClinics.class));
+                Intent intent = new Intent(WelcomePage.this, DashboardActivity.class);
+                startActivity(intent);
             }
         });
 

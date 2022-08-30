@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.patient_path.BMICalculatorActivity">
+    tools:context=".activities.patient_path.menu_options.UpdateBMIActivity">
 
     <com.kevalpatel2106.rulerpicker.RulerValuePicker
-        android:id="@+id/bmi_calculator_weightPicker"
+        android:id="@+id/update_bmi_weightPicker"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
@@ -27,7 +27,7 @@
         app:ruler_text_size="6sp" />
 
     <com.kevalpatel2106.rulerpicker.RulerValuePicker
-        android:id="@+id/bmi_calculator_heightPicker"
+        android:id="@+id/update_bmi_heightPicker"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
@@ -46,8 +46,8 @@
         app:ruler_text_size="6sp" />
 
     <TextView
-        android:id="@+id/bmi_calculator_yourBMIActivityTextView"
-        android:layout_width="140dp"
+        android:id="@+id/update_bmi_yourBMIActivityTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:text="@string/yourBMI"
@@ -57,11 +57,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_heightPicker"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintTop_toBottomOf="@+id/update_bmi_heightPicker" />
 
     <TextView
-        android:id="@+id/bmi_calculator_bmiTextView"
+        android:id="@+id/update_bmi_bmiTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -71,25 +70,18 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_yourBMIActivityTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/update_bmi_yourBMIActivityTextView" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bmi_calculator_correctBMIButton"
-        android:layout_width="140dp"
+    <Button
+        android:id="@+id/update_bmi_updateBMIButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
 
-        android:background="@drawable/blue_round_button"
-
-        android:text="@string/bmi_calculator_next"
-        android:fontFamily="@font/montserrat_regular"
-        android:textAllCaps="false"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        android:text="@string/update_bmi_calculateBMIButton"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_bmiTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/update_bmi_heightPicker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,6 +46,21 @@
             android:name=".activities.patient_path.PatientChoicesActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.patient_path.menu_options.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.common_activities.side_bar.DrawerBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.common_activities.side_bar.DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.doctor_path.CalendarActivity"
             android:exported="false" />
         <activity
@@ -53,6 +68,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.BMICalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.UpdateBMIActivity"
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.DiseasesShowActivity"
@@ -83,6 +101,10 @@
             android:exported="false" />
         <activity
             android:name=".activities.common_activities.WelcomePage"
+            android:exported="false"
+            android:label="@string/homeActivity" />
+        <activity
+            android:name=".activities.common_activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
