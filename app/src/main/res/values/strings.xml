@@ -99,4 +99,5 @@
     <string name="menu_open_drawer">Drawer Open</string>
     <string name="menu_close_drawer">Drawer Close</string>
     <string name="menu_group_otherTitle">Others</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

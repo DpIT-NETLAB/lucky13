@@ -21,7 +21,5 @@ public class SettingsActivity extends DrawerBaseActivity {
         activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Settings");
-
-        Objects.requireNonNull(getSupportActionBar()).setLogo(R.drawable.menu_logo);
     }
 }

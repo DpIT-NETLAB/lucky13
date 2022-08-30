@@ -8,8 +8,6 @@ import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
 import com.example.lucky13.databinding.ActivityDashboardBinding;
 
-import java.util.Objects;
-
 public class YourProfileActivity extends DrawerBaseActivity {
 
     ActivityDashboardBinding activityDashboardBinding;
@@ -21,7 +19,5 @@ public class YourProfileActivity extends DrawerBaseActivity {
         activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Your Profile");
-
-        Objects.requireNonNull(getSupportActionBar()).setLogo(R.drawable.menu_logo);
     }
 }
