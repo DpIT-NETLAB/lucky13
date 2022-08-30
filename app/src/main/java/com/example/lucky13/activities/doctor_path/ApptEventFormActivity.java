@@ -4,26 +4,40 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.lifecycle.LifecycleOwner;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.example.lucky13.R;
+import com.example.lucky13.models.Clinic;
+import com.example.lucky13.models.Doctor;
+import com.example.lucky13.service.DoctorService;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.Contract;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Objects;
 
 
 public class ApptEventFormActivity extends AppCompatActivity {
@@ -41,10 +55,18 @@ public class ApptEventFormActivity extends AppCompatActivity {
 
     String customEventMessage;
 
+    HashMap<String, String> bookedTimes;
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+    DoctorService doctorService = new DoctorService();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appt_event_form);
+
+        bookedTimes = new HashMap<String, String>();
 
         Intent incomingIntent = getIntent();
         Integer day = incomingIntent.getIntExtra("day", 1);
@@ -54,7 +76,7 @@ public class ApptEventFormActivity extends AppCompatActivity {
         initialiseWidgets();
 
         mAddEvent.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @SuppressLint("QueryPermissionsNeeded")
             @Override
             public void onClick(View view) {
@@ -131,6 +153,7 @@ public class ApptEventFormActivity extends AppCompatActivity {
         mAddEvent = (AppCompatButton) findViewById(R.id.apptEventAddEventButton);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     private Intent getIntentByEventDetails(String title, String description, @NonNull Calendar beginTime, @NonNull Calendar endTime, String location) {
 
@@ -143,6 +166,65 @@ public class ApptEventFormActivity extends AppCompatActivity {
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis());
         intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis());
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location); // TODO: clinic's actual location
+
+        Log.d(TAG, "*************************************" + beginTime.get(Calendar.DAY_OF_MONTH) + ", " + beginTime.get(Calendar.MONTH) + ", "+beginTime.get(Calendar.YEAR)+", " +beginTime.get(Calendar.HOUR_OF_DAY)+", "+beginTime.get(Calendar.MINUTE)+", "+endTime.get(Calendar.HOUR_OF_DAY)+", "+endTime.get(Calendar.MINUTE));
+
+        doctorService.doctorList.observe(this, doctorList -> {
+            for (Doctor doctor : doctorList) {
+                if (Objects.equals(doctor.getUID(), "1RYNbd0MqaZJUciswVHN")) {
+                    bookedTimes.putAll(doctor.getAppointments());
+                }
+            }
+        });
+
+
+        int day = beginTime.get(Calendar.DAY_OF_MONTH),
+                month = beginTime.get(Calendar.MONTH),
+                year = beginTime.get(Calendar.YEAR),
+                hour = beginTime.get(Calendar.HOUR_OF_DAY),
+                minute = beginTime.get(Calendar.MINUTE),
+                endHour = endTime.get(Calendar.HOUR_OF_DAY),
+                endMinute = endTime.get(Calendar.MINUTE);
+
+        Date start = new Date(2000, 10, 1, hour, minute);
+        Date end = new Date(2000, 10, 1, endHour, endMinute);
+
+        long diff = end.getTime() - start.getTime();
+
+        long diff1 = diff / (60 * 60 * 1000) % 24;
+        long diff2 = diff / (60 * 1000) % 60;
+        String value = String.valueOf(diff1) + "," + String.valueOf(diff2);
+
+
+        //long date = LocalDate.of(year, month, day).atTime(hour, minute).getLong(ChronoField.EPOCH_DAY);
+
+
+        LocalDateTime localDateTime = LocalDateTime.of(year, month+1, day, hour, minute);
+        ZoneId zoneId = ZoneId.of("Europe/Oslo");
+        long date = localDateTime.atZone(zoneId).toEpochSecond();
+
+        //long date1 = LocalDate.now().atTime(4,5).getLong(ChronoField.EPOCH_DAY);
+        //String datestr = Long.toString(date
+        //bookedTimes.put(date, diff);
+        Log.d(TAG, "!!!!!!"+date);
+
+        
+        bookedTimes.put(Long.toString(date), value);
+
+        firebaseFirestore.collection("Doctors").document("1RYNbd0MqaZJUciswVHN")
+                .update("appointments", bookedTimes)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
 
         return intent;
     }

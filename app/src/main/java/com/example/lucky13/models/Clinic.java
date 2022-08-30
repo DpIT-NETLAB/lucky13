@@ -1,5 +1,7 @@
 package com.example.lucky13.models;
 
+import com.google.firebase.firestore.GeoPoint;
+
 import java.util.List;
 
 public class Clinic {
@@ -9,11 +11,11 @@ public class Clinic {
 
     private double averageReview;
     private List<String> doctorUIDs;
-    private String location;
+    private GeoPoint location;
 
     public Clinic() {}
 
-    public Clinic(String UID, String name, double averageReview, List<String> doctorUIDs, String location) {
+    public Clinic(String UID, String name, double averageReview, List<String> doctorUIDs, GeoPoint location) {
         this.UID = UID;
         this.name = name;
         this.averageReview = averageReview;
@@ -53,11 +55,11 @@ public class Clinic {
         this.doctorUIDs = doctorUIDs;
     }
 
-    public String getLocation() {
+    public GeoPoint getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(GeoPoint location) {
         this.location = location;
     }
 }

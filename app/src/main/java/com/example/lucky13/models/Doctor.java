@@ -1,6 +1,8 @@
 package com.example.lucky13.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Doctor {
 
@@ -16,12 +18,15 @@ public class Doctor {
     private String phone;
     private double review;
     private String gender;
+    private HashMap<String, String> appointments;
+    private HashMap<String, String> workSchedule;
 
     public Doctor() {}
 
-    public Doctor(String UID, String name, String email, String passcode,String clinicId,
+
+    public Doctor(String UID, String name, String email, String passcode, String clinicId,
                   String medicalField, ArrayList<String> language, String phone,
-                  double review, String gender) {
+                  double review, String gender, HashMap<String, String> appointments, HashMap<String, String> workSchedule) {
         this.UID = UID;
         this.name = name;
         this.email = email;
@@ -32,6 +37,8 @@ public class Doctor {
         this.phone = phone;
         this.review = review;
         this.gender = gender;
+        this.appointments = appointments;
+        this.workSchedule = workSchedule;
     }
 
     public String getUID() {
@@ -112,5 +119,21 @@ public class Doctor {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public HashMap<String, String> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(HashMap<String, String> appointments) {
+        this.appointments = appointments;
+    }
+
+    public HashMap<String, String> getWorkSchedule() {
+        return workSchedule;
+    }
+
+    public void setWorkSchedule(HashMap<String, String> workSchedule) {
+        this.workSchedule = workSchedule;
     }
 }

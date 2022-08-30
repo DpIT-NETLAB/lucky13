@@ -112,7 +112,6 @@
 
         android:layout_marginTop="120dp"
 
-        android:onClick="onClickRadioBttn"
 
         app:layout_constraintBottom_toBottomOf="@+id/apptEventEndTimePicker"
         app:layout_constraintEnd_toEndOf="@+id/apptEventEndTimePicker"
@@ -129,8 +128,6 @@
 
         android:layout_marginTop="210dp"
 
-        android:onClick="onClickRadioBttn"
-
         app:layout_constraintBottom_toBottomOf="@+id/apptEventEndTimePicker"
         app:layout_constraintEnd_toEndOf="@+id/apptEventEndTimePicker"
         app:layout_constraintStart_toStartOf="@+id/apptEventEndTimePicker"
@@ -145,8 +142,6 @@
         android:layout_marginTop="140dp"
 
         android:text="@string/apptEventFormEveryWeek"
-
-        android:onClick="onClickRadioBttn"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

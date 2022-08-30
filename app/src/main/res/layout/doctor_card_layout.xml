@@ -63,12 +63,12 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_below="@id/doctor_gender"
+            android:layout_toEndOf="@id/doctor_review"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/doctor_review"
 
-            android:background="@drawable/star" />
+            android:background="@drawable/star"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

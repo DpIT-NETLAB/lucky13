@@ -9,18 +9,26 @@
         <entry key="..\:/AuthApp2C/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2355" />
         <entry key="..\:/AuthApp2C/app/src/main/res/drawable/short_input_line.xml" value="0.2355" />
         <entry key="..\:/AuthApp2C/app/src/main/res/drawable/white_blue_border_button.xml" value="0.212" />
-        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_diseases_show.xml" value="0.264" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_appt_event_form.xml" value="0.264" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_bmicalculator.xml" value="0.19067977768277042" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_book_appointment.xml" value="0.19067977768277042" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_diseases_show.xml" value="0.2" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_doctor_account_create.xml" value="0.264" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_doctor_phone_number.xml" value="0.2" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_doctor_presentation.xml" value="0.2" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_doctors_show.xml" value="0.19067977768277042" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_email_verify.xml" value="0.10688328345446772" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_general_schedule.xml" value="0.2" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_general_symptom_select.xml" value="0.2" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_maps.xml" value="0.1876870457460453" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_patient_account_create.xml" value="0.2" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_patient_choices.xml" value="0.19067977768277042" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_patient_info.xml" value="0.176" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_patient_question.xml" value="0.1" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_phone_verify.xml" value="0.264" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_sign_in.xml" value="0.19067977768277042" />
-        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_welcome.xml" value="0.136" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/activity_welcome.xml" value="0.176" />
+        <entry key="..\:/AuthApp2C/app/src/main/res/layout/available_slot_card_layout.xml" value="0.19067977768277042" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/card_layout.xml" value="0.264" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/card_view.xml" value="0.19067977768277042" />
         <entry key="..\:/AuthApp2C/app/src/main/res/layout/disease_card_layout.xml" value="0.19067977768277042" />

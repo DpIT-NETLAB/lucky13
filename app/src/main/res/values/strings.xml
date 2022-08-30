@@ -40,11 +40,22 @@
     <string name="uid">UID</string>
     <string name="email">Email</string>
     <string name="check">Check</string>
+    <string name="phone_number">Phone number</string>
+    <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
+    <string name="get_code">Get code</string>
+    <string name="verification">Verification</string>
+    <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
+    <string name="verify_phone_number">Verify phone number</string>
     <string name="button">Button</string>
     <string name="name">Name</string>
     <string name="general_select_title">Select your symptoms</string>
     <string name="done">Done</string>
     <string name="thirdQuestionResponse">I don\'t know</string>
+    <string name="take_quiz">Take quiz</string>
+    <string name="find_doctors_nearby">Find doctors nearby</string>
+    <string name="book_appointment_button">Book appointment</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_key">AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc</string>
     <string name="yourBMI">Your BMI:</string>
     <string name="emptyBMIValue">-</string>
     <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
@@ -72,7 +83,6 @@
     <string name="apptFormJustOneDay">Just one day</string>
     <string name="apptFormEveryDay">Every day</string>
     <string name="apptEventFormEveryWeek">Every week</string>
-    <!--    -->
 
     <string name="symptom_select_text">Please select your symptoms:</string>
     <string name="symptom_next">Next</string>

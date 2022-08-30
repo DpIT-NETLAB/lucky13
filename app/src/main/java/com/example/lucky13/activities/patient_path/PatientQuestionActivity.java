@@ -84,7 +84,7 @@ public class PatientQuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_patient_question);
 
         //TODO: welcome page to be changed
-        Intent nextIntent = new Intent(PatientQuestionActivity.this, WelcomePage.class);
+        Intent nextIntent = new Intent(PatientQuestionActivity.this, DiseasesShowActivity.class);
 
         questionTextView = (TextView) findViewById(R.id.patientQuestionTextView);
         answearRadioButton1 = (RadioButton) findViewById(R.id.patientQuestionRadioButton1);
@@ -277,8 +277,8 @@ public class PatientQuestionActivity extends AppCompatActivity {
 
         return new ArrayList<>(
                 Arrays.asList(relevantQuestion1,
-                              relevantQuestion2,
-                              relevantQuestion3
+                        relevantQuestion2,
+                        relevantQuestion3
                 ));
     }
 }
