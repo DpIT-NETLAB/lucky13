@@ -19,7 +19,5 @@ public class YourHistoryActivity extends DrawerBaseActivity {
         activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Your History");
-
-        Objects.requireNonNull(getSupportActionBar()).setLogo(R.drawable.menu_logo);
     }
 }
