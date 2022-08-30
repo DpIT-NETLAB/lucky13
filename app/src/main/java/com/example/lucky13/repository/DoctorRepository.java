@@ -16,8 +16,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class DoctorRepository {
@@ -63,7 +66,9 @@ public class DoctorRepository {
                                 new ArrayList<String>(),
                                 (String) document.get("phone"),
                                 (double) document.get("review"),
-                                (String) document.get("gender")
+                                (String) document.get("gender"),
+                                (HashMap<String, String>) document.get("appointments"),
+                                (HashMap<String, String>) document.get("workSchedule")
                         );
 
                         tempDoctorList.add(doctor);

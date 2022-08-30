@@ -56,4 +56,25 @@
     <string name="book_appointment_button">Book appointment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="google_maps_key">AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc</string>
+    <string name="yourBMI">Your BMI:</string>
+    <string name="emptyBMIValue">-</string>
+    <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
+
+    <string name="titleText">Title</string>
+    <string name="descriptionText">Description</string>
+    <string name="addApptText">Add Appt.</string>
+
+    <string name="mondayText">Mon</string>
+    <string name="tuesdayText">Tue</string>
+    <string name="wednesdayText">Wed</string>
+    <string name="thursdayText">Thu</string>
+    <string name="fridayText">Fri</string>
+    <string name="saturdayText">Sat</string>
+    <string name="sundayText">Sun</string>
+    <string name="apptFormJustOneDay">Just one day</string>
+    <string name="apptFormEveryDay">Every day</string>
+    <string name="apptEventFormEveryWeek">Every week</string>
+
+    <string name="symptom_select_text">Please select your symptoms:</string>
+    <string name="symptom_next">Next</string>
 </resources>

@@ -8,9 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
+import com.example.lucky13.activities.doctor_path.ApptEventFormActivity;
+import com.example.lucky13.activities.doctor_path.CalendarActivity;
+import com.example.lucky13.activities.doctor_path.GeneralScheduleActivity;
+import com.example.lucky13.activities.patient_path.FindDoctorsNearby;
 import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
 import com.example.lucky13.activities.patient_path.PatientChoicesActivity;
+import com.example.lucky13.activities.patient_path.ShowClinics;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -29,7 +33,7 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, RoleSelectActivity.class));
+                startActivity(new Intent(WelcomePage.this, ShowClinics.class));
             }
         });
 
@@ -37,8 +41,8 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: schimba inapoi in log in normal
-                startActivity(new Intent(WelcomePage.this, PatientChoicesActivity.class));
+                Intent intent = new Intent(WelcomePage.this, GeneralScheduleActivity.class);
+                startActivity(intent);
             }
         });
     }

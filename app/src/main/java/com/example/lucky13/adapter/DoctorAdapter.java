@@ -58,6 +58,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
                 public void onClick(View view) {
                     Log.d(TAG, "CLICKED!!!!!");
                     Intent intent = new Intent(context, DoctorPresentationActivity.class);
+                    intent.putExtra("id", doctor.getUID());
                     intent.putExtra("name", doctor.getName());
                     intent.putExtra("field", doctor.getMedicalField());
                     intent.putExtra("location", location);

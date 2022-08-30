@@ -7,7 +7,10 @@ import com.example.lucky13.models.Doctor;
 import com.example.lucky13.repository.DoctorRepository;
 import com.example.lucky13.utils.converters.DoctorConverter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DoctorService {
@@ -29,7 +32,7 @@ public class DoctorService {
     }
 
     public void addDoctor(String UID, String name, String email, String passcode, String clinicId, String medicalField,
-                          ArrayList<String> languages, String phone, double review, String gender) {
+                          ArrayList<String> languages, String phone, double review, String gender, HashMap<String, String> workSchedule) {
 
         Doctor doctor = new Doctor(
                 UID,
@@ -41,7 +44,9 @@ public class DoctorService {
                 languages,
                 phone,
                 review,
-                gender
+                gender,
+                new HashMap<String, String>(),
+                workSchedule
         );
 
         repository.addDoctor(doctor, DoctorConverter.convertFromEntityToMap(doctor));

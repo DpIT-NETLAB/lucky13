@@ -37,7 +37,7 @@
         android:maxLines="2"
         android:text="@string/welcome_topdoc_promotion"
         android:textColor="@color/very_dark_grey"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
         app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
         app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6" />

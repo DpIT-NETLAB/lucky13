@@ -26,6 +26,14 @@
             android:value="AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc" />
 
         <activity
+            android:name=".activities.patient_path.BookAppointmentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.doctor_path.GeneralScheduleActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".activities.patient_path.DoctorPresentationActivity"
             android:exported="false" />
         <activity
@@ -36,6 +44,15 @@
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.PatientChoicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.doctor_path.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.doctor_path.ApptEventFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.BMICalculatorActivity"
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.DiseasesShowActivity"

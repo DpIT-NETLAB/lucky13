@@ -49,8 +49,10 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
         mDoctorField = findViewById(R.id.doctorPresentationField);
         mDoctorDescription = findViewById(R.id.doctorPresentationDescription);
         mGetDirectionsButton = findViewById(R.id.showDirectionsButton);
+        mBookAppointmentButton = findViewById(R.id.makeAppointmentButton);
 
         Intent incomingIntent = getIntent();
+        String id = incomingIntent.getStringExtra("id");
         String name = incomingIntent.getStringExtra("name");
         String field = incomingIntent.getStringExtra("field");
         Location yourLocation = incomingIntent.getParcelableExtra("location");
@@ -64,13 +66,21 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
                 new FetchURL(DoctorPresentationActivity.this).execute(getUrl(loc1.getPosition(), loc2.getPosition(), "driving"), "driving");
             }
         });
-        //Log.d(TAG, "CLIIIIIINICCCCCCC" + clinicLocation.getLongitude());
         loc1 = new MarkerOptions().position(new LatLng(yourLocation.getLatitude(), yourLocation.getLongitude())).title("Position 1");
         loc2 = new MarkerOptions().position(new LatLng(clinicLocation.getLatitude(), clinicLocation.getLongitude())).title("Position 2");
 
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mBookAppointmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(DoctorPresentationActivity.this, BookAppointmentActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
 
     }
 
