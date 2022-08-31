@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:openDrawer="start"
-    tools:context=".activities.common_activities.side_bar.DrawerBaseActivity" >
+    tools:context=".activities.patient_path.side_bar.DrawerBaseActivity" >
 
     <include
         layout="@layout/content_layout"

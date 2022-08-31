@@ -28,50 +28,53 @@
 
     <TextView
         android:id="@+id/welcomeTopDocPromotionText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/montserrat_regular"
         android:gravity="center"
         android:lines="2"
         android:maxLines="2"
         android:text="@string/welcome_topdoc_promotion"
         android:textColor="@color/very_dark_grey"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
-        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/welcomeGetStartedButton"
-        android:layout_width="0dp"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:background="@drawable/blue_round_button"
         android:fontFamily="@font/montserrat_regular"
-        android:gravity="center"
         android:text="@string/welcome_get_started"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
-        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/welcomeGuideline3" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/welcomeLogInButton"
-        android:layout_width="0dp"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/white_blue_border_button"
         android:fontFamily="@font/montserrat_regular"
-        android:gravity="center"
         android:text="@string/welcome_log_in"
         android:textAllCaps="false"
         android:textColor="@color/light_blue"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeGetStartedButton"
         app:strokeColor="@color/light_blue"
         app:strokeWidth="6dp" />
@@ -105,8 +108,7 @@
         android:gravity="center"
         android:text="@string/welcome_privacy_policy_terms_of_use"
         android:textColor="@color/very_dark_grey"
-        android:textColorLink="@color/light_blue"
-        android:textSize="18sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6"
@@ -117,12 +119,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/welcomeGuideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.05" />
 </androidx.constraintlayout.widget.ConstraintLayout>

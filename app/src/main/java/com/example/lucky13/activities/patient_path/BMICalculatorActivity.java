@@ -2,6 +2,7 @@ package com.example.lucky13.activities.patient_path;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
-import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
+import com.example.lucky13.activities.patient_path.side_bar.DrawerBaseActivity;
 import com.example.lucky13.databinding.ActivityDashboardBinding;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;

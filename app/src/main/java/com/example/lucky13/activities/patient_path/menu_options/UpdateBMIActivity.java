@@ -10,8 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.side_bar.DashboardActivity;
-import com.example.lucky13.activities.common_activities.side_bar.DrawerBaseActivity;
+import com.example.lucky13.activities.patient_path.PatientHomeScreenActivity;
+import com.example.lucky13.activities.patient_path.side_bar.DrawerBaseActivity;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
@@ -81,7 +81,7 @@ public class UpdateBMIActivity extends DrawerBaseActivity {
             public void onClick(View view) {
 
                 //TODO: actually update the user
-                Intent intent = new Intent(UpdateBMIActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(UpdateBMIActivity.this, PatientHomeScreenActivity.class);
                 Toast.makeText(UpdateBMIActivity.this, bmiText.getText().toString(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }

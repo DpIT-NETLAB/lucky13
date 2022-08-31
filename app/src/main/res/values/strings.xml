@@ -54,19 +54,12 @@
     <string name="take_quiz">Take quiz</string>
     <string name="find_doctors_nearby">Find doctors nearby</string>
     <string name="book_appointment_button">Book appointment</string>
-    <string name="title_activity_maps">MapsActivity</string>
     <string name="google_maps_key">AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc</string>
     <string name="yourBMI">Your BMI:</string>
     <string name="emptyBMIValue">-</string>
     <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
     <string name="update_bmi_calculateBMIButton">Update BMI</string>
     <string name="bmi_calculator_next">Next</string>
-    <string name="phone_number">Phone number</string>
-    <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
-    <string name="get_code">Get code</string>
-    <string name="verification">Verification</string>
-    <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
-    <string name="verify_phone_number">Verify phone number</string>
     <string name="titleText">Title</string>
     <string name="descriptionText">Description</string>
     <string name="addApptText">Add Appt.</string>
@@ -100,4 +93,6 @@
     <string name="menu_close_drawer">Drawer Close</string>
     <string name="menu_group_otherTitle">Others</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="weight_text">"Select your weight: "</string>
+    <string name="height_text">"Select your height: "</string>
 </resources>

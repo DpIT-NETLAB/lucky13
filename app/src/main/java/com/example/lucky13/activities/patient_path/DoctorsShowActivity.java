@@ -46,7 +46,7 @@ public class DoctorsShowActivity extends AppCompatActivity {
 
         doctorArrayList = new ArrayList<>();
 
-        adapter = new DoctorAdapter(this, doctorArrayList);
+        adapter = new DoctorAdapter(this, doctorArrayList, null); //TODO: location to be modified
         recyclerView.setAdapter(adapter);
     }
 
