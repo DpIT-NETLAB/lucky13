@@ -55,10 +55,10 @@
             android:name=".activities.patient_path.menu_options.YourProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.common_activities.side_bar.DrawerBaseActivity"
+            android:name=".activities.patient_path.side_bar.DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.common_activities.side_bar.DashboardActivity"
+            android:name=".activities.patient_path.PatientHomeScreenActivity"
             android:exported="false" />
         <activity
             android:name=".activities.doctor_path.CalendarActivity"

@@ -1,4 +1,4 @@
-package com.example.lucky13.activities.common_activities.side_bar;
+package com.example.lucky13.activities.patient_path.side_bar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,8 +20,6 @@ import com.example.lucky13.activities.patient_path.menu_options.UpdateBMIActivit
 import com.example.lucky13.activities.patient_path.menu_options.YourHistoryActivity;
 import com.example.lucky13.activities.patient_path.menu_options.YourProfileActivity;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.Objects;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
