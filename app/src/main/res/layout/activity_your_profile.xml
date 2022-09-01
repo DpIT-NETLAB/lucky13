@@ -6,4 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".activities.patient_path.menu_options.YourProfileActivity">
 
+    <ImageView
+        android:id="@+id/your_profile_cover_image"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+
+        android:background="@drawable/profile_cover_image"
+        android:contentDescription="@string/your_profile_cover_image_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:background="@drawable/your_profile_white_background"
+        android:elevation="5dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_profile_cover_image"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:layout_margin="15dp">
+
+            <ImageView android:id="@+id/ic_profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:background="@drawable/ic_profile"
+                android:contentDescription="@string/your_profile_profile_icon" />
+
+            <TextView android:id="@+id/yourProfileFullNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignStart="@+id/ic_profile"
+                android:layout_marginStart="50dp"
+                android:textSize="18sp"
+                android:text="@string/your_profile_loading" />
+
+            <View android:id="@+id/yourProfileFullNameView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/yourProfileFullNameText"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView android:id="@+id/ic_email"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:background="@drawable/ic_email"
+                android:contentDescription="@string/your_profile_email_icon"
+
+                android:layout_marginTop="60dp"/>
+
+            <TextView
+                android:id="@+id/yourProfileEmailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignStart="@+id/ic_email"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/your_profile_loading"
+
+                android:textSize="18sp" />
+
+            <View android:id="@+id/yourProfileEmailView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/yourProfileEmailText"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView android:id="@+id/ic_birthday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:background="@drawable/ic_birthday"
+                android:contentDescription="@string/your_profile_birthday_icon"
+
+                android:layout_marginTop="110dp"/>
+
+            <TextView android:id="@+id/yourProfileBirthdayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignStart="@+id/ic_birthday"
+                android:layout_marginStart="50dp"
+                android:textSize="18sp"
+                android:text="@string/your_profile_loading"
+
+                android:layout_marginTop="110dp"/>
+
+            <View android:id="@+id/yourProfileBirthdayView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/yourProfileBirthdayText"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView android:id="@+id/ic_gender"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:background="@drawable/ic_gender"
+                android:contentDescription="@string/your_profile_gender_icon"
+
+                android:layout_marginTop="160dp"/>
+
+            <TextView android:id="@+id/yourProfileGenderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignStart="@+id/ic_gender"
+                android:layout_marginStart="50dp"
+                android:textSize="18sp"
+                android:text="@string/your_profile_loading"
+
+                android:layout_marginTop="160dp" />
+
+            <View android:id="@+id/yourProfileGenderView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/yourProfileGenderText"
+                android:background="@android:color/darker_gray" />
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

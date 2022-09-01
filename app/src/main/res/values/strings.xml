@@ -95,4 +95,13 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="weight_text">"Select your weight: "</string>
     <string name="height_text">"Select your height: "</string>
+
+    <!--    YourProfile Activity-->
+    <string name="your_profile_cover_image_content">your_profile_cover_image</string>
+    <string name="your_profile_loading">Loading..</string>
+    <string name="your_profile_profile_icon">profile icon</string>
+    <string name="your_profile_email_icon">email icon</string>
+    <string name="your_profile_birthday_icon">birthday icon</string>
+    <string name="your_profile_gender_icon">gender icon</string>
+    <!--     -->
 </resources>
