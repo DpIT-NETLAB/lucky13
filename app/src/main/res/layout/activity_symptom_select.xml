@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue">
+
+
+    <TextView
+        android:id="@+id/symptomSelectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/symptom_select_text"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupSS"
+        android:layout_width="373dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="60dp"
+        app:chipSpacingHorizontal="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symptomSelectText"
+        app:layout_constraintVertical_bias="0.104"
+        app:singleLine="false"
+        app:singleSelection="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text10"
+            android:textAlignment="center"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoText="false"
+            android:checkable="true"
+            android:checked="false"
+            android:elegantTextHeight="false"
+            android:fontFamily="@font/montserrat_bold"
+            android:includeFontPadding="false"
+            android:text="@string/chip_text9"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textIsSelectable="true"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoText="false"
+            android:checkable="true"
+            android:checked="false"
+            android:elegantTextHeight="false"
+            android:fontFamily="@font/montserrat_bold"
+            android:includeFontPadding="false"
+            android:text="@string/chip_text1"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textIsSelectable="true"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text2"
+            android:textAlignment="center"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text3"
+            android:textAlignment="center"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text4"
+            android:textAlignment="center"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_basic"
+            android:text="@string/chip_text6"
+            android:textAlignment="center"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text5"
+            android:textAlignment="center"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text7"
+            android:textAlignment="center"
+            app:chipBackgroundColor="#11D1D4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_text8"
+            android:textAlignment="center"
+            android:visibility="visible"
+            app:chipBackgroundColor="#11D1D4" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/snextButton"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:background="@drawable/blue_gray_round_textedit"
+        android:backgroundTint="#2196F3"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupSS"
+        app:layout_constraintVertical_bias="0.462"
+        tools:text="@string/symptom_next" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

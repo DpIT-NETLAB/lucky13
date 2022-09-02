@@ -38,14 +38,14 @@
         android:id="@+id/choosinggenderFemaleText"
         android:layout_width="143dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/monstserrat_semibold"
         android:gravity="center"
         android:text="@string/choosing_gender_female"
         android:textColor="@color/dark_grey"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine8"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine10"
         app:layout_constraintTop_toBottomOf="@+id/choosinggenderMaleButton" />
@@ -67,27 +67,31 @@
         android:id="@+id/choosinggenderMaleButton"
         android:layout_width="137dp"
         android:layout_height="144dp"
+        android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/choosing_description_patient_button"
         android:scaleType="centerInside"
-        android:src="@drawable/malesymbol"
+        android:src="@mipmap/male__foreground"
         app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine4"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/choosinggenderGuideLine1"
-        tools:src="@drawable/malesymbol" />
+        tools:src="@mipmap/male__foreground" />
 
     <ImageButton
         android:id="@+id/choosinggenderFemaleButton"
-        android:layout_width="156dp"
-        android:layout_height="146dp"
+        android:layout_width="137dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/choosing_description_doctor_button"
         android:scaleType="centerInside"
-        android:src="@drawable/femalesymbol"
+        android:src="@drawable/ic_action_name"
         app:layout_constraintEnd_toStartOf="@+id/choosinggenderGuideLine5"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/choosinggenderGuideLine4"
         app:layout_constraintTop_toTopOf="@+id/choosinggenderGuideLine1"
-        tools:src="@drawable/femalesymbol" />
+        tools:src="@mipmap/ic_banner_foreground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/choosinggenderGuideLine1"

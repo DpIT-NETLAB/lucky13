@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
-        android:background="@android:color/holo_orange_dark"
+        android:background="@color/dark_grey"
 
         app:indicator_color="@android:color/white"
         app:indicator_interval="14dp"
@@ -21,8 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3"
 
-        app:min_value="30"
         app:max_value="150"
+        app:min_value="30"
         app:notch_color="@android:color/white"
         app:ruler_text_size="6sp" />
 
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
-        android:background="@android:color/holo_orange_dark"
+        android:background="@color/dark_grey"
 
         app:indicator_color="@android:color/white"
         app:indicator_interval="14dp"
@@ -40,25 +40,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
-        app:min_value="130"
         app:max_value="230"
+        app:min_value="130"
         app:notch_color="@android:color/white"
         app:ruler_text_size="6sp" />
 
     <TextView
         android:id="@+id/bmi_calculator_yourBMIActivityTextView"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/yourBMI"
         android:textSize="30sp"
-        android:fontFamily="@font/montserrat_basic"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_heightPicker"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/bmi_calculator_bmiTextView"
@@ -77,19 +77,49 @@
         android:id="@+id/bmi_calculator_correctBMIButton"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
 
         android:background="@drawable/blue_round_button"
 
-        android:text="@string/bmi_calculator_next"
         android:fontFamily="@font/montserrat_regular"
-        android:textAllCaps="false"
         android:gravity="center"
+        android:text="@string/bmi_calculator_next"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="24sp"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_bmiTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/weight_text"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bmi_calculator_weightPicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_bmiTextView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/height_text"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bmi_calculator_heightPicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_calculator_weightPicker"
+        app:layout_constraintVertical_bias="0.738" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
