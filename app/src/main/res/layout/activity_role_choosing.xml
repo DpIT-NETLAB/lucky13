@@ -23,43 +23,43 @@
         android:id="@+id/choosingRoleFemaleText"
         android:layout_width="143dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/monstserrat_semibold"
         android:gravity="center"
         android:text="@string/choosing_doctor"
         android:textColor="@color/dark_grey"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine8"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine10"
         app:layout_constraintTop_toBottomOf="@+id/choosingRoleDoctorButton" />
 
     <TextView
         android:id="@+id/choosingRoleMaleText"
-        android:layout_width="112dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/monstserrat_semibold"
         android:text="@string/choosing_patient"
         android:textColor="@color/dark_grey"
-        android:textSize="28sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine9"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine7"
         app:layout_constraintTop_toBottomOf="@+id/choosingRolePatientButton" />
 
     <ImageButton
         android:id="@+id/choosingRolePatientButton"
-        android:layout_width="134dp"
-        android:layout_height="150dp"
+        android:layout_width="138dp"
+        android:layout_height="153dp"
         android:contentDescription="@string/choosing_description_patient_button"
         android:scaleType="fitCenter"
         android:src="@drawable/patienticon"
         app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/choosingRoleGuideLine1"
-        tools:src="@drawable/patienticon" />
+        tools:src="@drawable/person_logo_icon_png_svg" />
 
     <ImageButton
         android:id="@+id/choosingRoleDoctorButton"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toStartOf="@+id/choosingRoleGuideLine5"
         app:layout_constraintStart_toStartOf="@+id/choosingRoleGuideLine4"
         app:layout_constraintTop_toTopOf="@+id/choosingRoleGuideLine1"
-        tools:src="@drawable/doctoricon" />
+        tools:src="@drawable/img_491471" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/choosingRoleGuideLine1"
