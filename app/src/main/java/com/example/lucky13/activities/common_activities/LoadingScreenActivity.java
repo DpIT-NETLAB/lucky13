@@ -1,4 +1,4 @@
-package com.example.lucky13.activities;
+package com.example.lucky13.activities.common_activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

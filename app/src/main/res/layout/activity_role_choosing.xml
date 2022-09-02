@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light_blue"
-    tools:context=".activities.RoleSelectActivity">
+    tools:context=".activities.common_activities.RoleSelectActivity">
 
     <TextView
         android:id="@+id/choosingRoleQuestionText"
