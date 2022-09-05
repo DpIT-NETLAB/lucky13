@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.doctor_path.GeneralScheduleActivity" >
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="What is your work schedule?"
+        android:textColor="@color/very_dark_grey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/daysChipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="2dp"
+        android:layout_marginTop="50dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:singleLine="false"
+        app:singleSelection="false">
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TimePicker
+        android:id="@+id/startTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleX="0.70"
+
+        android:scaleY="0.70"
+        android:timePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/endTimePicker" />
+
+    <TimePicker
+        android:id="@+id/endTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:scaleX="0.70"
+
+        android:scaleY="0.70"
+        android:timePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/daysChipGroup" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/doneButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/blue_round_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Done"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/startTimePicker" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/apptEventLeftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintGuide_begin="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/apptEventRightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintGuide_end="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

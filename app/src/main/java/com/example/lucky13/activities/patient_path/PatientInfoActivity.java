@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
 
+import java.util.Objects;
+
 public class PatientInfoActivity extends AppCompatActivity {
 
     EditText mFirstName,
             mLastName;
+    ImageView mGenderImage;
     AppCompatButton mNextButton;
 
     @Override
@@ -27,8 +31,13 @@ public class PatientInfoActivity extends AppCompatActivity {
 
         mFirstName = findViewById(R.id.patientinfoFirstNameTextEdit);
         mLastName = findViewById(R.id.patientinfoLastNameTextEdit);
+        mGenderImage = findViewById(R.id.patientInfoGenderImage);
 
         mNextButton = findViewById(R.id.patientInfoNextButton);
+
+        if (Objects.equals(incomingGenderString, "male"))
+            mGenderImage.setImageResource(R.drawable.manimage);
+        else mGenderImage.setImageResource(R.drawable.womanimage);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override

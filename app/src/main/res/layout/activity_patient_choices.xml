@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.common_activities.WelcomePage">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/takeQuizButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_round_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginBottom="20dp"
+
+        android:gravity="center"
+        android:text="@string/take_quiz"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/findDoctorsNearbyButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:background="@drawable/white_blue_border_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/find_doctors_nearby"
+        android:textAllCaps="false"
+        android:textColor="@color/light_blue"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintTop_toTopOf="@+id/welcomeGuideline2"
+        app:strokeColor="@color/light_blue"
+        app:strokeWidth="6dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,19 +40,68 @@
     <string name="uid">UID</string>
     <string name="email">Email</string>
     <string name="check">Check</string>
-    <string name="button">Button</string>
-    <string name="name">Name</string>
-    <string name="general_select_title">Select your symptoms</string>
-    <string name="done">Done</string>
-    <string name="thirdQuestionResponse">I don\'t know</string>
-    <string name="yourBMI">Your BMI:</string>
-    <string name="emptyBMIValue">-</string>
-    <string name="bmi_calculator_next">Next</string>
     <string name="phone_number">Phone number</string>
     <string name="phone_verification">Please enter your phone number below and we will text you a verification code.</string>
     <string name="get_code">Get code</string>
     <string name="verification">Verification</string>
     <string name="verification_text">A code was sent to the phone number you provided.\nPlease enter the code below</string>
     <string name="verify_phone_number">Verify phone number</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="general_select_title">Select your symptoms</string>
+    <string name="done">Done</string>
+    <string name="thirdQuestionResponse">I don\'t know</string>
+    <string name="take_quiz">Take quiz</string>
+    <string name="find_doctors_nearby">Find doctors nearby</string>
+    <string name="book_appointment_button">Book appointment</string>
+    <string name="google_maps_key">AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc</string>
+    <string name="yourBMI">Your BMI:</string>
+    <string name="emptyBMIValue">-</string>
+    <string name="bmi_calculator_calculateBMIButton">Calculate BMI</string>
+    <string name="update_bmi_calculateBMIButton">Update BMI</string>
+    <string name="bmi_calculator_next">Next</string>
+    <string name="titleText">Title</string>
+    <string name="descriptionText">Description</string>
+    <string name="addApptText">Add Appt.</string>
     <string name="homeActivity">Home</string>
+
+    <!--    Days' of the week abbreviations-->
+    <string name="mondayText">Mon</string>
+    <string name="tuesdayText">Tue</string>
+    <string name="wednesdayText">Wed</string>
+    <string name="thursdayText">Thu</string>
+    <string name="fridayText">Fri</string>
+    <string name="saturdayText">Sat</string>
+    <string name="sundayText">Sun</string>
+    <string name="apptFormJustOneDay">Just one day</string>
+    <string name="apptFormEveryDay">Every day</string>
+    <string name="apptEventFormEveryWeek">Every week</string>
+
+    <string name="symptom_select_text">Please select your symptoms:</string>
+    <string name="symptom_next">Next</string>
+
+    <!--    Sidebar-navigation menu-item titles-->
+    <string name="nav_sidebar_your_profile">Your profile</string>
+    <string name="nav_sidebar_new_diagnosis">New diagnosis</string>
+    <string name="nav_sidebar_your_history">Your history</string>
+    <string name="nav_sidebar_bmi_calculator">BMI calculator</string>
+    <string name="nav_sidebar_map">Map</string>
+    <string name="nav_sidebar_settings">Settings</string>
+    <!--     -->
+
+    <string name="menu_open_drawer">Drawer Open</string>
+    <string name="menu_close_drawer">Drawer Close</string>
+    <string name="menu_group_otherTitle">Others</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="weight_text">"Select your weight: "</string>
+    <string name="height_text">"Select your height: "</string>
+
+    <!--    YourProfile Activity-->
+    <string name="your_profile_cover_image_content">your_profile_cover_image</string>
+    <string name="your_profile_loading">Loading..</string>
+    <string name="your_profile_profile_icon">profile icon</string>
+    <string name="your_profile_email_icon">email icon</string>
+    <string name="your_profile_birthday_icon">birthday icon</string>
+    <string name="your_profile_gender_icon">gender icon</string>
+    <!--     -->
 </resources>

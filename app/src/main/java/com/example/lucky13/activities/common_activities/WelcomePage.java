@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.doctor_path.GeneralScheduleActivity;
+import com.example.lucky13.activities.patient_path.PatientHomeScreenActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -26,7 +28,8 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, RoleSelectActivity.class));
+                Intent intent = new Intent(WelcomePage.this, RoleSelectActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -34,11 +37,9 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, SignInActivity.class));
+                Intent intent = new Intent(WelcomePage.this, SignInActivity.class);
+                startActivity(intent);
             }
         });
     }
 }
-//todo: primele timpuri disponibile
-//todo: medicul sa isi selecteze partea libera
-//todo: sa isi selecteze partea ocupata (plus recurring)

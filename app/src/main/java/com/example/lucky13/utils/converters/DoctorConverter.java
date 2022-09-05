@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 
 import com.example.lucky13.models.Doctor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +22,8 @@ public class DoctorConverter {
         doctorMap.put("gender",  doctor.getGender());
         doctorMap.put("phone",  doctor.getPhone());
         doctorMap.put("review", doctor.getReview());
+        doctorMap.put("workSchedule", doctor.getWorkSchedule());
+        doctorMap.put("appointments", doctor.getAppointments());
 
         return doctorMap;
     }
@@ -33,6 +37,9 @@ public class DoctorConverter {
                 gender = "",
                 phone = "";
         double review = 0.00;
+
+        HashMap<String, String> workSchedule = new HashMap<>();
+        HashMap<String, String> appointments = new HashMap<>();
 
         for (Map.Entry<String, Object> entry: doctorMap.entrySet()) {
 
@@ -48,6 +55,10 @@ public class DoctorConverter {
                phone = (String) entry.getValue();
             else if (entry.getKey().equals("review"))
                 review = (double) entry.getValue();
+            else if (entry.getKey().equals("appointments"))
+                appointments = (HashMap<String, String>) entry.getValue();
+            else if (entry.getKey().equals("workSchedule"))
+                workSchedule = (HashMap<String, String>) entry.getValue();
         }
 
         return new Doctor(
@@ -60,7 +71,9 @@ public class DoctorConverter {
                 new ArrayList<>(),
                 phone,
                 review,
-                gender
+                gender,
+                appointments,
+                workSchedule
         );
     }
 }

@@ -12,5 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >@color/background_light_blue</item>
         <!-- Customize your theme here. -->
+<!--        <item name="android:itemTextAppearance">@style/SidebarMenuCustomText</item>-->
     </style>
+    <style name="Theme.CalendarIntegration" parent="Theme.AppCompat.DayNight.NoActionBar">
+        
+    </style>
+    
+<!--    <style name="SidebarMenuCustomText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">-->
+<!--        <item name="fontFamily">casual</item>-->
+<!--    </style>-->
 </resources>

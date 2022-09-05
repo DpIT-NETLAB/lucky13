@@ -26,6 +26,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class PhoneVerifyActivity extends AppCompatActivity {
@@ -120,7 +121,7 @@ public class PhoneVerifyActivity extends AppCompatActivity {
                                                 String uid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
                                                 doctorService.addDoctor(uid, "name", email, passcode, "clinicId",
                                                         "medicalField", new ArrayList<String>(), phoneNumber,
-                                                        0.00, gender);
+                                                        0.00, gender, new HashMap<String, String>());
 
                                                 Toast.makeText(PhoneVerifyActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
 

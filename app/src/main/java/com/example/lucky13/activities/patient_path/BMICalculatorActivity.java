@@ -2,24 +2,24 @@ package com.example.lucky13.activities.patient_path;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.patient_path.side_bar.DrawerBaseActivity;
+import com.example.lucky13.databinding.ActivityDashboardBinding;
 import com.kevalpatel2106.rulerpicker.RulerValuePicker;
 import com.kevalpatel2106.rulerpicker.RulerValuePickerListener;
 
 import java.text.DecimalFormat;
 
-public class BMICalculatorActivity extends AppCompatActivity {
+public class BMICalculatorActivity extends DrawerBaseActivity {
 
+    ActivityDashboardBinding activityDashboardBinding;
 
     RulerValuePicker weightRulerPicker,
                     heightRulerPicker;
@@ -36,9 +36,12 @@ public class BMICalculatorActivity extends AppCompatActivity {
         bmiText = findViewById(R.id.bmi_calculator_bmiTextView);
         correctBMIButton = findViewById(R.id.bmi_calculator_correctBMIButton);
 
-        DecimalFormat df =new DecimalFormat("#.#");
+        Intent incomingIntent = getIntent();
+        String gender = incomingIntent.getStringExtra("gender");
 
-        weightRulerPicker.selectValue(60);
+        DecimalFormat df = new DecimalFormat("#.#");
+
+        weightRulerPicker.selectValue(60); // default values for bmi ruler picker
         heightRulerPicker.selectValue(150);
 
         final double[] weight = new double[1];
@@ -58,7 +61,6 @@ public class BMICalculatorActivity extends AppCompatActivity {
 
             }
         });
-
         heightRulerPicker.setValuePickerListener(new RulerValuePickerListener() {
             @Override
             public void onValueChange(int i) {
@@ -78,8 +80,12 @@ public class BMICalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: trebuie sa mai modificam sa integram in path-ul pacientului (adica si extra urile)
-                Intent intent = new Intent(BMICalculatorActivity.this, WelcomePage.class);
+                Intent intent = new Intent(BMICalculatorActivity.this, PatientInfoActivity.class);
+                intent.putExtra("gender", gender);
+                intent.putExtra("height", height[0]);
+                intent.putExtra("weight", weight[0]);
+                intent.putExtra("BMI", df.format(calculateBMIValue(weight[0], height[0])));
+
                 startActivity(intent);
             }
         });

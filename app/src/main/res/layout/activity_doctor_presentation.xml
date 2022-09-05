@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.common_activities.WelcomePage">
+
+        <TextView
+            android:id="@+id/doctorPresentationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="34sp"
+            android:textColor="@color/dark_grey"
+            android:fontFamily="@font/montserrat_bold"
+
+            app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
+            app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline6"
+            app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5" />
+
+        <TextView
+            android:id="@+id/doctorPresentationField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="18sp"
+            android:textColor="@color/dark_grey"
+            android:fontFamily="@font/montserrat_regular"
+
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+            app:layout_constraintTop_toBottomOf="@+id/doctorPresentationName" />
+
+        <TextView
+            android:id="@+id/doctorPresentationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+            app:layout_constraintTop_toBottomOf="@+id/doctorPresentationField" />
+
+    <LinearLayout
+        android:id="@+id/map_layout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/doctorPresentationDescription">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </fragment>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/showDirectionsButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/white_blue_border_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="Show directions"
+        android:textAllCaps="false"
+        android:textColor="@color/light_blue"
+        android:textSize="18sp"
+
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/map_layout" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/makeAppointmentButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        android:background="@drawable/blue_round_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/book_appointment_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/showDirectionsButton" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+</androidx.constraintlayout.widget.ConstraintLayout>
