@@ -21,3 +21,10 @@ If you want to say thank you and/or support active development of the TopDoc app
 - Post about the project on your Instagram!
     - Tag [@app.topdoc](https://www.instagram.com/app.topdoc)
     - Leave us a review [on the PlayStore](https://play.google.com/store/apps/details?id=?)! (COMING SOON)
+
+# 📖 Changelog
+All notable changes to this project will be documented in this file.
+## [1.0.0] - 2022-05-Sep
+### Added
+- Patient's access to nearest doctors, with route planning, according to his needs
+- Appointment system for doctors to inform patients of their schedule
