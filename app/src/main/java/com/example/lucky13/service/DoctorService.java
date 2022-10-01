@@ -32,7 +32,7 @@ public class DoctorService {
     }
 
     public void addDoctor(String UID, String name, String email, String passcode, String clinicId, String medicalField,
-                          ArrayList<String> languages, String phone, double review, String gender, HashMap<String, String> workSchedule) {
+                          ArrayList<String> languages, String phone, double review, String gender, HashMap<String, String> workSchedule, String token) {
 
         Doctor doctor = new Doctor(
                 UID,
@@ -46,7 +46,8 @@ public class DoctorService {
                 review,
                 gender,
                 new HashMap<String, String>(),
-                workSchedule
+                workSchedule,
+                token
         );
 
         repository.addDoctor(doctor, DoctorConverter.convertFromEntityToMap(doctor));

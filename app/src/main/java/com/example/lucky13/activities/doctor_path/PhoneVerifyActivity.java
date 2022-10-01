@@ -43,7 +43,7 @@ public class PhoneVerifyActivity extends AppCompatActivity {
 
     AppCompatButton mVerifyPhoneNumberButton;
 
-    String verificationId, password, passcode, email, gender, phoneNumber;
+    String verificationId, password, passcode, email, gender, phoneNumber, token;
 
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
@@ -73,6 +73,7 @@ public class PhoneVerifyActivity extends AppCompatActivity {
         passcode = getIntent().getStringExtra("passCode");
         email = getIntent().getStringExtra("email");
         gender = getIntent().getStringExtra("gender");
+        token = getIntent().getStringExtra("token");
 
         mVerifyPhoneNumberButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +122,7 @@ public class PhoneVerifyActivity extends AppCompatActivity {
                                                 String uid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
                                                 doctorService.addDoctor(uid, "name", email, passcode, "clinicId",
                                                         "medicalField", new ArrayList<String>(), phoneNumber,
-                                                        0.00, gender, new HashMap<String, String>());
+                                                        0.00, gender, new HashMap<String, String>(), token);
 
                                                 Toast.makeText(PhoneVerifyActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
 

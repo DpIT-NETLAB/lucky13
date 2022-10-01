@@ -21,12 +21,14 @@ public class Doctor {
     private HashMap<String, String> appointments;
     private HashMap<String, String> workSchedule;
 
+    private String token;
+
     public Doctor() {}
 
 
     public Doctor(String UID, String name, String email, String passcode, String clinicId,
                   String medicalField, ArrayList<String> language, String phone,
-                  double review, String gender, HashMap<String, String> appointments, HashMap<String, String> workSchedule) {
+                  double review, String gender, HashMap<String, String> appointments, HashMap<String, String> workSchedule, String token) {
         this.UID = UID;
         this.name = name;
         this.email = email;
@@ -39,6 +41,7 @@ public class Doctor {
         this.gender = gender;
         this.appointments = appointments;
         this.workSchedule = workSchedule;
+        this.token = token;
     }
 
     public String getUID() {
@@ -136,4 +139,6 @@ public class Doctor {
     public void setWorkSchedule(HashMap<String, String> workSchedule) {
         this.workSchedule = workSchedule;
     }
+
+    public String getToken() { return token; }
 }
