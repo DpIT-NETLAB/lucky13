@@ -68,7 +68,8 @@ public class DoctorRepository {
                                 (double) document.get("review"),
                                 (String) document.get("gender"),
                                 (HashMap<String, String>) document.get("appointments"),
-                                (HashMap<String, String>) document.get("workSchedule")
+                                (HashMap<String, String>) document.get("workSchedule"),
+                                (String) document.get("token")
                         );
 
                         tempDoctorList.add(doctor);

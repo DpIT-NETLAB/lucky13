@@ -22,10 +22,13 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.TimeZone;
+import java.util.TreeMap;
 
 public class BookAppointmentActivity extends AppCompatActivity {
 
@@ -42,12 +45,14 @@ public class BookAppointmentActivity extends AppCompatActivity {
     HashMap<LocalDate, String> finalDates = new HashMap<>();
     List<HashMap<LocalDate, String>> myList = new ArrayList<HashMap<LocalDate, String>>();
 
-    LocalDate[] allDates;
-    String[] allTimes;
+    LocalDate[] allDates = new LocalDate[50];
+    String[] allTimes = new String[50];
 
-    HashMap<String, String> appointments;
+    LocalDate[] dates;
+    String[] times;
 
-    Doctor doc;
+    Map<LocalDateTime, String> appts = new TreeMap<>();
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -64,7 +69,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         doctorService.doctorList.observe(this, doctorsList -> {
             for (Doctor doctor : doctorsList) {
                 if (Objects.equals(doctor.getUID(), id)) {
-                    InitializeCard(doctor);
+                    //InitializeCard(doctor);
                     Log.d(TAG, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " + doctor.getName());
                     GetDates(doctor);
                 }
@@ -82,6 +87,10 @@ public class BookAppointmentActivity extends AppCompatActivity {
         HashMap<String, String> appointments = doctor.getAppointments();
         schedule = doctor.getWorkSchedule();
 
+        for (String day: schedule.keySet()) {
+            Log.d(TAG, day);
+        }
+
         for (String appointment : appointments.keySet()) {
             long epoch = Long.parseLong(appointment);
             LocalDateTime dateTime =
@@ -98,13 +107,10 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
         Log.d(TAG, "TODAY: " + day_now);
 
-        int cnt=0, i=0;
+
+        int cnt=0;
         while (cnt<4) {
-            i++;
-            if (Objects.equals(weekDays[now.get(ChronoField.DAY_OF_WEEK)], "Saturday")) {
-                day_now = weekDays[1];
-            }
-            else day_now = weekDays[now.get(ChronoField.DAY_OF_WEEK) + i];
+            day_now = weekDays[now.get(ChronoField.DAY_OF_WEEK) + 1];
             for (String weekDay : schedule.keySet()) {
                 Log.d(TAG, "WEEKDAY: " + weekDay + day_now);
                 if (Objects.equals(day_now, weekDay)) {
@@ -117,93 +123,130 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
                     Log.d(TAG, "TIME: " + startHour + " " + startMinute + " " + endHour + " " + endMinute);
 
+                    LocalTime startTime = LocalTime.of(startHour, startMinute);
+                    LocalTime endTime = LocalTime.of(endHour, endMinute);
+
                     boolean check = false;
                     for (LocalDateTime date : bookedDates.keySet()) {
-                        if (date.getYear() == now.getYear() && date.getDayOfYear() == now.getDayOfYear()) {
+                        LocalTime dateTime = LocalTime.of(date.getHour(), date.getMinute());
+                        Log.d(TAG, "ALL TIMES: " + startTime + "   " + endTime + "   " + dateTime);
+                        if (date.getYear() == now.getYear() && date.getDayOfYear() == now.getDayOfYear() && dateTime.compareTo(startTime) >= 0) {
                             Log.d(TAG, "DATE: " + date);
+                            appts.put(date, bookedDates.get(date));
                             check = true;
-                            if (date.getHour() == startHour)  {
-                                if (date.getMinute() < startMinute) {
-                                    check = false;
-                                }
+                        }
+
+                        Log.d(TAG, "CHECK: " + check);
+                    }
+                    for (LocalDateTime date1: appts.keySet()) {
+                        Log.d(TAG, "APPOINTMENTS: " + date1 + "     " + appts.get(date1));
+                    }
+                    if (check) {
+                        for (LocalDateTime dateTime : appts.keySet()) {
+                            LocalTime tempET = dateTime.toLocalTime();
+                            Log.d(TAG, "END TIMEEEEEEE:" + tempET);
+                            while (startTime.compareTo(tempET) <0) {
+                                Log.d(TAG, "COMPARE: " + startTime.plusMinutes(30).compareTo(tempET));
+                                Log.d(TAG, "START TIMEEEEEEE:" + startTime);
+                                LocalDate finalDate = LocalDate.of(now.getYear(), now.getMonth(), now.getDayOfMonth());
+                                String finalInterval = startTime.getHour() + ":" + startTime.getMinute() + " - " + startTime.plusMinutes(30).getHour() + ":" + startTime.plusMinutes(30).getMinute();
+                                Log.d(TAG, "START TIME: " + finalInterval);
+                                allDates[cnt] = finalDate;
+                                allTimes[cnt] = finalInterval;
+                                cnt++;
+                                startTime = startTime.plusMinutes(30);
                             }
+                            startTime = tempET.plusMinutes(30);
 
-                            Log.d(TAG, "CHECK: " + check);
-
-                            LocalTime time = LocalTime.of(startHour, startMinute);
-                            LocalTime dateTime = LocalTime.of(date.getHour(), date.getMinute());
-
-
-                            if (date.getHour() > startHour && date.getHour()<endHour || check) {
-                                while (dateTime.compareTo(time.plusMinutes(30)) >= 0) {
-                                    LocalDate finalDate = LocalDate.of(now.getYear(), now.getMonth(), now.getDayOfMonth());
-                                    String finalInterval = time.getHour() + ":" + time.getMinute() + " - " + time.plusMinutes(30).getHour() + ":" + time.plusMinutes(30).getMinute();
-                                    allDates[cnt] = finalDate;
-                                    allTimes[cnt] = finalInterval;
-                                    for (int j=0; j< allDates.length; j++) {
-                                        Log.d(TAG, "DATES0: " + allDates[j] + allTimes[j]);
-                                    }
-                                    myList.add(finalDates);
-                                    Log.d(TAG, "FINAL DATE: " + finalDates.get(finalDate) + finalDate);
-                                    time = time.plusMinutes(30);
-                                    cnt++;
-                                }
-                                for (LocalDate date1: allDates) {
-                                    Log.d(TAG, "DATES1: " + date1);
-                                }
-                                LocalTime dateTime1 = time.plusMinutes(30);
-                                startHour = dateTime1.getHour();
-                                startMinute = dateTime1.getMinute();
-                            }
+                        }
+                        while (startTime.plusMinutes(30).compareTo(endTime) <=0) {
+                            LocalDate finalDate = LocalDate.of(now.getYear(), now.getMonth(), now.getDayOfMonth());
+                            String finalInterval = startTime.getHour() + ":" + startTime.getMinute() + " - " + startTime.plusMinutes(30).getHour() + ":" + startTime.plusMinutes(30).getMinute();
+                            Log.d(TAG, "START TIME: " + finalInterval);
+                            allDates[cnt] = finalDate;
+                            allTimes[cnt] = finalInterval;
+                            startTime = startTime.plusMinutes(30);
+                            cnt++;
                         }
                     }
 
-                    Log.d(TAG, "CHECK: " + check);
+
+//
+//
+//                            if (date.getHour() > startHour && date.getHour() < endHour || check) {
+//                                while (dateTime.compareTo(time.plusMinutes(30)) >= 0) {
+//                                    LocalDate finalDate = LocalDate.of(now.getYear(), now.getMonth(), now.getDayOfMonth());
+//                                    String finalInterval = time.getHour() + ":" + time.getMinute() + " - " + time.plusMinutes(30).getHour() + ":" + time.plusMinutes(30).getMinute();
+//                                    allDates[cnt] = finalDa\te;
+//                                    allTimes[cnt] = finalInterval;
+//                                    for (int j = 0; j < allDates.length; j++) {
+//                                        Log.d(TAG, "DATES0: " + allDates[j] + allTimes[j]);
+//                                    }
+//                                    myList.add(finalDates);
+//                                    Log.d(TAG, "FINAL DATE: " + finalDates.get(finalDate) + finalDate);
+//                                    time = time.plusMinutes(30);
+//                                    cnt++;
+//                                }
+//                                for (LocalDate date1 : allDates) {
+//                                    Log.d(TAG, "DATES1: " + date1);
+//                                }
+//                                LocalTime dateTime1 = time.plusMinutes(30);
+//                                startHour = dateTime1.getHour();
+//                                startMinute = dateTime1.getMinute();
+//                            }
                     if (!check) {
                         LocalTime time = LocalTime.of(startHour, startMinute);
-                        LocalTime endTime = LocalTime.of(endHour, endMinute);
 
-                        while (endTime.compareTo(time.plusMinutes(30)) <= 0) {
+                        Log.d(TAG, "START TIME: " + time);
+                        Log.d(TAG, "END TIME: " + endTime);
+
+                        while (endTime.compareTo(time.plusMinutes(30)) >= 0) {
                             LocalDate finalDate = LocalDate.of(now.getYear(), now.getMonth(), now.getDayOfMonth());
                             String finalInterval = time.getHour() + ":" + time.getMinute() + " - " + time.plusMinutes(30).getHour() + ":" + time.plusMinutes(30).getMinute();
+                            Log.d(TAG, "START TIME: " + finalInterval);
                             allDates[cnt] = finalDate;
                             allTimes[cnt] = finalInterval;
-                            for (int j=0; j< allDates.length; j++) {
+                            for (int j = 0; j < allDates.length; j++) {
                                 Log.d(TAG, "DATES000: " + allDates[j] + allTimes[j]);
                             }
                             Log.d(TAG, "FINAL DATE: " + finalDate + finalInterval);
                             time = time.plusMinutes(30);
+                            Log.d(TAG, "START TIME: " + time);
                             cnt++;
                         }
                     }
 
 
                 }
+                now = now.plusDays(1);
             }
         }
-        CreateDataForCards();
+        dates = Arrays.copyOf(allDates, cnt);
+        times = Arrays.copyOf(allTimes, cnt);
+
+        allDates = Arrays.copyOf(dates, cnt);
+        allTimes = Arrays.copyOf(times, cnt);
+        CreateDataForCards(doctor);
 
 
     }
 
 
 
-    private void InitializeCard(Doctor doctor) {
-        recyclerView = findViewById(R.id.slots_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        allDates = new LocalDate[50];
-        allTimes = new String[50];
-
-        adapter = new SlotAdapter(this, allTimes, allDates, doctor);
-        recyclerView.setAdapter(adapter);
+    private void InitializeCard() {
     }
 
-    private void CreateDataForCards() {
+    private void CreateDataForCards(Doctor doctor) {
 
 //        for (LocalDate date: finalDates.keySet()) {
 //            Log.d(TAG, "DATES: " + date + finalDates.get(date));
 //        }
+        recyclerView = findViewById(R.id.slots_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        adapter = new SlotAdapter(this, allTimes, allDates, doctor);
+        recyclerView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
     }

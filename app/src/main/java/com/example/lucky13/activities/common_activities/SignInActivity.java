@@ -13,12 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.DiseasesShowActivity;
+import com.example.lucky13.activities.patient_path.DiseasesShowActivityș
+import com.example.lucky13.models.Doctor;
+import com.example.lucky13.service.DoctorServiceș
 import com.example.lucky13.activities.patient_path.PatientHomeScreenActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Objects;
 
@@ -32,6 +38,11 @@ public class SignInActivity extends AppCompatActivity {
                     mSignInGoogleButton;
 
     FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+    String token;
+
+    DoctorService doctorService = new DoctorService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +95,48 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(SignInActivity.this, "User registered", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "User successfully logged in!");
 
+                            Task<String> firebaseMessaging = FirebaseMessaging.getInstance().getToken()
+                                .addOnCompleteListener(new OnCompleteListener<String>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<String> task) {
+                                        if (!task.isSuccessful()) {
+                                            Log.w("TAG", "Fetching FCM registration token failed", task.getException());
+                                            return;
+                                        }
+
+                                        // Get new FCM registration token
+                                        token = task.getResult();
+
+                                        // Log and toast
+                                        Log.d("TAG", token);
+                                        Toast.makeText(SignInActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                            String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+                            doctorService.getAllDoctors();
+                            doctorService.doctorList.observe(SignInActivity.this, doctorsList -> {
+                                for (Doctor doctor : doctorsList) {
+                                    if (Objects.equals(doctor.getEmail(), email)) {
+                                        firebaseFirestore.collection("Doctors").document(doctor.getUID())
+                                            .update("token", token)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Log.d("SLOTS: ", "DocumentSnapshot successfully written!");
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w("SLOTS: ", "Error writing document", e);
+                                                }
+                                            });
+                                    }
+                                }
+                            });
+                            
                             Intent intent = new Intent(SignInActivity.this, PatientHomeScreenActivity.class);
                             startActivity(intent);
 
