@@ -31,7 +31,7 @@
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
 
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
         android:textSize="18sp"
         android:hint="Pass code"
         android:inputType="textPersonName"
@@ -51,7 +51,7 @@
 
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
         android:textSize="18sp"
         android:hint="@string/patientcreate_email_address"
         android:inputType="textEmailAddress"
@@ -70,7 +70,7 @@
 
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
         android:textSize="18sp"
         android:hint="@string/patientcreate_password"
         android:inputType="textPassword"
@@ -89,7 +89,7 @@
 
         android:background="@drawable/blue_gray_round_textedit"
         android:ems="10"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_basic"
         android:textSize="18sp"
         android:hint="@string/patientcreate_confirm_password"
         android:inputType="textPassword"

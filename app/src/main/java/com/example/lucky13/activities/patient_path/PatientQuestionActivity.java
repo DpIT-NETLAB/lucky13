@@ -25,8 +25,6 @@ import java.util.Map;
 
 public class PatientQuestionActivity extends AppCompatActivity {
 
-    private Context mContext;
-
     ArrayList<Question> questions = new ArrayList<>();
     ArrayList<Response> responses = new ArrayList<>();
     ArrayList<Symptom> symptoms = new ArrayList<>();

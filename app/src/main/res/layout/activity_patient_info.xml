@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/patientinfoInfoText"
-        android:layout_width="350dp"
+        android:layout_width="314dp"
         android:layout_height="111dp"
         android:layout_marginTop="72dp"
         android:fontFamily="@font/montserrat_bold"
@@ -26,9 +26,9 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="326dp"
-        android:layout_height="411dp"
+        android:id="@+id/patientInfoGenderImage"
+        android:layout_width="312dp"
+        android:layout_height="393dp"
         android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
@@ -36,113 +36,53 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-
-        app:srcCompat="@drawable/manimage"
-        tools:srcCompat="@drawable/manimage" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/patientinfoChipGroup"
-        android:layout_width="200dp"
-        android:layout_height="157dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/patientinfoLastNameTextEdit">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoElevatorChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_elevator"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoWasherDryerChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_washer_dryer"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoFireplaceChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_fireplace"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoWheelchairChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_wheelchair"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoDogsChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_dogs_ok"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/patientinfoCatsChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/patientinfo_cats_ok"
-            android:theme="@style/Theme.MaterialComponents.Light" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <EditText
-        android:id="@+id/patientinfoFirstNameTextEdit"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="10dp"
-
-        android:gravity="center_vertical"
-
-        android:background="@drawable/blue_gray_round_textedit"
-        android:ems="10"
-        android:textSize="16sp"
-
-        android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/patientinfo_first_name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
-        android:id="@+id/patientinfoLastNameTextEdit"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-
-        android:gravity="center_vertical"
+        android:id="@+id/patientinfoFirstNameTextEdit"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
 
         android:background="@drawable/blue_gray_round_textedit"
+
         android:ems="10"
+        android:fontFamily="@font/montserrat_basic"
+        android:gravity="center_vertical"
+
+        android:hint="@string/patientinfo_first_name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
         android:textSize="16sp"
 
-        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/patientinfoLastNameTextEdit"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+
+        android:background="@drawable/blue_gray_round_textedit"
+
+        android:ems="10"
+        android:fontFamily="@font/montserrat_basic"
+        android:gravity="center_vertical"
+
         android:hint="@string/patientinfo_last_name"
         android:inputType="textPersonName"
         android:padding="10dp"
+        android:textSize="16sp"
 
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/patientinfoFirstNameTextEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/patientinfoFirstNameTextEdit"
+        android:autofillHints="" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -169,16 +109,17 @@
         android:id="@+id/patientInfoNextButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
 
         android:background="@drawable/blue_round_button"
 
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
         android:text="@string/patientinfo_next"
         android:textAllCaps="false"
-        android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="24sp"
 
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />

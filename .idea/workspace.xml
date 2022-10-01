@@ -31,6 +31,11 @@
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/SignInActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/SignInActivity.java" afterDir="false" />
+    <list default="true" id="d29be6b3-cba4-47c6-9de0-5d960f741697" name="Changes" comment="Doctor phone number verification">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/patient_path/DoctorsShowActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/adapter/DoctorAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctors_show.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/common_activities/WelcomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/CreateDoctorAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/CreateDoctorAccountActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/PhoneVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lucky13/activities/doctor_path/PhoneVerifyActivity.java" afterDir="false" />
@@ -149,6 +154,9 @@
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
   </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.lucky13.utils.converters" />
@@ -156,9 +164,6 @@
     </key>
     <key name="android.template.-1255672213">
       <recent name="com.example.lucky13.activities" />
-    </key>
-    <key name="android.template.-1605862016">
-      <recent name="com.example.lucky13.activities.patient_path" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\AuthApp2C\app\src\main\res\drawable" />

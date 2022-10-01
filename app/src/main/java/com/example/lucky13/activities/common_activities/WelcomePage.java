@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.doctor_path.ApptEventFormActivity;
-import com.example.lucky13.activities.doctor_path.CalendarActivity;
 import com.example.lucky13.activities.doctor_path.GeneralScheduleActivity;
 import com.example.lucky13.activities.patient_path.FindDoctorsNearby;
 import com.example.lucky13.activities.patient_path.GeneralSymptomSelect;
@@ -23,8 +21,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 import java.util.Calendar;
+import com.example.lucky13.activities.patient_path.PatientHomeScreenActivity;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -68,7 +66,8 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(WelcomePage.this, ShowClinics.class));
+                Intent intent = new Intent(WelcomePage.this, RoleSelectActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -78,8 +77,9 @@ public class WelcomePage extends AppCompatActivity {
 
                 FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "abcd", "aaaaaaaa", getApplicationContext(), WelcomePage.this);
                 notificationsSender.SendNotifications();
+                
+                Intent intent = new Intent(WelcomePage.this, SignInActivity.class);
 
-                Intent intent = new Intent(WelcomePage.this, ShowClinics.class);
                 startActivity(intent);
             }
         });

@@ -36,10 +36,10 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc" />
+
 
         <activity
             android:name=".activities.patient_path.AfterAppointmentActivity"
@@ -48,11 +48,9 @@
         <activity
             android:name=".activities.patient_path.BookAppointmentActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.doctor_path.GeneralScheduleActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.patient_path.DoctorPresentationActivity"
             android:exported="false" />
@@ -66,6 +64,21 @@
             android:name=".activities.patient_path.PatientChoicesActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.patient_path.menu_options.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.YourProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.side_bar.DrawerBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.PatientHomeScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.doctor_path.CalendarActivity"
             android:exported="false" />
         <activity
@@ -73,6 +86,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.BMICalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient_path.menu_options.UpdateBMIActivity"
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.DiseasesShowActivity"
@@ -103,6 +119,10 @@
             android:exported="false" />
         <activity
             android:name=".activities.common_activities.WelcomePage"
+            android:exported="false"
+            android:label="@string/homeActivity" />
+        <activity
+            android:name=".activities.common_activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
