@@ -82,7 +82,7 @@ public class UpdateBMIActivity extends DrawerBaseActivity {
 
                 //TODO: actually update the user
                 Intent intent = new Intent(UpdateBMIActivity.this, PatientHomeScreenActivity.class);
-                Toast.makeText(UpdateBMIActivity.this, bmiText.getText().toString(), Toast.LENGTH_SHORT).show();
+
                 startActivity(intent);
             }
         });

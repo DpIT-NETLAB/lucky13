@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.doctor_path.CreateDoctorAccountActivity;
+import com.example.lucky13.activities.patient_path.BMICalculatorActivity;
 import com.example.lucky13.activities.patient_path.PatientInfoActivity;
 
 import java.util.Objects;
@@ -26,7 +27,7 @@ public class GenderSelectActivity extends AppCompatActivity {
         Intent incomingIntent = getIntent();
         String incomingRole = incomingIntent.getStringExtra("role");
 
-        Intent patientIntent = new Intent(GenderSelectActivity.this, PatientInfoActivity.class);
+        Intent patientIntent = new Intent(GenderSelectActivity.this, BMICalculatorActivity.class);
         Intent doctorIntent = new Intent(GenderSelectActivity.this, CreateDoctorAccountActivity.class);
 
         mMaleButton = findViewById(R.id.choosinggenderMaleButton);

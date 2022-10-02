@@ -9,14 +9,15 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/generalScheduleText"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
+
         android:fontFamily="@font/montserrat_regular"
         android:text="What is your work schedule?"
         android:textColor="@color/very_dark_grey"
         android:textSize="20sp"
+
         app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
         app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
         app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline" />
@@ -26,11 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:chipSpacingHorizontal="2dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
 
         app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
         app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/generalScheduleText"
         app:singleLine="false"
         app:singleSelection="false">
 
@@ -42,9 +43,11 @@
         android:layout_height="wrap_content"
         android:scaleX="0.70"
 
+        android:layout_marginTop="210dp"
+
         android:scaleY="0.70"
         android:timePickerMode="spinner"
-        app:layout_constraintTop_toBottomOf="@+id/endTimePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/generalScheduleText" />
 
     <TimePicker
         android:id="@+id/endTimePicker"
@@ -72,6 +75,23 @@
         app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
         app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/startTimePicker" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/seeCalendar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+
+        android:background="@drawable/white_blue_border_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/generalScheduleSeeCalendar"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/light_blue"
+
+        app:layout_constraintEnd_toStartOf="@+id/apptEventRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/apptEventLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/doneButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/apptEventLeftGuideline"

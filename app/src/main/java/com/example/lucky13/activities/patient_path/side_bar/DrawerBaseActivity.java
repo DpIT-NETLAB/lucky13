@@ -63,7 +63,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0, 0);
                 break;
             case R.id.nav_your_history:
-                startActivity(new Intent(DrawerBaseActivity.this, YourHistoryActivity.class));
+                //startActivity(new Intent(DrawerBaseActivity.this, YourHistoryActivity.class));
                 overridePendingTransition(0, 0);
                 break;
             case R.id.nav_bmi_calculator:
@@ -75,7 +75,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 //                overridePendingTransition(0, 0);
 //                break;
             case R.id.nav_settings:
-                startActivity(new Intent(DrawerBaseActivity.this, SettingsActivity.class));
+                //startActivity(new Intent(DrawerBaseActivity.this, SettingsActivity.class));
                 overridePendingTransition(0, 0);
                 break;
         }

@@ -11,7 +11,7 @@
 - As a patient, find you the nearest and most skilled doctor for your likes  
 - As a doctor, help you set up an appointment with a patient in need, all through your profile
 
-**Read more about TopDoc on [the project homepage](https://google.com).** (COMING SOON)
+**Read more about TopDoc on [the project homepage](https://top-doc.ro).** (COMING SOON)
 
 ### 🌟 Spread the word!
 

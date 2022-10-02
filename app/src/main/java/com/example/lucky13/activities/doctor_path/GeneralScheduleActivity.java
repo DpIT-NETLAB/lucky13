@@ -1,5 +1,6 @@
 package com.example.lucky13.activities.doctor_path;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.models.Doctor;
 import com.example.lucky13.service.DoctorService;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,7 +22,6 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormatSymbols;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -35,7 +34,8 @@ public class GeneralScheduleActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     ChipGroup mChipGroup;
-    AppCompatButton mDoneButton;
+    AppCompatButton mDoneButton,
+                    mSeeCalendar;
 
     TimePicker mStartTimePicker,
                 mEndTimePicker;
@@ -53,6 +53,7 @@ public class GeneralScheduleActivity extends AppCompatActivity {
 
         mChipGroup = findViewById(R.id.daysChipGroup);
         mDoneButton = findViewById(R.id.doneButton);
+        mSeeCalendar = findViewById(R.id.seeCalendar);
 
         mStartTimePicker = findViewById(R.id.startTimePicker);
         mEndTimePicker = findViewById(R.id.endTimePicker);
@@ -71,7 +72,15 @@ public class GeneralScheduleActivity extends AppCompatActivity {
             }
         });
 
+        mSeeCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent = new Intent(GeneralScheduleActivity.this, CalendarActivity.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
     private void addSchedule() {
