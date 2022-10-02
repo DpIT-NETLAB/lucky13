@@ -13,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.patient_path.DiseasesShowActivityș
 import com.example.lucky13.models.Doctor;
-import com.example.lucky13.service.DoctorServiceș
+import com.example.lucky13.service.DoctorService;
 import com.example.lucky13.activities.patient_path.PatientHomeScreenActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -109,7 +108,6 @@ public class SignInActivity extends AppCompatActivity {
 
                                         // Log and toast
                                         Log.d("TAG", token);
-                                        Toast.makeText(SignInActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
                                     }
                                 });
 

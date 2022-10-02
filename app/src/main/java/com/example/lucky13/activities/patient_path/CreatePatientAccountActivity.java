@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.SignInActivity;
 import com.example.lucky13.service.PatientService;
 import com.example.lucky13.utils.EmailVerificationSender;
 import com.google.android.gms.auth.api.Auth;
@@ -137,13 +136,8 @@ public class CreatePatientAccountActivity extends AppCompatActivity implements
                                     patientService.addPatient(uid, incomingFirstName, incomingLastName, new Triple(0, 0, 0),
                                             email, 0, 0, incomingGender, new ArrayList<String>());
 
-                                    Toast.makeText(CreatePatientAccountActivity.this, TAG + ": succeeded", Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(CreatePatientAccountActivity.this, DiseasesShowActivity.class);
+                                    Intent intent = new Intent(CreatePatientAccountActivity.this, PatientHomeScreenActivity.class);
                                     startActivity(intent);
-                                } else {
-
-                                    Toast.makeText(CreatePatientAccountActivity.this, TAG + ": failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

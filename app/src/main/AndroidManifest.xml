@@ -5,10 +5,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -21,17 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.lucky13."
         tools:targetApi="31">
+        <activity
+            android:name=".DoctorHomePageActivity"
+            android:exported="false" />
 
         <service
             android:name=".notification.FirebaseMessagingService"
+            android:exported="true"
             android:permission="TODO"
-            tools:ignore="ExportedService"
-            android:exported="true">
+            tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -40,11 +39,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZG9-0a6j4ImKeIM9YnsBsa-EreiT9kSc" />
 
-
         <activity
             android:name=".activities.patient_path.AfterAppointmentActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.patient_path.BookAppointmentActivity"
             android:exported="false" />
@@ -59,9 +56,6 @@
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.ShowClinics"
-            android:exported="false" />
-        <activity
-            android:name=".activities.patient_path.PatientChoicesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.patient_path.menu_options.SettingsActivity"

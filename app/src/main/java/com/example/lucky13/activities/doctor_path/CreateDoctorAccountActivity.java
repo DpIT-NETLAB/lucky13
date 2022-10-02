@@ -13,18 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.SignInActivity;
-import com.example.lucky13.service.DoctorService;
-import com.example.lucky13.utils.EmailVerificationSender;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
-
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class CreateDoctorAccountActivity extends AppCompatActivity {
 
@@ -110,7 +103,7 @@ public class CreateDoctorAccountActivity extends AppCompatActivity {
                     });
 
 
-                Intent intent = new Intent(CreateDoctorAccountActivity.this, PhoneNumberActivity.class);
+                Intent intent = new Intent(CreateDoctorAccountActivity.this, GeneralScheduleActivity.class);
 
                 intent.putExtra("passCode", passcode);
                 intent.putExtra("email", email);

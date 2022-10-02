@@ -1,17 +1,15 @@
 package com.example.lucky13.activities.patient_path;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.lucky13.R;
-import com.example.lucky13.activities.common_activities.WelcomePage;
 import com.example.lucky13.models.Question;
 import com.example.lucky13.models.Response;
 import com.example.lucky13.models.Symptom;
@@ -147,6 +145,9 @@ public class PatientQuestionActivity extends AppCompatActivity {
 
                     startActivity(nextIntent);
                 } else {
+
+                    if (pageOrder == 1)
+                        pageOrder += 0;
 
                     ArrayList<Response> currentResponses = loadQuestion(++pageOrder);
                     addDiseaseUIDs(getDiseaseUIDsForResponse(currentResponses, 1));
