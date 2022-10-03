@@ -37,7 +37,7 @@ public class PatientHomeScreenActivity extends DrawerBaseActivity {
         mFindDoctorsNearbyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PatientHomeScreenActivity.this, ShowClinics.class);
+                Intent intent = new Intent(PatientHomeScreenActivity.this, FindDoctorsNearby.class);
                 startActivity(intent);
             }
         });
