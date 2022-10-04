@@ -1,6 +1,7 @@
 package com.example.lucky13.activities.patient_path;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,6 +24,12 @@ public class PatientHomeScreenActivity extends DrawerBaseActivity {
         activityDashboardBinding = com.example.lucky13.databinding.ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
 
+//        Typeface titleTypeface = null;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            titleTypeface = getResources().getFont(R.font.montserrat_regular);
+//        } 
+//
+//        getSupportActionBar().setTitle(Html.fromHtml("<font color='#1F9FD9'>Expense Manager <font>"));
 
         mTakeQuizButton = findViewById(R.id.takeQuizButton);
         mFindDoctorsNearbyButton = findViewById(R.id.findDoctorsNearbyButton);
@@ -37,7 +44,9 @@ public class PatientHomeScreenActivity extends DrawerBaseActivity {
         mFindDoctorsNearbyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PatientHomeScreenActivity.this, FindDoctorsNearby.class);
+
+                Intent intent = new Intent(PatientHomeScreenActivity.this, ShowClinics.class);
+
                 startActivity(intent);
             }
         });
