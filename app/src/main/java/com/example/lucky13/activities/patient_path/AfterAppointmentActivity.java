@@ -24,17 +24,11 @@ public class AfterAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         Intent incomingIntent = getIntent();
 
-        String uid = incomingIntent.getStringExtra("doctor");
+        String token = incomingIntent.getStringExtra("doctor");
+        Log.d("TAG: ", "TOKENNN: " + token);
+        FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "New appointment!", "Someone has booked an appointment with you! Tap to find out more", getApplicationContext(), AfterAppointmentActivity.this);
+        notificationsSender.SendNotifications();
 
-        doctorService.getAllDoctors();
-        doctorService.doctorList.observe(AfterAppointmentActivity.this, doctorsList -> {
-            for (Doctor doctor : doctorsList) {
-                if (Objects.equals(doctor.getUID(), uid)) {
-                    Log.d("TAG: ", "TOKEN: " + doctor.getToken());
-                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(doctor.getToken(), "abcd", "aaaaaaaa", getApplicationContext(), AfterAppointmentActivity.this);
-                    notificationsSender.SendNotifications();
-                }
-            }
-        });
+
     }
 }

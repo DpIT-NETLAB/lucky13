@@ -44,7 +44,7 @@ public class GeneralScheduleActivity extends AppCompatActivity {
 
     int startHour, startMinute, endHour, endMinute;
 
-    String prevDay = "";
+    String prevDay = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class GeneralScheduleActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     chip.setChipBackgroundColor(ColorStateList.valueOf(getResources().getColor(R.color.darker_blue_gray)));
                     String time = startHour + ","+ startMinute + "," + endHour + "," + endMinute;
-                    if (!Objects.equals(prevDay, "")) {
+                    if (!Objects.equals(prevDay, "0")) {
                         schedule.put(prevDay, time);
                     }
                     Log.d(TAG, day + startHour + ","+ startMinute + "," + endHour + "," + endMinute);
