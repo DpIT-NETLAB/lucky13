@@ -1,7 +1,9 @@
 package com.example.lucky13.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,8 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.lucky13.R;
+import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.patient_path.AfterAppointmentActivity;
 import com.example.lucky13.models.Disease;
 import com.example.lucky13.models.Doctor;
+import com.example.lucky13.notification.FcmNotificationsSender;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -65,7 +70,7 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.SlotHolder> {
 
                     appointments.put(Long.toString(date), "00,30");
 
-                    firebaseFirestore.collection("Doctors").document("1RYNbd0MqaZJUciswVHN")
+                    firebaseFirestore.collection("Doctors").document(doctor.getUID())
                             .update("appointments", appointments)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -79,6 +84,10 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.SlotHolder> {
                                     Log.w("SLOTS: ", "Error writing document", e);
                                 }
                             });
+
+                    Intent intent = new Intent(context, AfterAppointmentActivity.class);
+                    intent.putExtra("doctor", doctor.getUID());
+                    context.startActivity(intent);
                 }
             });
         }

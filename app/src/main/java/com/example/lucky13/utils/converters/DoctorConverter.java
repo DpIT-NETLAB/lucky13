@@ -35,7 +35,8 @@ public class DoctorConverter {
                 email = "",
                 passcode = "",
                 gender = "",
-                phone = "";
+                phone = "",
+                token= "";
         double review = 0.00;
 
         HashMap<String, String> workSchedule = new HashMap<>();
@@ -59,6 +60,8 @@ public class DoctorConverter {
                 appointments = (HashMap<String, String>) entry.getValue();
             else if (entry.getKey().equals("workSchedule"))
                 workSchedule = (HashMap<String, String>) entry.getValue();
+            else if (entry.getKey().equals("token"))
+                token = (String) entry.getValue();
         }
 
         return new Doctor(
@@ -73,7 +76,8 @@ public class DoctorConverter {
                 review,
                 gender,
                 appointments,
-                workSchedule
+                workSchedule,
+                token
         );
     }
 }

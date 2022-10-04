@@ -2,7 +2,6 @@ package com.example.lucky13.activities.patient_path;
 
 import static com.example.lucky13.utils.Utils.calculateBMIValue;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

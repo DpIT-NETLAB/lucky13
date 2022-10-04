@@ -3,6 +3,7 @@ package com.example.lucky13.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.lucky13.activities.patient_path.DoctorPresentationActivity;
 import com.example.lucky13.models.Clinic;
 import com.example.lucky13.models.Doctor;
 import com.example.lucky13.service.ClinicService;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.util.ArrayList;
 
@@ -67,8 +69,10 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
                     clinicService.clinicList.observe((LifecycleOwner) context, clinicList -> {
                         for (Clinic clinic : clinicList) {
                             if (clinic.getDoctorUIDs().contains(doctor.getUID())) {
-                                intent.putExtra("clinicLocation", location);
-                                Log.d(TAG, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " + location.getLatitude());
+                                Log.d(TAG, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " + clinic.getLocation().getLatitude());
+                                clinicLocation.setLatitude(clinic.getLocation().getLatitude());
+                                clinicLocation.setLongitude(clinic.getLocation().getLongitude());
+                                intent.putExtra("clinicLocation", clinicLocation);
                                 context.startActivity(intent);
                             }
                         }
@@ -83,6 +87,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
     Context context;
     private ArrayList<Doctor> doctorArrayList;
     Location location;
+    Location clinicLocation = new Location("dummyprovider");
 
     public DoctorAdapter(Context context, ArrayList<Doctor> doctorArrayList, Location location) {
         this.context = context;

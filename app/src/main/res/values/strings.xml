@@ -103,5 +103,8 @@
     <string name="your_profile_email_icon">email icon</string>
     <string name="your_profile_birthday_icon">birthday icon</string>
     <string name="your_profile_gender_icon">gender icon</string>
+    <string name="seeAppointments">See appointments</string>
+    <string name="setUpGeneralSchedule">Set schedule</string>
+    <string name="generalScheduleSeeCalendar">See Calendar</string>
     <!--     -->
 </resources>

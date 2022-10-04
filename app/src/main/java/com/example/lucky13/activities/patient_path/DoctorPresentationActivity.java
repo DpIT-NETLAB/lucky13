@@ -40,6 +40,8 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
     private MarkerOptions loc1, loc2;
     private Polyline polyline;
 
+    Location clinicLocation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +58,11 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
         String name = incomingIntent.getStringExtra("name");
         String field = incomingIntent.getStringExtra("field");
         Location yourLocation = incomingIntent.getParcelableExtra("location");
-        Location clinicLocation = incomingIntent.getParcelableExtra("clinicLocation");
+        clinicLocation = incomingIntent.getParcelableExtra("clinicLocation");
 
         SetText(name, field);
+
+
 
         mGetDirectionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +70,10 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
                 new FetchURL(DoctorPresentationActivity.this).execute(getUrl(loc1.getPosition(), loc2.getPosition(), "driving"), "driving");
             }
         });
+
         loc1 = new MarkerOptions().position(new LatLng(yourLocation.getLatitude(), yourLocation.getLongitude())).title("Position 1");
         loc2 = new MarkerOptions().position(new LatLng(clinicLocation.getLatitude(), clinicLocation.getLongitude())).title("Position 2");
+
 
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
@@ -96,6 +102,7 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
         mGoogleMap = googleMap;
         Log.d(TAG, "Added Markers");
         mGoogleMap.addMarker(loc1);
+        Log.d(TAG, "LOCATION MARKER: " + clinicLocation.getLatitude());
         mGoogleMap.addMarker(loc2);
     }
 

@@ -55,7 +55,7 @@
                 android:layout_alignStart="@+id/ic_profile"
                 android:layout_marginStart="50dp"
                 android:textSize="18sp"
-                android:text="@string/your_profile_loading" />
+                android:text="Radu Tudor" />
 
             <View android:id="@+id/yourProfileFullNameView"
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 android:layout_alignStart="@+id/ic_email"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="60dp"
-                android:text="@string/your_profile_loading"
+                android:text="tudoreduard2004@gmail.com"
 
                 android:textSize="18sp" />
 
@@ -108,7 +108,7 @@
                 android:layout_alignStart="@+id/ic_birthday"
                 android:layout_marginStart="50dp"
                 android:textSize="18sp"
-                android:text="@string/your_profile_loading"
+                android:text="17/03/2004"
 
                 android:layout_marginTop="110dp"/>
 
@@ -135,7 +135,7 @@
                 android:layout_alignStart="@+id/ic_gender"
                 android:layout_marginStart="50dp"
                 android:textSize="18sp"
-                android:text="@string/your_profile_loading"
+                android:text="Male"
 
                 android:layout_marginTop="160dp" />
 
