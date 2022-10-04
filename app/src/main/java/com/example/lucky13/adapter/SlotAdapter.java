@@ -86,7 +86,7 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.SlotHolder> {
                             });
 
                     Intent intent = new Intent(context, AfterAppointmentActivity.class);
-                    intent.putExtra("doctor", doctor.getUID());
+                    intent.putExtra("doctor", doctor.getToken());
                     context.startActivity(intent);
                 }
             });

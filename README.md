@@ -2,7 +2,7 @@
 # TopDoc - Android App
 
 ![Image](readme/topdoc_readme_icon.jpg)
-[ ![Get it on Google Play](https://bit.ly/3w7eXpR "Google Play")](https://play.google.com/store/apps/details?id=com.topdoc)  (COMING SOON)
+[![Get it on Google Play](https://bit.ly/3w7eXpR "Google Play")](https://play.google.com/store/apps/details?id=com.topdoc)  (COMING SOON)
 
 
 ### 🧐 Project's purpose
@@ -11,7 +11,7 @@
 - As a patient, find you the nearest and most skilled doctor for your likes  
 - As a doctor, help you set up an appointment with a patient in need, all through your profile
 
-**Read more about TopDoc on [the project homepage](https://top-doc.ro).** (COMING SOON)
+**Read more about TopDoc on [the project homepage](https://top-doc.ro).**
 
 ### 🌟 Spread the word!
 

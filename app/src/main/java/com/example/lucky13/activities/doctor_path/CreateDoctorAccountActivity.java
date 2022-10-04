@@ -107,7 +107,7 @@ public class CreateDoctorAccountActivity extends AppCompatActivity {
 
                             // Log and toast
                             Log.d(TAG, token);
-                            Toast.makeText(CreateDoctorAccountActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(CreateDoctorAccountActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -144,11 +144,11 @@ public class CreateDoctorAccountActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(CreateDoctorAccountActivity.this, GeneralScheduleActivity.class);
 
-//                intent.putExtra("passCode", passcode);
-//                intent.putExtra("email", email);
-//                intent.putExtra("gender", gender);
-//                intent.putExtra("password", password);
-//                intent.putExtra("token", token);
+                intent.putExtra("passCode", passcode);
+                intent.putExtra("email", email);
+                intent.putExtra("gender", gender);
+                intent.putExtra("password", password);
+                intent.putExtra("token", token);
 
                 startActivity(intent);
             }

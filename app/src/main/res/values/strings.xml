@@ -50,7 +50,7 @@
     <string name="name">Name</string>
     <string name="general_select_title">Select your symptoms</string>
     <string name="done">Done</string>
-    <string name="thirdQuestionResponse">I don\'t know</string>
+    <string name="thirdQuestionResponse">Nu știu</string>
     <string name="take_quiz">Take quiz</string>
     <string name="find_doctors_nearby">Find doctors nearby</string>
     <string name="book_appointment_button">Book appointment</string>
