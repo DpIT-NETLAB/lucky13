@@ -17,6 +17,7 @@ import com.example.lucky13.directionhelpers.FetchURL;
 import com.example.lucky13.directionhelpers.TaskLoadedCallback;
 import com.example.lucky13.models.Doctor;
 import com.example.lucky13.service.DoctorService;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -40,7 +41,7 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
     private MarkerOptions loc1, loc2;
     private Polyline polyline;
 
-    Location clinicLocation;
+    Location clinicLocation, yourLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
         String id = incomingIntent.getStringExtra("id");
         String name = incomingIntent.getStringExtra("name");
         String field = incomingIntent.getStringExtra("field");
-        Location yourLocation = incomingIntent.getParcelableExtra("location");
+        yourLocation = incomingIntent.getParcelableExtra("location");
         clinicLocation = incomingIntent.getParcelableExtra("clinicLocation");
 
         SetText(name, field);
@@ -100,6 +101,8 @@ public class DoctorPresentationActivity extends AppCompatActivity implements OnM
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mGoogleMap = googleMap;
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(yourLocation.getLatitude(), yourLocation.getLongitude())));
+        //mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
         Log.d(TAG, "Added Markers");
         mGoogleMap.addMarker(loc1);
         Log.d(TAG, "LOCATION MARKER: " + clinicLocation.getLatitude());

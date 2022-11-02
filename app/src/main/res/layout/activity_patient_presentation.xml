@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_blue"
+    tools:context=".activities.common_activities.WelcomePage">
+
+    <TextView
+        android:id="@+id/patientPresentationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="34sp"
+        android:textColor="@color/dark_grey"
+        android:fontFamily="@font/montserrat_bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/welcomeGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/welcomeGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5" />
+
+    <TextView
+        android:id="@+id/patientPresentationField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textColor="@color/dark_grey"
+        android:fontFamily="@font/montserrat_regular"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationName" />
+
+    <TextView
+        android:id="@+id/patientPresentationAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationField" />
+
+
+    <TextView
+        android:id="@+id/patientPresentationWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationAge" />
+
+    <TextView
+        android:id="@+id/patientPresentationHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationWeight" />
+
+    <TextView
+        android:id="@+id/patientPresentationBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationHeight" />
+
+
+    <TextView
+        android:id="@+id/patientPresentationSymptom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="THEIR SYMPTOMS:"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationBMI" />
+
+    <TextView
+        android:id="@+id/patientPresentationSymptoms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:lines="2"
+        android:text="Muscle pain         Itchy throat\nCoughing"
+        android:textSize="18sp"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationSymptom" />
+
+    <TextView
+        android:id="@+id/patientPresentationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="OUR DIAGNOSIS:"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationSymptoms" />
+
+    <TextView
+        android:id="@+id/patientPresentationDiagnosis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Flu         Common cold"
+        android:textSize="18sp"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/welcomeGuideline5"
+        app:layout_constraintTop_toBottomOf="@+id/patientPresentationTitle" />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/welcomeGuideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

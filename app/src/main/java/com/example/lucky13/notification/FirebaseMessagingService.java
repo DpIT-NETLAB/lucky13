@@ -24,6 +24,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.lucky13.R;
 import com.example.lucky13.activities.common_activities.WelcomePage;
+import com.example.lucky13.activities.doctor_path.PatientPresentationActivity;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
@@ -58,7 +59,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         builder.setSmallIcon(R.drawable.stehoscope);
 
 
-        Intent resultIntent = new Intent(this, WelcomePage.class);
+        Intent resultIntent = new Intent(this, PatientPresentationActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 

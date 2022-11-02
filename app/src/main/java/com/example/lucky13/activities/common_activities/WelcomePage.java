@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lucky13.R;
+import com.example.lucky13.activities.doctor_path.ShowAppts;
 import com.example.lucky13.notification.FcmNotificationsSender;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -61,7 +62,7 @@ public class WelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "TopDoc - Welcome", "Bine ai venit in aplicatie! \uD83D\uDE00", getApplicationContext(), WelcomePage.this);
+                FcmNotificationsSender notificationsSender = new FcmNotificationsSender("fpOINDYsSw-hAgQxwxIGI6:APA91bEx9zSzfxeCOUz5JEnkXmDiLxfsqgmKHYNZJXRMI-oOGIMIEtOb9FRdUe7pQtYKGjq-Y6uYojXsTQDuvpoNH67VDkiZHKhrcVn0HxcR8d3Tfv-_1HsRNoGHbFO117NhcXvTgIQa", "TopDoc - Welcome", "Bine ai venit in aplicatie! \uD83D\uDE00", getApplicationContext(), WelcomePage.this);
                 notificationsSender.SendNotifications();
                 
                 Intent intent = new Intent(WelcomePage.this, SignInActivity.class);

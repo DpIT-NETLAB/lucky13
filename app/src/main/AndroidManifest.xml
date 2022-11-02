@@ -19,7 +19,13 @@
         android:theme="@style/Theme.lucky13."
         tools:targetApi="31">
         <activity
-            android:name=".DoctorHomePageActivity"
+            android:name=".activities.doctor_path.ShowAppts"
+            android:exported="false" />
+        <activity
+            android:name=".activities.doctor_path.DoctorHomeScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.doctor_path.PatientPresentationActivity"
             android:exported="false" />
 
         <service
