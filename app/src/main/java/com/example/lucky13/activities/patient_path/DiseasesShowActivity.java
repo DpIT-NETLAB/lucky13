@@ -68,7 +68,7 @@ public class DiseasesShowActivity extends AppCompatActivity {
                 Intent intent = new Intent(DiseasesShowActivity.this, FindDoctorsNearby.class);
 
                 intent.putExtra("number", "1");
-                intent.putExtra("field", "neurology");
+                intent.putExtra("field", GetMostCommonField(diseaseArrayList, diseaseFrequency));
 
                 startActivity(intent);
             }

@@ -26,9 +26,9 @@ public class DoctorHomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                Intent intent = new Intent(DoctorHomeScreenActivity.this, SeeAppointmentsActivity.class);
+                Intent intent = new Intent(DoctorHomeScreenActivity.this, ShowAppts.class);
 
-//                startActivity(intent);
+                startActivity(intent);
             }
         });
 

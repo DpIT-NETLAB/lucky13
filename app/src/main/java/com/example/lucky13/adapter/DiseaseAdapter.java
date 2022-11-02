@@ -54,7 +54,6 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseH
         Disease disease = diseaseArrayList.get(position);
 
         holder.setDetails(disease);
-
     }
 
     @Override

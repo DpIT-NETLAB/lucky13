@@ -69,6 +69,9 @@ public class GeneralScheduleActivity extends AppCompatActivity {
             public void onClick(View view) {
                 schedule.put(day, startHour + ","+ startMinute + "," + endHour + "," + endMinute);
                 addSchedule();
+
+                Intent intent = new Intent(GeneralScheduleActivity.this, DoctorHomeScreenActivity.class);
+                startActivity(intent);
             }
         });
 
